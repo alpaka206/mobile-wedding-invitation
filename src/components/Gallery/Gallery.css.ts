@@ -1,0 +1,87 @@
+import { style } from "@vanilla-extract/css";
+import { globalTheme } from "../../styles/theme.css";
+
+/* 전체 갤러리 컨테이너 */
+export const galleryContainer = style({
+  textAlign: "center",
+});
+
+export const galleryTitle = style({
+  fontSize: "30px",
+  fontFamily: `${globalTheme.fontFamily.PlayfairDisplay}`,
+  fontWeight: "400",
+  padding: "50px 0",
+});
+
+/* 갤러리 이미지 그리드 (3x3 정사각형 배치) */
+export const galleryGrid = style({
+  display: "grid",
+  gridTemplateColumns: "repeat(3, 1fr)", // 가로 3개 배치
+  gap: "10px",
+  justifyContent: "center",
+  alignItems: "center",
+  maxWidth: "600px", // 중앙 정렬을 위해 max-width 지정
+  margin: "auto",
+});
+
+/* 개별 이미지 스타일 */
+export const galleryItem = style({
+  width: "100%",
+  height: "auto",
+  aspectRatio: "1 / 1", // 정사각형 유지
+  objectFit: "cover",
+  cursor: "pointer",
+  borderRadius: "5px",
+  transition: "transform 0.3s ease",
+  ":hover": {
+    transform: "scale(1.05)",
+  },
+});
+
+/* 더보기 버튼 */
+export const moreButton = style({
+  marginTop: "20px",
+  padding: "10px 20px",
+  fontSize: "16px",
+  border: "none",
+  backgroundColor: "transparent",
+  color: "#000000",
+  borderRadius: "5px",
+  cursor: "pointer",
+});
+
+export const modal = style({
+  position: "fixed",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "100%",
+  maxWidth: "360px",
+  height: "100vh",
+  background: "rgba(0, 0, 0, 0.8)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  zIndex: 1000,
+  padding: "18px", // 화면이 작을 때 여백 추가
+});
+
+/* 모달 내부 컨텐츠 */
+export const modalContent = style({
+  maxWidth: "90vw", // 부모 요소를 넘지 않도록 제한
+  maxHeight: "90vh", // 부모 요소를 넘지 않도록 제한
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  overflow: "hidden", // 넘치는 부분 숨기기
+  borderRadius: "10px",
+});
+
+/* 모달 이미지 크기 조정 */
+export const modalImage = style({
+  width: "auto",
+  height: "auto",
+  maxWidth: "100%",
+  maxHeight: "100%",
+  objectFit: "contain", // 이미지가 비율을 유지하며 부모를 넘지 않도록
+});

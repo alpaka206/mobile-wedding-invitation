@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2020", // 최신 JavaScript 기능 사용 (ES2020 이상)
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true, // CommonJS 모듈을 ES6 스타일로 임포트
+    "allowSyntheticDefaultImports": true, // 기본 임포트 사용을 허용
+    "moduleResolution": "node", // Node.js의 모듈 해석 방식 사용
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true, // 컴파일된 JavaScript 파일을 생성하지 않음
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["vite.config.ts"]
+}
