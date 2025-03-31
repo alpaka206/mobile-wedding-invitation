@@ -51,31 +51,33 @@ function Account() {
         <div className={styles.accountList}>
           {groomAccounts.map((account, index) => (
             <div key={index} className={styles.accountItem}>
-              {/* 계좌 정보 (은행명 + 계좌번호 + 복사 버튼) */}
-              <div className={styles.accountOwner}>
-                {account.owner} | {account.bank} | {account.number}
+              <div>
+                {/* 계좌 정보 (은행명 + 계좌번호 + 복사 버튼) */}
+                <div className={styles.accountOwner}>{account.owner}</div>
+                <div className={styles.accountDetails}>
+                  {account.bank} | {account.number}{" "}
+                  <button
+                    className={styles.copyButton}
+                    onClick={() => copyToClipboard(account.number)}
+                  >
+                    복사
+                  </button>
+                </div>
               </div>
-              <div className={styles.accountDetails}>
+              <div>
                 <button
-                  className={styles.copyButton}
+                  className={styles.paymentButtons}
                   onClick={() => openTossPayment(account.number)}
                 >
                   토스
                 </button>
                 <button
-                  className={styles.copyButton}
+                  className={styles.paymentButtons}
                   onClick={() => openKakaoBankPayment(account.number)}
                 >
                   카카오뱅크
                 </button>
-                <button
-                  className={styles.copyButton}
-                  onClick={() => copyToClipboard(account.number)}
-                >
-                  복사
-                </button>
               </div>
-              {/* 계좌 소유자 (아래 배치) */}
             </div>
           ))}
         </div>
@@ -99,27 +101,30 @@ function Account() {
           {brideAccounts.map((account, index) => (
             <div key={index} className={styles.accountItem}>
               {/* 계좌 정보 (은행명 + 계좌번호 + 복사 버튼) */}
-              <div className={styles.accountOwner}>
-                {account.owner} | {account.bank} | {account.number}
+              <div>
+                <div className={styles.accountOwner}>{account.owner}</div>
+                <div className={styles.accountDetails}>
+                  {account.bank} | {account.number}
+                  <button
+                    className={styles.copyButton}
+                    onClick={() => copyToClipboard(account.number)}
+                  >
+                    복사
+                  </button>
+                </div>
               </div>
-              <div className={styles.accountDetails}>
+              <div>
                 <button
-                  className={styles.copyButton}
+                  className={styles.paymentButtons}
                   onClick={() => openTossPayment(account.number)}
                 >
                   토스
                 </button>
                 <button
-                  className={styles.copyButton}
+                  className={styles.paymentButtons}
                   onClick={() => openKakaoBankPayment(account.number)}
                 >
                   카카오뱅크
-                </button>
-                <button
-                  className={styles.copyButton}
-                  onClick={() => copyToClipboard(account.number)}
-                >
-                  복사
                 </button>
               </div>
               {/* 계좌 소유자 (아래 배치) */}

@@ -53,22 +53,22 @@ export const accountList = style({
 /* 개별 계좌 항목 */
 export const accountItem = style({
   display: "flex",
-  flexDirection: "column", // 세로 정렬
-  alignItems: "center",
+  flexDirection: "row", // 가로 정렬로 변경
+  alignItems: "flex-start", // 상단 정렬
   padding: "8px",
   backgroundColor: "white",
   borderRadius: "5px",
   boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
   textAlign: "center",
+  justifyContent: "space-between", // 좌우 배치
 });
 
-/* 계좌 정보 (은행명 + 계좌번호 + 복사 버튼) */
 export const accountDetails = style({
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "flex-start", // 왼쪽 정렬
   alignItems: "center",
-  width: "100%",
-  padding: "5px 0",
+  width: "auto", // 크기 자동 조정
+  gap: "10px", // 항목들 사이 간격
 });
 
 /* 계좌번호 */
@@ -88,8 +88,17 @@ export const copyButton = style({
 
 /* 계좌 소유자 (이름) */
 export const accountOwner = style({
-  marginTop: "5px", // 이름이 아래로 배치되도록
+  flex: "0 0 auto", // 이름을 왼쪽 끝에 고정
   fontSize: "14px",
   color: "#555",
   fontWeight: "bold",
+  marginRight: "15px", // 이름과 나머지 내용 사이에 간격 추가
+});
+/* 토스와 카카오뱅크 버튼 배치 (오른쪽에 위아래로 배치) */
+export const paymentButtons = style({
+  display: "flex",
+  flexDirection: "column", // 세로 정렬
+  justifyContent: "center", // 세로 정렬 중간
+  alignItems: "flex-end", // 오른쪽 정렬
+  gap: "5px", // 버튼 사이 간격
 });
