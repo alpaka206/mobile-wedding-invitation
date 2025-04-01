@@ -1,13 +1,9 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 
 /* 전체 컨테이너 */
-export const accountContainer = style({
-  textAlign: "center",
-  padding: "20px",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-});
+// export const accountContainer = style({
+//   textAlign: "center",
+// });
 
 /* 드롭다운 헤더 (클릭 가능한 버튼 스타일) */
 export const dropdownHeader = style({
@@ -15,13 +11,17 @@ export const dropdownHeader = style({
   maxWidth: "400px",
   backgroundColor: "#999999",
   color: "white",
-  padding: "10px",
+  padding: "10px 0",
   textAlign: "center",
-  borderRadius: "5px",
+  borderRadius: "5px", // 기본 borderRadius
   cursor: "pointer",
   fontSize: "18px",
   fontWeight: "bold",
-  marginBottom: "10px",
+  marginTop: "10px",
+});
+
+export const openDropdownHeader = style({
+  borderRadius: "5px 5px 0 0", // isGroomOpen이 true일 때 변경된 borderRadius
 });
 
 /* 드롭다운 콘텐츠 (기본적으로 숨김) */
@@ -42,12 +42,12 @@ export const dropdownContent = styleVariants({
 export const accountList = style({
   width: "100%",
   maxWidth: "400px",
-  backgroundColor: "#F8F9FA",
-  padding: "10px",
-  borderRadius: "5px",
+  backgroundColor: "#bbbbbb",
+  // padding: "10px",
+  borderRadius: " 0 0 5px 5px",
   display: "flex",
   flexDirection: "column",
-  gap: "10px",
+  gap: "1px",
 });
 
 /* 개별 계좌 항목 */
@@ -56,19 +56,19 @@ export const accountItem = style({
   flexDirection: "row", // 가로 정렬로 변경
   alignItems: "flex-start", // 상단 정렬
   padding: "8px",
-  backgroundColor: "white",
-  borderRadius: "5px",
-  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+
+  width: "calc(100% - 16px)",
+  // boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
   textAlign: "center",
   justifyContent: "space-between", // 좌우 배치
 });
 
 export const accountDetails = style({
   display: "flex",
-  justifyContent: "flex-start", // 왼쪽 정렬
-  alignItems: "center",
-  width: "auto", // 크기 자동 조정
-  gap: "10px", // 항목들 사이 간격
+  // justifyContent: "flex-start", // 왼쪽 정렬
+  // alignItems: "center",
+  // width: "auto", // 크기 자동 조정
+  // gap: "10px", // 항목들 사이 간격
 });
 
 /* 계좌번호 */
@@ -89,9 +89,9 @@ export const copyButton = style({
 /* 계좌 소유자 (이름) */
 export const accountOwner = style({
   flex: "0 0 auto", // 이름을 왼쪽 끝에 고정
-  fontSize: "14px",
+  fontSize: "16px",
   color: "#555",
-  fontWeight: "bold",
+  textAlign: "left",
   marginRight: "15px", // 이름과 나머지 내용 사이에 간격 추가
 });
 /* 토스와 카카오뱅크 버튼 배치 (오른쪽에 위아래로 배치) */
