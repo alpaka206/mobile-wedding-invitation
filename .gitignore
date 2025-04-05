@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 .env
-src/assets/img/webp/
-src/assets/img/
-src/assets/gallery/webp/
-src/assets/gallery/
+# src/assets/img/webp/
+# src/assets/img/
+# src/assets/gallery/webp/
+# src/assets/gallery/
