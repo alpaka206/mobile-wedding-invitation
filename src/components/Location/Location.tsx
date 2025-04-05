@@ -21,7 +21,7 @@ function Location() {
         const container = document.getElementById("map");
         const options = {
           center: new window.kakao.maps.LatLng(location.lat, location.lng),
-          level: 3,
+          level: 4,
         };
 
         const map = new window.kakao.maps.Map(container, options);

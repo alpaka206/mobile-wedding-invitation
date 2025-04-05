@@ -11,23 +11,30 @@ function Invitation() {
         className={Styled.Invitation_heart_image}
       />
 
+      {/* <section className={Styled.Invitation_section}>
+        <div className={Styled.Invitation_element}>
+          기억조차 없던 순간에, 마음이 당신을 향했고
+        </div>
+      </section> */}
       <section className={Styled.Invitation_section}>
         <div className={Styled.Invitation_element}>
-          함께하는 순간, 마음이 편안해졌습니다.
+          <span className={Styled.Invitation_element_accent}>기</span>억조차
+          없던 순간에, 마음이 당신을 향했고
+        </div>
+        <div className={Styled.Invitation_element}>
+          <span className={Styled.Invitation_element_accent}>홍</span>수처럼
+          밀려온 설렘은 사랑이란 이름으로 남았습니다.
+        </div>
+        <div className={Styled.Invitation_element}>
+          <span className={Styled.Invitation_element_accent}>예</span>기치 않게
+          스며든 사랑이 이젠,
+        </div>
+        <div className={Styled.Invitation_element}>
+          <span className={Styled.Invitation_element_accent}>진</span>지한
+          약속으로 피어나려 합니다
         </div>
       </section>
-      <section className={Styled.Invitation_section}>
-        <div className={Styled.Invitation_element}>
-          혼자일 때는 고민이 많았고,
-        </div>
-        <div className={Styled.Invitation_element}>
-          불안했던 마음이 가득했지만
-        </div>
-        <div className={Styled.Invitation_element}>
-          그 사람과 함께하면서 점점 마음이 안정되었습니다.
-        </div>
-      </section>
-      <section className={Styled.Invitation_section}>
+      {/* <section className={Styled.Invitation_section}>
         <div className={Styled.Invitation_element}>
           미래가 어떻게 펼쳐질지 알 수 없지만,
         </div>
@@ -51,7 +58,7 @@ function Invitation() {
         <div className={Styled.Invitation_element}>
           부디 오셔서 저희의 새로운 출발을 축복해 주세요.
         </div>
-      </section>
+      </section> */}
       <img
         src={Invitation_img}
         alt="Main-Image"

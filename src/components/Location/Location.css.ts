@@ -18,18 +18,19 @@ export const locationTitle = style({
 });
 /* 지도 컨테이너 스타일 */
 export const mapContainer = style({
-  height: "300px", // 기본 높이 설정
+  width: "90%",
+  height: "250px",
   marginTop: "20px",
   borderRadius: "10px",
   overflow: "hidden",
   position: "relative",
   zIndex: "0", // 다른 요소보다 앞에 오지 않도록 조정
-  "@media": {
-    "screen and (max-width: 768px)": {
-      width: "90%", // 모바일에서는 더 넓게 차지하도록 조정
-      height: "250px",
-    },
-  },
+  // "@media": {
+  //   "screen and (max-width: 768px)": {
+  //     width: "90%", // 모바일에서는 더 넓게 차지하도록 조정
+  //     height: "250px",
+  //   },
+  // },
 });
 
 /* 길찾기 버튼 스타일 */

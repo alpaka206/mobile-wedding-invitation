@@ -16,6 +16,10 @@ export const Invitation_section = style({
   marginTop: "16px",
 });
 
+export const Invitation_element_accent = style({
+  color: "#ff96d0",
+});
+
 export const Invitation_element = style({
   padding: "8px 0",
 });
