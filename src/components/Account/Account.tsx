@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as styles from "./Account.css.ts";
 
 const groomAccounts = [
@@ -16,6 +16,8 @@ const brideAccounts = [
 function Account() {
   const [isGroomOpen, setIsGroomOpen] = useState(false);
   const [isBrideOpen, setIsBrideOpen] = useState(false);
+  const [delayedGroomOpen, setDelayedGroomOpen] = useState(false);
+  const [delayedBrideOpen, setDelayedBrideOpen] = useState(false);
 
   // 계좌번호 복사 함수
   const copyToClipboard = (text: string) => {
@@ -32,11 +34,36 @@ function Account() {
     const kakaoBankUrl = `kakaobank://send?to=${accountNumber}`;
     window.location.href = kakaoBankUrl; // 카카오뱅크 앱이 있으면 열리고 없으면 아무 반응이 없을 수 있음
   };
+
+  useEffect(() => {
+    if (!isGroomOpen) {
+      const timer = setTimeout(() => {
+        setDelayedGroomOpen(false);
+      }, 300);
+      return () => clearTimeout(timer);
+    } else {
+      setDelayedGroomOpen(true);
+    }
+  }, [isGroomOpen]);
+
+  useEffect(() => {
+    if (!isBrideOpen) {
+      const timer = setTimeout(() => {
+        setDelayedBrideOpen(false);
+      }, 300);
+      return () => clearTimeout(timer);
+    } else {
+      setDelayedBrideOpen(true);
+    }
+  }, [isBrideOpen]);
+
   return (
-    <div className={styles.accountContainer}>
+    <div>
       {/* 신랑 측 계좌번호 */}
       <div
-        className={styles.dropdownHeader}
+        className={`${styles.dropdownHeader} ${
+          delayedGroomOpen ? styles.openDropdownHeader : ""
+        }`}
         onClick={() => setIsGroomOpen(!isGroomOpen)}
       >
         신랑측 계좌번호 {isGroomOpen ? "▲" : "▼"}
@@ -51,31 +78,33 @@ function Account() {
         <div className={styles.accountList}>
           {groomAccounts.map((account, index) => (
             <div key={index} className={styles.accountItem}>
-              {/* 계좌 정보 (은행명 + 계좌번호 + 복사 버튼) */}
-              <div className={styles.accountOwner}>
-                {account.owner} | {account.bank} | {account.number}
+              <div>
+                {/* 계좌 정보 (은행명 + 계좌번호 + 복사 버튼) */}
+                <div className={styles.accountOwner}>{account.owner}</div>
+                <div className={styles.accountDetails}>
+                  {account.bank} {account.number}
+                  <button
+                    className={styles.copyButton}
+                    onClick={() => copyToClipboard(account.number)}
+                  >
+                    복사
+                  </button>
+                </div>
               </div>
-              <div className={styles.accountDetails}>
+              <div>
                 <button
-                  className={styles.copyButton}
+                  className={styles.paymentButtons}
                   onClick={() => openTossPayment(account.number)}
                 >
                   토스
                 </button>
                 <button
-                  className={styles.copyButton}
+                  className={styles.paymentButtons}
                   onClick={() => openKakaoBankPayment(account.number)}
                 >
                   카카오뱅크
                 </button>
-                <button
-                  className={styles.copyButton}
-                  onClick={() => copyToClipboard(account.number)}
-                >
-                  복사
-                </button>
               </div>
-              {/* 계좌 소유자 (아래 배치) */}
             </div>
           ))}
         </div>
@@ -83,7 +112,9 @@ function Account() {
 
       {/* 신부 측 계좌번호 */}
       <div
-        className={styles.dropdownHeader}
+        className={`${styles.dropdownHeader} ${
+          delayedBrideOpen ? styles.openDropdownHeader : ""
+        }`}
         onClick={() => setIsBrideOpen(!isBrideOpen)}
       >
         신부측 계좌번호 {isBrideOpen ? "▲" : "▼"}
@@ -99,27 +130,30 @@ function Account() {
           {brideAccounts.map((account, index) => (
             <div key={index} className={styles.accountItem}>
               {/* 계좌 정보 (은행명 + 계좌번호 + 복사 버튼) */}
-              <div className={styles.accountOwner}>
-                {account.owner} | {account.bank} | {account.number}
+              <div>
+                <div className={styles.accountOwner}>{account.owner}</div>
+                <div className={styles.accountDetails}>
+                  {account.bank} | {account.number}
+                  <button
+                    className={styles.copyButton}
+                    onClick={() => copyToClipboard(account.number)}
+                  >
+                    복사
+                  </button>
+                </div>
               </div>
-              <div className={styles.accountDetails}>
+              <div>
                 <button
-                  className={styles.copyButton}
+                  className={styles.paymentButtons}
                   onClick={() => openTossPayment(account.number)}
                 >
                   토스
                 </button>
                 <button
-                  className={styles.copyButton}
+                  className={styles.paymentButtons}
                   onClick={() => openKakaoBankPayment(account.number)}
                 >
                   카카오뱅크
-                </button>
-                <button
-                  className={styles.copyButton}
-                  onClick={() => copyToClipboard(account.number)}
-                >
-                  복사
                 </button>
               </div>
               {/* 계좌 소유자 (아래 배치) */}
