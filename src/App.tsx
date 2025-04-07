@@ -7,9 +7,9 @@ import TopDate from "./components/TopDate/TopDate";
 import TopSummary from "./components/TopSummary/TopSummary";
 import Location from "./components/Location/Location";
 import Gallery from "./components/Gallery/Gallery";
-import Account from "./components/Account/Account";
+// import Account from "./components/Account/Account";
+import Account2 from "./components/Account2/Account";
 import GuestBook from "./components/GuestBook/GuestBook";
-import Footer from "./components/Footer/Footer";
 import { useEffect, useRef, useState } from "react";
 
 function App() {
@@ -71,9 +71,9 @@ function App() {
       <Calendar />
       <Gallery />
       <Location />
-      <Account />
+      {/* <Account /> */}
+      <Account2 />
       <GuestBook />
-      <Footer />
     </div>
   );
 }

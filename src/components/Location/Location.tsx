@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import * as styles from "./Location.css.ts";
 
 const KAKAO_API_KEY = import.meta.env.VITE_KAKAO_API_KEY;
 
 function Location() {
-  const [isOpen, setIsOpen] = useState(false);
   const location = {
     name: "제이오스티엘",
     address: "서울 구로구 경인로 565",
@@ -56,10 +55,6 @@ function Location() {
     );
   };
 
-  const toggleOpen = () => {
-    setIsOpen((prev) => !prev);
-  };
-
   return (
     <div className={styles.locationContainer}>
       <div className={styles.locationTitle}>LOCATION</div>
@@ -79,41 +74,34 @@ function Location() {
           티맵
         </button>
       </div>
-      <div className={styles.toggleContainer} onClick={toggleOpen}>
-        오시는길 {isOpen ? "▲" : "▼"}
+      <div className={styles.toggleContainer}>오시는길</div>
+      <div className={styles.LocationContainer}>
+        <div className={styles.LocationElementTitle}>버스 이용시</div>
+        <div className={styles.LocationElement}>
+          구로역(17-154) - 5615, 5714, 6512
+        </div>
+        <div className={styles.LocationElement}>
+          구로역(17-155) - 5615, 5714, 6512, 503
+        </div>
+        <div className={styles.LocationElement}>
+          구로기계공구상가(17-146) - 5630, 6516, 6613, 571, 654, 구로09, 양천04
+        </div>
+        <div className={styles.LocationElement}>
+          구로기계공구상가(17-147) - 5630, 6613, 571, 654
+        </div>
       </div>
-      {isOpen && (
-        <>
-          <div className={styles.LocationContainer}>
-            <div className={styles.LocationElementTitle}>버스 이용시</div>
-            <div className={styles.LocationElement}>
-              구로역(17-154) - 5615, 5714, 6512
-            </div>
-            <div className={styles.LocationElement}>
-              구로역(17-155) - 5615, 5714, 6512, 503
-            </div>
-            <div className={styles.LocationElement}>
-              구로기계공구상가(17-146) - 5630, 6516, 6613, 571, 654, 구로09,
-              양천04
-            </div>
-            <div className={styles.LocationElement}>
-              구로기계공구상가(17-147) - 5630, 6613, 571, 654
-            </div>
-          </div>
-          <div className={styles.LocationContainer}>
-            <div className={styles.LocationElementTitle}>지하철 이용시</div>
-            <div className={styles.LocationElement}>
-              지하철 1호선 구로역 2번, 3번 출구 도보 3분
-            </div>
-          </div>
-          <div className={styles.LocationContainer}>
-            <div className={styles.LocationElementTitle}>자가용 이용시</div>
-            <div className={styles.LocationElement}>
-              지하철 1호선 구로역 2번, 3번 출구 도보 3분
-            </div>
-          </div>
-        </>
-      )}
+      <div className={styles.LocationContainer}>
+        <div className={styles.LocationElementTitle}>지하철 이용시</div>
+        <div className={styles.LocationElement}>
+          지하철 1호선 구로역 2번, 3번 출구 도보 3분
+        </div>
+      </div>
+      <div className={styles.LocationContainer}>
+        <div className={styles.LocationElementTitle}>자가용 이용시</div>
+        <div className={styles.LocationElement}>
+          지하철 1호선 구로역 2번, 3번 출구 도보 3분
+        </div>
+      </div>
       <div className={styles.LocationDevider}></div>
     </div>
   );
