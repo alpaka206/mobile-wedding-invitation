@@ -1,5 +1,17 @@
 import { style, keyframes } from "@vanilla-extract/css";
 
+// 슬라이드 애니메이션
+const slideUp = keyframes({
+  from: {
+    transform: "translateY(20px)",
+    opacity: 0,
+  },
+  to: {
+    transform: "translateY(0)",
+    opacity: 1,
+  },
+});
+
 // 전체 컨테이너
 export const container = style({
   width: "100%",
@@ -29,22 +41,12 @@ export const activeTab = style({
   color: "black",
 });
 
-// 계좌 리스트 애니메이션 컨테이너
-// export const accountListContainer = style({
-//   animation: "slideUp 0.3s ease",
-//   backgroundColor: "#eee",
-//   borderRadius: "10px",
-//   padding: "10px",
-//   display: "flex",
-//   flexDirection: "column",
-//   gap: "10px",
-// });
-
 export const accountItem = style({
+  animation: `${slideUp} 0.3s ease`,
   display: "flex",
   justifyContent: "space-between",
   alignItems: "flex-start",
-  backgroundColor: "#fff",
+  backgroundColor: "#f9f9f9",
   padding: "10px",
   borderRadius: "8px",
 });
@@ -74,21 +76,7 @@ export const accountOwner = style({
   marginBottom: "5px",
 });
 
-// 슬라이드 애니메이션
-const slideUp = keyframes({
-  from: {
-    transform: "translateY(20px)",
-    opacity: 0,
-  },
-  to: {
-    transform: "translateY(0)",
-    opacity: 1,
-  },
-});
-
 export const accountListContainer = style({
-  animation: `${slideUp} 0.3s ease`,
-  backgroundColor: "#eee",
   borderRadius: "10px",
   padding: "10px",
   display: "flex",

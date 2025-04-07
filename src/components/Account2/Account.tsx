@@ -55,7 +55,7 @@ function Account() {
       </div>
 
       {/* 계좌 목록 */}
-      <div className={styles.accountListContainer}>
+      <div key={selectedTab} className={styles.accountListContainer}>
         {selectedAccounts.map((account, index) => (
           <div key={index} className={styles.accountItem}>
             <div>
