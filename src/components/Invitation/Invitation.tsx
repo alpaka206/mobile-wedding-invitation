@@ -18,20 +18,20 @@ function Invitation() {
       </section> */}
       <section className={Styled.Invitation_section}>
         <div className={Styled.Invitation_element}>
-          <span className={Styled.Invitation_element_accent}>기</span>억조차
-          없던 순간에, 마음이 당신을 향했고
+          <span className={Styled.Invitation_element_accent}>기</span>분이 참
+          묘했습니다. 당신을 처음 마주한 그 순간,
         </div>
         <div className={Styled.Invitation_element}>
-          <span className={Styled.Invitation_element_accent}>홍</span>수처럼
-          밀려온 설렘은 사랑이란 이름으로 남았습니다.
+          <span className={Styled.Invitation_element_accent}>홍</span>조 띤
+          얼굴, 수줍은 미소는 운명적인 인연의 시작을 알려주었습니다.
         </div>
         <div className={Styled.Invitation_element}>
-          <span className={Styled.Invitation_element_accent}>예</span>기치 않게
-          스며든 사랑이 이젠,
+          <span className={Styled.Invitation_element_accent}>예</span>고 없이
+          스며든 감정은 어느새 사랑이 되었고,
         </div>
         <div className={Styled.Invitation_element}>
-          <span className={Styled.Invitation_element_accent}>진</span>지한
-          약속으로 피어나려 합니다
+          <span className={Styled.Invitation_element_accent}>진</span>심을 담은
+          약속으로, 이제 피어나려 합니다.
         </div>
       </section>
       {/* <section className={Styled.Invitation_section}>
