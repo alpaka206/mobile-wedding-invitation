@@ -14,7 +14,7 @@ export const locationTitle = style({
   fontSize: "30px",
   fontFamily: `${globalTheme.fontFamily.PlayfairDisplay}`,
   fontWeight: "400",
-  padding: "50px 0",
+  padding: "50px 0 20px",
 });
 /* 지도 컨테이너 스타일 */
 export const mapContainer = style({

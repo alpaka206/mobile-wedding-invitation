@@ -40,9 +40,9 @@ function Calendar() {
       <div className={styles.dateText}>
         2025년 10월 25일 토요일 | 오후 12시 00분
       </div>
-      <div className={styles.dateText}>
+      {/* <div className={styles.dateText}>
         Saturday, October 25, 2025 | PM 12:00
-      </div>
+      </div> */}
 
       <div className={styles.dateDevide}></div>
       <div className={styles.calendar}>
