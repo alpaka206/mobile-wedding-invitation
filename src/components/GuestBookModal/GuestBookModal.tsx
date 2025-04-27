@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as styles from "./GuestBookModal.css";
+import { useGuestBook } from "../../hooks/useGuestbook";
 
 interface Props {
   onClose: () => void;
@@ -7,12 +8,33 @@ interface Props {
 
 function GuestBookModal({ onClose }: Props) {
   const [name, setName] = useState("");
-  const [text, setText] = useState("");
+  const [message, setMessage] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { postMutation } = useGuestBook();
 
   const handleSubmit = () => {
-    // 실제로는 서버 전송 or 상태 추가
-    alert("방명록이 작성되었습니다.");
-    onClose();
+    if (!name || !message || !password) {
+      alert("모든 항목을 입력해주세요.");
+      return;
+    }
+
+    postMutation.mutate(
+      {
+        name,
+        message,
+        password,
+      },
+      {
+        onSuccess: () => {
+          alert("방명록이 작성되었습니다.");
+          onClose();
+        },
+        onError: () => {
+          alert("작성에 실패했습니다. 다시 시도해주세요.");
+        },
+      }
+    );
   };
 
   return (
@@ -28,8 +50,15 @@ function GuestBookModal({ onClose }: Props) {
         <textarea
           className={styles.textarea}
           placeholder="내용"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <input
+          className={styles.input}
+          type="password"
+          placeholder="비밀번호"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <div className={styles.buttonRow}>
           <button className={styles.cancelButton} onClick={onClose}>
