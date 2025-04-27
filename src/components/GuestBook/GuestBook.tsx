@@ -1,31 +1,38 @@
 import { useState } from "react";
+// import { useGuestbookStore } from "../../store/guestbookStore";
+// import { useGuestBook } from "../../hooks/useGuestbook";
 import * as styles from "./GuestBook.css";
 import GuestBookModal from "../GuestBookModal/GuestBookModal";
-
-const GuestBookList = [
-  { name: "김규원", text: "축하합니다.", date: "2024.04.08", id: 1 },
-  { name: "김규투", text: "환영합니다.", date: "2024.04.07", id: 2 },
-];
+import GuestBookDeleteModal from "../GuestBookDeleteModal/GuestBookDeleteModal";
+import { useGuestBook } from "../../hooks/useGuestbook";
 
 function GuestBook() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [deleteModalId, setDeleteModalId] = useState<number | null>(null);
+  const { isLoading, data: guestbookItems } = useGuestBook();
+  console.log("guestbookItems : ", guestbookItems);
   return (
     <section className={styles.container}>
       <div className={styles.title}>GUESTBOOK</div>
       <div className={styles.subtitle}>방명록</div>
-
-      <div className={styles.guestList}>
-        {GuestBookList.map((item) => (
-          <div key={item.id} className={styles.guestItem}>
-            <div className={styles.guestInfo}>
-              <div className={styles.name}>{item.name}</div>
-              <div className={styles.text}>{item.text}</div>
+      {isLoading ? (
+        <div>불러오는 중...</div>
+      ) : (
+        <div className={styles.guestList}>
+          {guestbookItems.map((item) => (
+            <div key={item.id} className={styles.guestItem}>
+              <div className={styles.guestInfo}>
+                <div className={styles.name}>{item.name}</div>
+                <div className={styles.text}>{item.message}</div>
+              </div>
+              <div>
+                <div className={styles.date}>{item.date}</div>
+                <button onClick={() => setDeleteModalId(item.id)}>삭제</button>
+              </div>
             </div>
-            <div className={styles.date}>{item.date}</div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       <button
         className={styles.writeButton}
@@ -35,6 +42,12 @@ function GuestBook() {
       </button>
 
       {isModalOpen && <GuestBookModal onClose={() => setIsModalOpen(false)} />}
+      {deleteModalId !== null && (
+        <GuestBookDeleteModal
+          guestbookId={deleteModalId}
+          onClose={() => setDeleteModalId(null)}
+        />
+      )}
     </section>
   );
 }
