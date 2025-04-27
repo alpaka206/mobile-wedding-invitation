@@ -1,6 +1,4 @@
 import { useState } from "react";
-// import { useGuestbookStore } from "../../store/guestbookStore";
-// import { useGuestBook } from "../../hooks/useGuestbook";
 import * as styles from "./GuestBook.css";
 import GuestBookModal from "../GuestBookModal/GuestBookModal";
 import GuestBookDeleteModal from "../GuestBookDeleteModal/GuestBookDeleteModal";
@@ -9,8 +7,7 @@ import { useGuestBook } from "../../hooks/useGuestbook";
 function GuestBook() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deleteModalId, setDeleteModalId] = useState<number | null>(null);
-  const { isLoading, data: guestbookItems } = useGuestBook();
-  console.log("guestbookItems : ", guestbookItems);
+  const { data: guestbookItems = [], isLoading } = useGuestBook();
   return (
     <section className={styles.container}>
       <div className={styles.title}>GUESTBOOK</div>
