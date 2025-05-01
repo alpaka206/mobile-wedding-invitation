@@ -56,7 +56,6 @@ export const modal = style({
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "100%",
-  maxWidth: "360px",
   height: "100vh",
   background: "rgba(0, 0, 0, 0.8)",
   display: "flex",
@@ -64,12 +63,18 @@ export const modal = style({
   alignItems: "center",
   zIndex: 1000,
   padding: "18px", // 화면이 작을 때 여백 추가
+  "@media": {
+    "screen and (min-width: 768px)": {
+      maxWidth: "400px",
+    },
+  },
 });
 
 /* 모달 내부 컨텐츠 */
 export const modalContent = style({
-  maxWidth: "90vw", // 부모 요소를 넘지 않도록 제한
-  maxHeight: "90vh", // 부모 요소를 넘지 않도록 제한
+  position: "relative",
+  maxWidth: "100vw", // 부모 요소를 넘지 않도록 제한
+  maxHeight: "100vh", // 부모 요소를 넘지 않도록 제한
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -85,3 +90,33 @@ export const modalImage = style({
   maxHeight: "100%",
   objectFit: "contain", // 이미지가 비율을 유지하며 부모를 넘지 않도록
 });
+
+export const navButton = style({
+  position: "absolute", // ✅ 추가
+  top: "50%",
+  transform: "translateY(-50%)",
+  fontSize: "32px",
+  color: "white",
+  background: "transparent",
+  border: "none",
+  cursor: "pointer",
+  userSelect: "none",
+  zIndex: 2,
+  ":hover": {
+    transform: "translateY(-50%) scale(1.2)", // transform 병합
+  },
+});
+
+export const navButtonLeft = style([
+  navButton,
+  {
+    left: "10px", // 왼쪽 정렬
+  },
+]);
+
+export const navButtonRight = style([
+  navButton,
+  {
+    right: "10px", // 오른쪽 정렬
+  },
+]);
