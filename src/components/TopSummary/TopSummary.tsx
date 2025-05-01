@@ -4,14 +4,15 @@ import {
   top_summary_name_divider,
   top_summary_datetime,
 } from "./TopSummary.css";
-import TopSummaryImage from "../../assets/img/main_image.jpg";
 
 function TopSummary() {
   return (
     <>
       <img
-        src={TopSummaryImage}
+        src="/gallery/image11.webp"
         alt="Main-Image"
+        width="360"
+        height="200"
         className={top_summary_image}
       />
       <div className={top_summary_name_container}>

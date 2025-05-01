@@ -6,7 +6,7 @@ export const Contact_container = style({
 
 export const Contact_text = style({
   fontSize: "14px",
-  color: "#8a857f",
+  color: "#544f4f",
   padding: "11px 0",
 });
 
@@ -14,6 +14,7 @@ export const Contact_name_text = style({
   fontSize: "18px",
   padding: "0 8px",
   color: "544f4f",
+  whiteSpace: "nowrap",
 });
 
 export const Contact_button = style({

@@ -11,7 +11,7 @@ export const container = style({
   backgroundColor: "#ffffff",
   color: "#333",
   textAlign: "center",
-  padding: "48px 16px",
+  padding: "30px 0",
   boxSizing: "border-box",
 
   "@media": {

@@ -25,6 +25,16 @@ export const Modal_content = style({
   position: "relative",
 });
 
+export const DottedLine = style({
+  height: "1px",
+  backgroundImage:
+    "linear-gradient(to right, #ccc 33%, rgba(255,255,255,0) 0%)",
+  backgroundPosition: "top",
+  backgroundSize: "4px 1px",
+  backgroundRepeat: "repeat-x",
+  margin: "16px",
+});
+
 export const ContactModal_container = style({
   paddingBottom: "16px",
 });
@@ -39,11 +49,26 @@ export const Close_button = style({
   cursor: "pointer",
 });
 
+export const ContactModal_Title_Blue = style({
+  color: "#668eaa",
+  height: "45px",
+  fontSize: "17px",
+  fontWeight: "600",
+});
+
+export const ContactModal_Title_Pink = style({
+  color: "#DA5D6F",
+  height: "45px",
+  fontSize: "17px",
+  fontWeight: "600",
+});
+
 export const ContactModal_element = style({
   display: "flex",
-  padding: "0 16px",
+  padding: "0 45px",
   height: "35px",
   fontSize: "17px",
+  alignItems: "center",
 });
 
 export const ContactModal_topbox = style({
@@ -64,20 +89,18 @@ export const ContactModal_topbox_kr = style({
   padding: "10px 0",
 });
 
-export const ContactModal_element_blue = style({
+export const ContactModal_element_role = style({
   width: "40%",
-  color: "#668eaa",
-});
-
-export const ContactModal_element_pink = style({
-  width: "40%",
-  color: "#ce8383",
+  color: "#777777",
+  textAlign: "left",
 });
 
 export const ContactModal_element_name = style({
   width: "35%",
+  textAlign: "left",
 });
 
 export const ContactModal_element_img = style({
   width: "12.5%",
+  textAlign: "right",
 });
