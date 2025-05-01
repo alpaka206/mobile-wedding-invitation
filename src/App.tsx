@@ -1,24 +1,25 @@
-import { Suspense, lazy, useRef, useState } from "react";
+import { useRef, useState } from "react";
+// import { Suspense, lazy, useRef, useState } from "react";
 
 import * as styles from "./App.css";
-const Contact = lazy(() => import("./components/Contact/Contact"));
-const Calendar = lazy(() => import("./components/Calendar/Calendar"));
-const Invitation = lazy(() => import("./components/Invitation/Invitation"));
-const TopDate = lazy(() => import("./components/TopDate/TopDate"));
-const TopSummary = lazy(() => import("./components/TopSummary/TopSummary"));
-const Location = lazy(() => import("./components/Location/Location"));
-const Gallery = lazy(() => import("./components/Gallery/Gallery"));
-const Account2 = lazy(() => import("./components/Account2/Account"));
-const GuestBook = lazy(() => import("./components/GuestBook/GuestBook"));
-// import Contact from "./components/Contact/Contact";
-// import Calendar from "./components/Calendar/Calendar";
-// import Invitation from "./components/Invitation/Invitation";
-// import TopDate from "./components/TopDate/TopDate";
-// import TopSummary from "./components/TopSummary/TopSummary";
-// import Location from "./components/Location/Location";
-// import Gallery from "./components/Gallery/Gallery";
-// import Account2 from "./components/Account2/Account";
-// import GuestBook from "./components/GuestBook/GuestBook";
+// const Contact = lazy(() => import("./components/Contact/Contact"));
+// const Calendar = lazy(() => import("./components/Calendar/Calendar"));
+// const Invitation = lazy(() => import("./components/Invitation/Invitation"));
+// const TopDate = lazy(() => import("./components/TopDate/TopDate"));
+// const TopSummary = lazy(() => import("./components/TopSummary/TopSummary"));
+// const Location = lazy(() => import("./components/Location/Location"));
+// const Gallery = lazy(() => import("./components/Gallery/Gallery"));
+// const Account2 = lazy(() => import("./components/Account2/Account"));
+// const GuestBook = lazy(() => import("./components/GuestBook/GuestBook"));
+import Contact from "./components/Contact/Contact";
+import Calendar from "./components/Calendar/Calendar";
+import Invitation from "./components/Invitation/Invitation";
+import TopDate from "./components/TopDate/TopDate";
+import TopSummary from "./components/TopSummary/TopSummary";
+import Location from "./components/Location/Location";
+import Gallery from "./components/Gallery/Gallery";
+import Account2 from "./components/Account2/Account";
+import GuestBook from "./components/GuestBook/GuestBook";
 
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -52,7 +53,7 @@ function App() {
             <source src="music.mp3" type="audio/mpeg" />
           </audio>
         )}
-        <Suspense>
+        {/* <Suspense>
           <TopDate />
           <TopSummary />
           <Invitation />
@@ -60,10 +61,18 @@ function App() {
           <Calendar />
           <Gallery />
           <Location />
-          {/* <Account /> */}
           <Account2 />
           <GuestBook />
-        </Suspense>
+        </Suspense> */}
+        <TopDate />
+        <TopSummary />
+        <Invitation />
+        <Contact />
+        <Calendar />
+        <Gallery />
+        <Location />
+        <Account2 />
+        <GuestBook />
       </div>
     </>
   );

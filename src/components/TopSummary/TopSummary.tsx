@@ -4,7 +4,7 @@ import {
   top_summary_name_divider,
   top_summary_datetime,
 } from "./TopSummary.css";
-import TopSummaryImage from "../../assets/img/main_image.jpg";
+import TopSummaryImage from "../../assets/gallery/image11.jpg";
 
 function TopSummary() {
   return (

@@ -19,6 +19,7 @@ export const dateHeader = style({
 export const dateText = style({
   fontSize: "15px",
   marginBottom: "9px",
+  whiteSpace: "nowrap",
 });
 
 export const calendar = style({
@@ -115,6 +116,7 @@ export const countTextSummary = style({
   fontSize: "16px",
   color: "#544f4f",
   padding: "26px 0 10px 0",
+  whiteSpace: "nowrap",
 });
 
 export const calendarheart = style({

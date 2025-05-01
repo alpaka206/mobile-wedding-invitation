@@ -2,29 +2,35 @@ import { style } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
 
 export const Invitation_container = style({
-  fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
+  fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
   fontSize: "14px",
   color: "#282828",
 });
 
 export const Invitation_heart_image = style({
   width: "200px",
-  margin: "20px 0 10px",
+  marginTop: "45px",
+
+  color: "#DA5D6F",
 });
 
 export const Invitation_section = style({
-  marginTop: "16px",
+  marginTop: "-8px",
 });
 
 export const Invitation_element_accent = style({
-  color: "#ff96d0",
+  // color: "#ff96d0",
+  color: "#282828",
+  fontSize: "18px",
+  fontWeight: 800,
 });
 
 export const Invitation_element = style({
   padding: "8px 0",
+  whiteSpace: "nowrap",
 });
 
 export const Invitation_image = style({
   width: "100%",
-  margin: "40px 0 20px",
+  marginTop: "30px",
 });

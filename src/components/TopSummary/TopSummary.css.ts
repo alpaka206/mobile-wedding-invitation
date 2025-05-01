@@ -5,7 +5,7 @@ export const top_summary_image = style({
   width: "100%",
   // maxWidth: "100%",
   height: "auto",
-  marginBottom: "50px",
+  marginBottom: "40px",
 });
 
 export const top_summary_name_container = style({
@@ -29,7 +29,8 @@ export const top_summary_name_divider = style({
 export const top_summary_datetime = style({
   fontSize: "16px",
   color: "#544F4F",
-  padding: "8px 0",
+  padding: "6px 0",
   fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
   fontWeight: "400",
+  whiteSpace: "nowrap",
 });
