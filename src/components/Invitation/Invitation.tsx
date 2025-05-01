@@ -1,6 +1,6 @@
 import * as Styled from "./Invitation.css";
-import Invitation_img from "../../assets/gallery/image5.jpg";
-import InvitationImage from "../../assets/img/Invitation.png";
+import Invitation_img from "../../../public/gallery/image5.webp";
+import InvitationImage from "../../../public/img/Invitation.webp";
 
 function Invitation() {
   return (
@@ -50,6 +50,7 @@ function Invitation() {
         src={Invitation_img}
         alt="Main-Image"
         className={Styled.Invitation_image}
+        loading="lazy"
       />
     </div>
   );

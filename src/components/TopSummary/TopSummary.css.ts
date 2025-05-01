@@ -3,7 +3,6 @@ import { globalTheme } from "../../styles/theme.css";
 
 export const top_summary_image = style({
   width: "100%",
-  // maxWidth: "100%",
   height: "auto",
   marginBottom: "40px",
 });
