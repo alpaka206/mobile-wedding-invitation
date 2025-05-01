@@ -7,13 +7,18 @@ export const container = style({
   alignItems: "center",
   justifyContent: "center",
   width: "100%",
-  maxWidth: "400px", // 컴퓨터일때 최대 넓이
   margin: "0 auto",
   backgroundColor: "#ffffff",
   color: "#333",
   textAlign: "center",
   padding: "48px 16px",
   boxSizing: "border-box",
+
+  "@media": {
+    "screen and (min-width: 768px)": {
+      maxWidth: "400px",
+    },
+  },
 });
 
 export const overlay = style({
