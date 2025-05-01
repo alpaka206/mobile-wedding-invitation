@@ -33,7 +33,7 @@ function Gallery() {
 
       {/* 갤러리 이미지 리스트 */}
       <div className={styles.galleryGrid}>
-        {imageList.slice(0, visibleCount).map((image, index) => (
+        {imageList.slice(0, visibleCount).map((_, index) => (
           <img
             key={index}
             src={`/gallery/image${index}.webp`}
