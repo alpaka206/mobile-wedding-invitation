@@ -18,8 +18,9 @@ globalStyle("html, body", {
   height: "100%",
   boxSizing: "border-box",
   overflow: "auto", // 스크롤은 가능하도록 유지
-  scrollbarWidth: "none", // Firefox에서 스크롤 바 숨기기
-  msOverflowStyle: "none", // IE에서 스크롤 바 숨기기
+  overflowX: "hidden",
+  scrollbarWidth: "none",
+  msOverflowStyle: "none",
   backgroundColor: "rgb(231, 218, 231)",
 });
 

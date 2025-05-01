@@ -6,27 +6,32 @@ export const container = style({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  width: "calc(100% - 32px)",
-  maxWidth: "400px", // 컴퓨터일때 최대 넓이
+  width: "100%",
   margin: "0 auto",
   backgroundColor: "#ffffff",
   color: "#333",
   textAlign: "center",
   padding: "48px 16px",
+  boxSizing: "border-box",
+
+  "@media": {
+    "screen and (min-width: 768px)": {
+      maxWidth: "400px",
+    },
+  },
 });
 
 export const overlay = style({
-  position: "absolute",
+  position: "fixed",
   top: 0,
   left: 0,
-  width: "100%",
+  width: "100vw",
   height: "100vh",
   backgroundColor: "rgba(255, 255, 255, 0.8)", // 흐림 효과
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   zIndex: 9999,
-  animation: "fadeOut 2s ease-in-out forwards",
 });
 
 export const textBox = style({

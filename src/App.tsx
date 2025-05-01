@@ -10,40 +10,14 @@ import Gallery from "./components/Gallery/Gallery";
 // import Account from "./components/Account/Account";
 import Account2 from "./components/Account2/Account";
 import GuestBook from "./components/GuestBook/GuestBook";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [showWelcome, setShowWelcome] = useState(true);
 
-  useEffect(() => {
-    if (showWelcome) {
-      document.body.style.overflow = "hidden"; // 스크롤 막기
-    } else {
-      document.body.style.overflow = "auto"; // 스크롤 복원
-    }
-
-    // 컴포넌트 unmount 시에도 복원
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [showWelcome]);
-
-  // useEffect(() => {
-  //   // 브라우저 자동재생 정책 때문에 사용자 상호작용이 있어야 재생될 수 있음
-  //   const handleClick = () => {
-  //     audioRef.current?.play();
-  //     window.removeEventListener("click", handleClick);
-  //   };
-  //   window.addEventListener("click", handleClick);
-  // }, []);
-
   return (
-    <div className={styles.container}>
-      <audio ref={audioRef} loop>
-        <source src="music.mp3" type="audio/mpeg" />
-        브라우저가 오디오를 지원하지 않습니다.
-      </audio>
+    <>
       {showWelcome && (
         <div
           className={styles.overlay}
@@ -64,17 +38,22 @@ function App() {
           </div>
         </div>
       )}
-      <TopDate />
-      <TopSummary />
-      <Invitation />
-      <Contact />
-      <Calendar />
-      <Gallery />
-      <Location />
-      {/* <Account /> */}
-      <Account2 />
-      <GuestBook />
-    </div>
+      <div className={styles.container}>
+        <audio ref={audioRef} loop>
+          <source src="music.mp3" type="audio/mpeg" />
+        </audio>
+        <TopDate />
+        <TopSummary />
+        <Invitation />
+        <Contact />
+        <Calendar />
+        <Gallery />
+        <Location />
+        {/* <Account /> */}
+        <Account2 />
+        <GuestBook />
+      </div>
+    </>
   );
 }
 

@@ -1,12 +1,12 @@
 import * as Styled from "./Invitation.css";
 import Invitation_img from "../../assets/img/widthimage.png";
-import testimage2 from "../../assets/img/11.png";
+import InvitationImage from "../../assets/img/Invitation.png";
 
 function Invitation() {
   return (
     <div className={Styled.Invitation_container}>
       <img
-        src={testimage2}
+        src={InvitationImage}
         alt="Main-Image"
         className={Styled.Invitation_heart_image}
       />
