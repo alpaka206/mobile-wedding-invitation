@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as styles from "./Gallery.css"; // CSS 파일 연결
+import MoreButton from "../../../public/img/MoreButton.webp";
 
 const imageCount = 12; // 갤러리에 있는 총 이미지 수
 const imageList = Array.from(
@@ -30,7 +31,6 @@ function Gallery() {
   return (
     <div className={styles.galleryContainer}>
       <div className={styles.galleryTitle}>GALLERY</div>
-
       {/* 갤러리 이미지 리스트 */}
       <div className={styles.galleryGrid}>
         {imageList.slice(0, visibleCount).map((_, index) => (
@@ -47,9 +47,12 @@ function Gallery() {
 
       {/* 더보기 버튼 */}
       {visibleCount < imageList.length && (
-        <button onClick={showMore} className={styles.moreButton}>
-          더보기
-        </button>
+        <img
+          src={MoreButton}
+          alt="Main-Image"
+          onClick={showMore}
+          className={styles.moreButtonImage}
+        />
       )}
 
       {/* 원본 이미지 모달 */}

@@ -40,10 +40,6 @@ function Calendar() {
       <div className={styles.dateText}>
         2025년 10월 25일 토요일 | 오후 12시 00분
       </div>
-      {/* <div className={styles.dateText}>
-        Saturday, October 25, 2025 | PM 12:00
-      </div> */}
-
       <div className={styles.dateDevide}></div>
       <div className={styles.calendar}>
         <div className={styles.weekdays}>
@@ -58,7 +54,9 @@ function Calendar() {
             <div
               key={index}
               className={`${styles.dateBox} ${
-                index % 7 === 0 && date ? styles.sunday : ""
+                (index % 7 === 0 || [3, 5, 6, 7, 8, 9].includes(date)) && date
+                  ? styles.sunday
+                  : ""
               } ${date === 25 ? styles.highlight : ""}`}
             >
               {date || ""}

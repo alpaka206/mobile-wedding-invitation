@@ -10,7 +10,7 @@ export const galleryTitle = style({
   fontSize: "30px",
   fontFamily: `${globalTheme.fontFamily.PlayfairDisplay}`,
   fontWeight: "400",
-  padding: "50px 0",
+  padding: "50px 0 35px",
 });
 
 /* 갤러리 이미지 그리드 (3x3 정사각형 배치) */
@@ -18,6 +18,7 @@ export const galleryGrid = style({
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)", // 가로 3개 배치
   gap: "10px",
+  padding: "0px 10px",
   justifyContent: "center",
   alignItems: "center",
   maxWidth: "600px", // 중앙 정렬을 위해 max-width 지정
@@ -38,15 +39,11 @@ export const galleryItem = style({
   },
 });
 
-/* 더보기 버튼 */
-export const moreButton = style({
-  marginTop: "20px",
-  padding: "10px 20px",
+export const moreButtonImage = style({
+  marginTop: "15px",
   fontSize: "16px",
   border: "none",
-  backgroundColor: "transparent",
-  color: "#000000",
-  borderRadius: "5px",
+  width: "20px",
   cursor: "pointer",
 });
 
