@@ -78,7 +78,7 @@ export const ContactModal_topbox = style({
 });
 
 export const ContactModal_topbox_eng = style({
-  paddingTop: "16px",
+  paddingTop: "12px",
   fontSize: "12px",
   color: "#B2B2B2",
 });
@@ -86,7 +86,7 @@ export const ContactModal_topbox_eng = style({
 export const ContactModal_topbox_kr = style({
   fontSize: "17px",
   letterSpacing: "3px",
-  padding: "10px 0",
+  padding: "2px 0 8px",
 });
 
 export const ContactModal_element_role = style({
@@ -96,11 +96,11 @@ export const ContactModal_element_role = style({
 });
 
 export const ContactModal_element_name = style({
-  width: "35%",
+  width: "28%",
   textAlign: "left",
 });
 
 export const ContactModal_element_img = style({
-  width: "12.5%",
+  width: "16%",
   textAlign: "right",
 });
