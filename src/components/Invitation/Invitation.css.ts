@@ -8,14 +8,13 @@ export const Invitation_container = style({
 });
 
 export const Invitation_heart_image = style({
-  width: "200px",
+  width: "100px",
   marginTop: "45px",
-
-  color: "#DA5D6F",
+  filter: "grayscale(1) brightness(0)",
 });
 
 export const Invitation_section = style({
-  marginTop: "-8px",
+  marginTop: "8px",
 });
 
 export const Invitation_element_accent = style({

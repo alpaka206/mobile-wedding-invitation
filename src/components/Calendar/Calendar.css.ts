@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
-import heartImage from "../../../public/img/heart.webp";
+import heartImage from "../../../public/img/heart1.webp";
 
 export const dateContainer = style({
   textAlign: "center",
@@ -12,11 +12,12 @@ export const dateHeader = style({
   fontSize: "30px",
   fontFamily: `${globalTheme.fontFamily.PlayfairDisplay}`,
   fontWeight: "400",
-  padding: "50px 0",
+  padding: "50px 0 26px",
   color: "#555555",
 });
 
 export const dateText = style({
+  fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
   fontSize: "15px",
   marginBottom: "9px",
   whiteSpace: "nowrap",
@@ -58,10 +59,10 @@ export const highlight = style({
   "::after": {
     content: "''",
     position: "absolute", // 부모 크기를 벗어나도 보이도록 설정
-    top: "87%",
+    top: "62%",
     left: "50%",
-    width: "160px", // 원하는 크기 조절
-    height: "160px",
+    width: "55px", // 원하는 크기 조절
+    height: "55px",
     transform: "translate(-50%, -50%) ", // 중앙 정렬
     backgroundImage: `url(${heartImage})`,
     backgroundSize: "contain",
@@ -84,7 +85,8 @@ export const countdownItem = style({
   flexDirection: "column",
   alignItems: "center",
   padding: "8px",
-  backgroundColor: "#f2eeee",
+  // backgroundColor: "#f2eeee",
+  backgroundColor: "#f9eeee",
   borderRadius: "5px",
   width: "40px",
 });
@@ -113,6 +115,7 @@ export const dateDevide = style({
 });
 
 export const countTextSummary = style({
+  fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
   fontSize: "16px",
   color: "#544f4f",
   padding: "26px 0 10px 0",
