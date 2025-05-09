@@ -54,7 +54,9 @@ function Calendar() {
             <div
               key={index}
               className={`${styles.dateBox} ${
-                (index % 7 === 0 || [3, 5, 6, 7, 8, 9].includes(date)) && date
+                date !== null &&
+                (index % 7 === 0 || [3, 5, 6, 7, 8, 9].includes(date)) &&
+                date
                   ? styles.sunday
                   : ""
               } ${date === 25 ? styles.highlight : ""}`}
