@@ -21,7 +21,7 @@ globalStyle("html, body", {
   overflowX: "hidden",
   scrollbarWidth: "none",
   msOverflowStyle: "none",
-  backgroundColor: "rgb(231, 218, 231)",
+  backgroundColor: "#fffff",
 });
 
 // 크롬, 사파리, 엣지에서 스크롤 바 숨기기

@@ -84,15 +84,28 @@ export const copyButton = style({
   color: "#fff",
   border: "none",
   borderRadius: "6px",
+  fontWeight: "bold",
   fontSize: "14px",
   cursor: "pointer",
 });
 
-export const payButton = style({
+export const kakaoPayButton = style({
   flex: 1,
   padding: "10px",
-  backgroundColor: "#f2c94c",
-  color: "#000",
+  backgroundColor: "#FEE500",
+  color: "#333b58",
+  border: "none",
+  borderRadius: "6px",
+  fontWeight: "bold",
+  fontSize: "14px",
+  cursor: "pointer",
+});
+
+export const tossPayButton = style({
+  flex: 1,
+  padding: "10px",
+  backgroundColor: "#0064FF",
+  color: "#ffffff",
   border: "none",
   borderRadius: "6px",
   fontWeight: "bold",
