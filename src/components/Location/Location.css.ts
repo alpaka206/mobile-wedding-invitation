@@ -34,25 +34,44 @@ export const mapContainer = style({
 });
 
 /* 길찾기 버튼 스타일 */
-export const buttonContainer = style({
-  margin: "20px 0",
+export const routeButtons = style({
   display: "flex",
-  gap: "10px",
-  flexWrap: "wrap",
   justifyContent: "center",
+  gap: "8px",
+  margin: "20px 0",
+  flexWrap: "wrap",
+  width: "90%",
 });
 
-export const button = style({
-  padding: "10px 15px",
-  fontSize: "16px",
-  border: "none",
-  backgroundColor: "#2DB400",
-  color: "white",
-  borderRadius: "5px",
+export const routeButton = style({
+  display: "flex",
+  flex: "1 1 calc(33.333% - 12px)",
+  alignItems: "center",
+  justifyContent: "center",
+  borderRadius: "12px",
+  backgroundColor: "#f7f7f7",
+  border: "1px solid #e0e0e0",
   cursor: "pointer",
+  fontSize: "12px",
+  color: "#000",
+  padding: "6px",
+  transition: "all 0.2s",
   ":hover": {
-    // backgroundColor: "#005ECF",
+    backgroundColor: "#e6e6e6",
   },
+});
+
+export const routeImage = style({
+  width: "24px",
+  height: "24px",
+  objectFit: "contain",
+  borderRadius: "8px",
+  border: "0.5px solid #222222",
+  marginRight: "4px",
+});
+
+export const routeLabel = style({
+  fontWeight: "500",
 });
 
 export const toggleContainer = style({

@@ -1,165 +1,120 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import * as styles from "./Account.css.ts";
 
 const groomAccounts = [
-  { bank: "국민은행", number: "12342343424234", owner: "홍길동" },
-  { bank: "국민은행", number: "56785678567856", owner: "홍길동" },
-  { bank: "국민은행", number: "98769876987698", owner: "홍길동" },
+  {
+    bank: "국민은행",
+    number: "94160200665331",
+    owner: "김용태",
+    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
+  },
+  {
+    bank: "국민은행",
+    number: "94160200665331",
+    owner: "임원숙",
+    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
+  },
+  {
+    bank: "국민은행",
+    number: "94160200665331",
+    owner: "김기홍",
+    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
+  },
 ];
 
 const brideAccounts = [
-  { bank: "국민은행", number: "65436543654365", owner: "김영희" },
-  { bank: "국민은행", number: "32103210321032", owner: "김영희" },
-  { bank: "국민은행", number: "11112222333344", owner: "김영희" },
+  {
+    bank: "국민은행",
+    number: "94160200665331",
+    owner: "김준응",
+    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
+  },
+  {
+    bank: "국민은행",
+    number: "94160200665331",
+    owner: "정숙재",
+    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
+  },
+  {
+    bank: "국민은행",
+    number: "94160200665331",
+    owner: "김예진",
+    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
+  },
 ];
 
 function Account() {
-  const [isGroomOpen, setIsGroomOpen] = useState(false);
-  const [isBrideOpen, setIsBrideOpen] = useState(false);
-  const [delayedGroomOpen, setDelayedGroomOpen] = useState(false);
-  const [delayedBrideOpen, setDelayedBrideOpen] = useState(false);
+  const [selectedTab, setSelectedTab] = useState<"groom" | "bride">("groom");
 
-  // 계좌번호 복사 함수
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     alert("계좌번호가 복사되었습니다.");
   };
 
   const openTossPayment = (accountNumber: string) => {
-    const tossUrl = `toss://pay?to=${accountNumber}`;
-    window.location.href = tossUrl; // 토스 앱이 있으면 열리고 없으면 아무 반응이 없을 수 있음
+    navigator.clipboard.writeText(accountNumber);
+    window.location.href = "supertoss://send";
   };
 
-  const openKakaoBankPayment = (accountNumber: string) => {
-    const kakaoBankUrl = `kakaobank://send?to=${accountNumber}`;
-    window.location.href = kakaoBankUrl; // 카카오뱅크 앱이 있으면 열리고 없으면 아무 반응이 없을 수 있음
+  const openKakaoBankPayment = (kakaoLink: string) => {
+    window.location.href = kakaoLink;
   };
 
-  useEffect(() => {
-    if (!isGroomOpen) {
-      const timer = setTimeout(() => {
-        setDelayedGroomOpen(false);
-      }, 300);
-      return () => clearTimeout(timer);
-    } else {
-      setDelayedGroomOpen(true);
-    }
-  }, [isGroomOpen]);
-
-  useEffect(() => {
-    if (!isBrideOpen) {
-      const timer = setTimeout(() => {
-        setDelayedBrideOpen(false);
-      }, 300);
-      return () => clearTimeout(timer);
-    } else {
-      setDelayedBrideOpen(true);
-    }
-  }, [isBrideOpen]);
+  const selectedAccounts =
+    selectedTab === "groom" ? groomAccounts : brideAccounts;
 
   return (
-    <div>
-      {/* 신랑 측 계좌번호 */}
-      <div
-        className={`${styles.dropdownHeader} ${
-          delayedGroomOpen ? styles.openDropdownHeader : ""
-        }`}
-        onClick={() => setIsGroomOpen(!isGroomOpen)}
-      >
-        신랑측 계좌번호 {isGroomOpen ? "▲" : "▼"}
-      </div>
-      <div
-        className={
-          isGroomOpen
-            ? styles.dropdownContent.visible
-            : styles.dropdownContent.hidden
-        }
-      >
-        <div className={styles.accountList}>
-          {groomAccounts.map((account, index) => (
-            <div key={index} className={styles.accountItem}>
-              <div>
-                {/* 계좌 정보 (은행명 + 계좌번호 + 복사 버튼) */}
-                <div className={styles.accountOwner}>{account.owner}</div>
-                <div className={styles.accountDetails}>
-                  {account.bank} {account.number}
-                  <button
-                    className={styles.copyButton}
-                    onClick={() => copyToClipboard(account.number)}
-                  >
-                    복사
-                  </button>
-                </div>
-              </div>
-              <div>
-                <button
-                  className={styles.paymentButtons}
-                  onClick={() => openTossPayment(account.number)}
-                >
-                  토스
-                </button>
-                <button
-                  className={styles.paymentButtons}
-                  onClick={() => openKakaoBankPayment(account.number)}
-                >
-                  카카오뱅크
-                </button>
-              </div>
-            </div>
-          ))}
+    <div className={styles.container}>
+      <div className={styles.tabWrapper}>
+        <div
+          className={`${styles.tab} ${
+            selectedTab === "groom" ? styles.activeTab : ""
+          }`}
+          onClick={() => setSelectedTab("groom")}
+        >
+          신랑측에게
+        </div>
+        <div
+          className={`${styles.tab} ${
+            selectedTab === "bride" ? styles.activeTab : ""
+          }`}
+          onClick={() => setSelectedTab("bride")}
+        >
+          신부측에게
         </div>
       </div>
 
-      {/* 신부 측 계좌번호 */}
-      <div
-        className={`${styles.dropdownHeader} ${
-          delayedBrideOpen ? styles.openDropdownHeader : ""
-        }`}
-        onClick={() => setIsBrideOpen(!isBrideOpen)}
-      >
-        신부측 계좌번호 {isBrideOpen ? "▲" : "▼"}
-      </div>
-      <div
-        className={
-          isBrideOpen
-            ? styles.dropdownContent.visible
-            : styles.dropdownContent.hidden
-        }
-      >
-        <div className={styles.accountList}>
-          {brideAccounts.map((account, index) => (
-            <div key={index} className={styles.accountItem}>
-              {/* 계좌 정보 (은행명 + 계좌번호 + 복사 버튼) */}
-              <div>
-                <div className={styles.accountOwner}>{account.owner}</div>
-                <div className={styles.accountDetails}>
-                  {account.bank} | {account.number}
-                  <button
-                    className={styles.copyButton}
-                    onClick={() => copyToClipboard(account.number)}
-                  >
-                    복사
-                  </button>
-                </div>
+      <div key={selectedTab} className={styles.accountListContainer}>
+        {selectedAccounts.map((account, index) => (
+          <div key={index} className={styles.accountCard}>
+            <div className={styles.accountInfoTop}>
+              <div className={styles.accountOwner}>{account.owner}</div>
+              <div className={styles.accountBank}>
+                {account.bank} {account.number}
               </div>
-              <div>
-                <button
-                  className={styles.paymentButtons}
-                  onClick={() => openTossPayment(account.number)}
-                >
-                  토스
-                </button>
-                <button
-                  className={styles.paymentButtons}
-                  onClick={() => openKakaoBankPayment(account.number)}
-                >
-                  카카오뱅크
-                </button>
-              </div>
-              {/* 계좌 소유자 (아래 배치) */}
             </div>
-          ))}
-        </div>
+            <div className={styles.buttonGroup}>
+              <button
+                className={styles.copyButton}
+                onClick={() => copyToClipboard(account.number)}
+              >
+                계좌 복사
+              </button>
+              <button
+                className={styles.payButton}
+                onClick={() => openKakaoBankPayment(account.kakaoLink)}
+              >
+                카카오
+              </button>
+              <button
+                className={styles.payButton}
+                onClick={() => openTossPayment(account.number)}
+              >
+                토스
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
