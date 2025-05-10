@@ -11,12 +11,13 @@ export const container = style({
   backgroundColor: "#ffffff",
   color: "#333",
   textAlign: "center",
-  padding: "30px 0",
+  padding: "0px 0",
   boxSizing: "border-box",
 
   "@media": {
     "screen and (min-width: 768px)": {
       maxWidth: "400px",
+      border: "1px solid #000",
     },
   },
 });

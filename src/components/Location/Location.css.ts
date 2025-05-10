@@ -16,12 +16,52 @@ export const locationTitle = style({
   fontWeight: "400",
   padding: "50px 0 20px",
 });
+export const mapContent = style({
+  width: "100%",
+  height: "100%",
+});
+
+export const mapOverlay = style({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  zIndex: 2,
+  backgroundColor: "transparent",
+  pointerEvents: "all", // 실제로 클릭 막기 위해 활성화
+});
+
+export const lockButton = style({
+  position: "absolute",
+  top: "12px",
+  left: "12px",
+  backgroundColor: "#ffffff",
+  border: "1px solid #ccc",
+  borderRadius: "50%",
+  width: "36px",
+  height: "36px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize: "16px",
+  cursor: "pointer",
+  zIndex: 3,
+});
+
+export const lockNotice = style({
+  color: "#ff3b30",
+  fontSize: "14px",
+  fontWeight: "500",
+  marginTop: "8px",
+});
+
 /* 지도 컨테이너 스타일 */
 export const mapContainer = style({
-  width: "90%",
+  width: "100%",
   height: "250px",
   marginTop: "20px",
-  borderRadius: "10px",
+  // borderRadius: "10px",
   overflow: "hidden",
   position: "relative",
   zIndex: "0", // 다른 요소보다 앞에 오지 않도록 조정
@@ -49,13 +89,15 @@ export const routeButton = style({
   alignItems: "center",
   justifyContent: "center",
   borderRadius: "12px",
-  backgroundColor: "#f7f7f7",
+  backgroundColor: "#ffffff",
   border: "1px solid #e0e0e0",
   cursor: "pointer",
   fontSize: "12px",
   color: "#000",
   padding: "6px",
   transition: "all 0.2s",
+  boxShadow:
+    "0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -2px rgba(0, 0, 0, .1)",
   ":hover": {
     backgroundColor: "#e6e6e6",
   },
@@ -65,9 +107,9 @@ export const routeImage = style({
   width: "24px",
   height: "24px",
   objectFit: "contain",
-  borderRadius: "8px",
-  border: "0.5px solid #222222",
-  marginRight: "4px",
+  borderRadius: "6px",
+  // border: "0.5px solid #222222",
+  marginRight: "12px",
 });
 
 export const routeLabel = style({

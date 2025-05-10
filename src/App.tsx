@@ -1,7 +1,7 @@
 import { Suspense, lazy, useRef, useState } from "react";
 
 import * as styles from "./App.css";
-import TopDate from "./components/TopDate/TopDate";
+// import TopDate from "./components/TopDate/TopDate";
 import TopSummary from "./components/TopSummary/TopSummary";
 const Invitation = lazy(() => import("./components/Invitation/Invitation"));
 const Contact = lazy(() => import("./components/Contact/Contact"));
@@ -42,7 +42,7 @@ function App() {
             <source src="music.mp3" type="audio/mpeg" />
           </audio>
         )}
-        <TopDate />
+        {/* <TopDate /> */}
         <TopSummary />
         <Suspense fallback={<div>Loading...</div>}>
           <Invitation />

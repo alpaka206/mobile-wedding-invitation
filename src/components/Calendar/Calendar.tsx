@@ -37,9 +37,7 @@ function Calendar() {
   return (
     <div className={styles.dateContainer}>
       <div className={styles.dateHeader}>WEDDING DAY</div>
-      <div className={styles.dateText}>
-        2025년 10월 25일 토요일 | 오후 12시 00분
-      </div>
+      <div className={styles.dateText}>2025년 10월 25일 토요일 | 오후 12시</div>
       <div className={styles.dateDevide}></div>
       <div className={styles.calendar}>
         <div className={styles.weekdays}>

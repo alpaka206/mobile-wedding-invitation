@@ -29,15 +29,17 @@ export const calendar = style({
 });
 
 export const weekdays = style({
+  fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
   display: "grid",
   gridTemplateColumns: "repeat(7, 1fr)",
-  fontWeight: "bold",
+  fontWeight: "600",
   gap: "5px",
   marginBottom: "5px",
   paddingBottom: "12px",
 });
 
 export const dates = style({
+  fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
   display: "grid",
   gridTemplateColumns: "repeat(7, 1fr)",
   gap: "5px",
@@ -48,7 +50,7 @@ export const sunday = style({
 });
 
 export const dateBox = style({
-  padding: "16px 0",
+  padding: "12px 0",
   borderRadius: "5px",
   textAlign: "center",
 });
@@ -56,6 +58,7 @@ export const dateBox = style({
 export const highlight = style({
   position: "relative", // 요소를 배치 가능하도록 변경
   zIndex: 99, // 다른 요소보다 위에 배치
+  fontWeight: "600",
   "::after": {
     content: "''",
     position: "absolute", // 부모 크기를 벗어나도 보이도록 설정
@@ -85,6 +88,7 @@ export const countdownItem = style({
   flexDirection: "column",
   alignItems: "center",
   padding: "8px",
+  fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
   // backgroundColor: "#f2eeee",
   backgroundColor: "#f9eeee",
   borderRadius: "5px",

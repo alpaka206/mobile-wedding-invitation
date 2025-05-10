@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import * as styles from "./Location.css.ts";
 import kakaoIcon from "../../../public/img/kakao.webp";
 import naverIcon from "../../../public/img/naver.webp";
@@ -7,6 +7,9 @@ import tmapIcon from "../../../public/img/tmap.webp";
 const KAKAO_API_KEY = import.meta.env.VITE_KAKAO_API_KEY;
 
 function Location() {
+  const [isLocked, setIsLocked] = useState(true);
+  const [showWarning, setShowWarning] = useState(false);
+
   const location = {
     name: "제이오스티엘",
     address: "서울 구로구 경인로 565",
@@ -35,14 +38,45 @@ function Location() {
     };
     document.head.appendChild(script);
   }, []);
+  const handleUnlock = () => {
+    setIsLocked(false);
+    setShowWarning(false);
+  };
 
+  const handleBlockedTouch = () => {
+    if (isLocked) {
+      setShowWarning(true);
+      setTimeout(() => setShowWarning(false), 3000);
+    }
+  };
   // 길찾기 버튼 클릭 시 해당 지도 앱으로 이동
   const openNaverMap = () => {
-    window.open(
-      `https://map.naver.com/p/directions/-/${location.lng},${
-        location.lat
-      },${encodeURIComponent(location.name)}/-/car`
-    );
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const { lat, lng, name } = location;
+
+    const appUrl = `nmap://route/public?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
+      name
+    )}`;
+    const webUrl = `https://map.naver.com/p/directions/-/${location.lng},${
+      location.lat
+    },${encodeURIComponent(location.name)}/-/car`;
+
+    if (!isMobile) {
+      // PC에서는 그냥 웹 URL로 이동
+      window.open(webUrl, "_blank");
+      return;
+    }
+
+    // 모바일: 앱 시도 후 fallback
+    const timeout = setTimeout(() => {
+      window.location.href = webUrl;
+    }, 500);
+
+    // 앱 열기 시도
+    window.location.href = appUrl;
+
+    // 사용자가 앱으로 이동하면 timeout 제거
+    window.addEventListener("pagehide", () => clearTimeout(timeout));
   };
 
   const openKakaoMap = () => {
@@ -61,11 +95,21 @@ function Location() {
   return (
     <div className={styles.locationContainer}>
       <div className={styles.locationTitle}>LOCATION</div>
-      <div>{location.name}</div>
-      <div>{location.address}</div>
-      <div id="map" className={styles.mapContainer} />
+      <div className={styles.mapContainer}>
+        <div id="map" className={styles.mapContent} />
+        {isLocked && (
+          <div className={styles.mapOverlay} onClick={handleBlockedTouch}></div>
+        )}
+        <button onClick={handleUnlock} className={styles.lockButton}>
+          🔒
+        </button>
+      </div>
 
-      {/* 길찾기 버튼 */}
+      {showWarning && (
+        <div className={styles.lockNotice}>
+          자물쇠 아이콘을 눌러 터치 잠금 해제 후 확대 및 이동해주세요
+        </div>
+      )}
       <div className={styles.routeButtons}>
         <button onClick={openNaverMap} className={styles.routeButton}>
           <img
@@ -85,6 +129,12 @@ function Location() {
         </button>
       </div>
       <div className={styles.toggleContainer}>오시는길</div>
+      <div className={styles.LocationContainer}>
+        <div className={styles.LocationElementTitle}>주소</div>
+        <div className={styles.LocationElement}>
+          서울특별시 구로구 경인로 565 제이오스티엘 2층 티파티홀
+        </div>
+      </div>
       <div className={styles.LocationContainer}>
         <div className={styles.LocationElementTitle}>버스</div>
         <div className={styles.LocationElement}>간선버스 : 571, 654</div>
