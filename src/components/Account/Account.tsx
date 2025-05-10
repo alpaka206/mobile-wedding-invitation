@@ -65,6 +65,13 @@ function Account() {
 
   return (
     <div className={styles.container}>
+      <div>ACCOUNT</div>
+      <div>마음 전하실 곳</div>
+      <div>직접 축하를 전하지 못하는 분들을 위해</div>
+      <div>계좌번호를 안내드립니다.</div>
+      <div>넓은 마음으로 양해 부탁드립니다.</div>
+      <div>소중한 마음 깊이 간직하여</div>
+      <div>좋은 부부의 모습으로 보답하겠습니다.</div>
       <div className={styles.tabWrapper}>
         <div
           className={`${styles.tab} ${
@@ -101,13 +108,13 @@ function Account() {
                 계좌 복사
               </button>
               <button
-                className={styles.payButton}
+                className={styles.kakaoPayButton}
                 onClick={() => openKakaoBankPayment(account.kakaoLink)}
               >
                 카카오
               </button>
               <button
-                className={styles.payButton}
+                className={styles.tossPayButton}
                 onClick={() => openTossPayment(account.number)}
               >
                 토스
