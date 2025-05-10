@@ -8,7 +8,7 @@ const Contact = lazy(() => import("./components/Contact/Contact"));
 const Calendar = lazy(() => import("./components/Calendar/Calendar"));
 const Gallery = lazy(() => import("./components/Gallery/Gallery"));
 const Location = lazy(() => import("./components/Location/Location"));
-const Account2 = lazy(() => import("./components/Account2/Account"));
+const Account = lazy(() => import("./components/Account/Account"));
 const GuestBook = lazy(() => import("./components/GuestBook/GuestBook"));
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -50,7 +50,7 @@ function App() {
           <Calendar />
           <Gallery />
           <Location />
-          <Account2 />
+          <Account />
           <GuestBook />
         </Suspense>
       </div>
