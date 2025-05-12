@@ -10,8 +10,8 @@ function GuestBook() {
   const { data: guestbookItems = [], isLoading } = useGuestBook();
   return (
     <section className={styles.container}>
-      <div className={styles.title}>GUESTBOOK</div>
-      <div className={styles.subtitle}>방명록</div>
+      <div className={styles.guestBookTitle}>GUESTBOOK</div>
+      <div className={styles.guestBookTitleKOR}>방명록</div>
       {isLoading ? (
         <div>불러오는 중...</div>
       ) : (
