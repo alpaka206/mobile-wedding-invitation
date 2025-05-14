@@ -79,7 +79,7 @@ function Account() {
       <div className={styles.tabWrapper}>
         <div
           className={`${styles.tab} ${
-            selectedTab === "groom" ? styles.activeTab : ""
+            selectedTab === "groom" ? styles.activegroomTab : ""
           }`}
           onClick={() => setSelectedTab("groom")}
         >
@@ -87,7 +87,7 @@ function Account() {
         </div>
         <div
           className={`${styles.tab} ${
-            selectedTab === "bride" ? styles.activeTab : ""
+            selectedTab === "bride" ? styles.activebrideTab : ""
           }`}
           onClick={() => setSelectedTab("bride")}
         >

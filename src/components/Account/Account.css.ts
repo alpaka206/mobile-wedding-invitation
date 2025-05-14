@@ -34,6 +34,7 @@ export const tabWrapper = style({
 export const tab = style({
   flex: 1,
   textAlign: "center",
+  margin: "0 10px",
   padding: "10px 0",
   cursor: "pointer",
   fontWeight: "bold",
@@ -43,8 +44,15 @@ export const tab = style({
   borderRadius: "4px",
 });
 
-export const activeTab = style({
-  borderBottom: "2px solid black",
+export const activegroomTab = style({
+  backgroundColor: "#33CCFF",
+  // borderBottom: "2px solid black",
+  color: "black",
+});
+
+export const activebrideTab = style({
+  backgroundColor: "#da5d6f",
+  // borderBottom: "2px solid black",
   color: "black",
 });
 
