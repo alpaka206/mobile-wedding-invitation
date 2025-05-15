@@ -78,7 +78,7 @@ export const routeButtons = style({
   display: "flex",
   justifyContent: "center",
   gap: "8px",
-  margin: "20px 0",
+  margin: "20px 0 10px",
   flexWrap: "wrap",
   width: "90%",
 });
@@ -118,28 +118,34 @@ export const routeLabel = style({
 
 export const toggleContainer = style({
   textAlign: "left",
-  borderTop: "1px solid #908786",
+  // borderTop: "1px solid #908786",
   padding: "10px",
   width: "90%",
+  fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
 });
 
 export const LocationContainer = style({
   textAlign: "left",
-  padding: "10px",
-  borderTop: "1px solid #908786",
+  padding: "10px 0 0px",
+  // borderTop: "1px solid #908786",
   width: "90%",
+  fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
 });
 
 export const LocationElementTitle = style({
-  padding: "10px 0",
+  padding: "16px 0 8px",
   fontWeight: "600",
+  display: "flex", // 추가
+  alignItems: "center", // 세로 중앙 정렬
+  gap: "8px",
 });
 
 export const LocationElement = style({
-  padding: "10px 0",
+  padding: "4px 0",
+  letterSpacing: "-0.3px",
 });
 
-export const LocationDevider = style({
-  borderTop: "1px solid #000000",
-  width: "calc(90% + 20px)",
+export const locationIcon = style({
+  width: "16px",
+  height: "16px",
 });

@@ -47,12 +47,14 @@ function Gallery() {
 
       {/* 더보기 버튼 */}
       {visibleCount < imageList.length && (
-        <img
-          src={MoreButton}
-          alt="Main-Image"
-          onClick={showMore}
-          className={styles.moreButtonImage}
-        />
+        <div className={styles.moreButton} onClick={showMore}>
+          더보기
+          <img
+            src={MoreButton}
+            alt="MoreButton-Image"
+            className={styles.moreButtonImage}
+          />
+        </div>
       )}
 
       {/* 원본 이미지 모달 */}
