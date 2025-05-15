@@ -39,12 +39,36 @@ export const galleryItem = style({
   },
 });
 
-export const moreButtonImage = style({
-  marginTop: "15px",
-  fontSize: "16px",
-  border: "none",
-  width: "20px",
+export const moreButton = style({
+  marginTop: "16px",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "8px 12px",
+  borderRadius: "6px",
+  border: "1px solid #ccc",
+  backgroundColor: "#fff",
+  fontSize: "14px",
+  fontWeight: 500,
+  color: "#333",
   cursor: "pointer",
+  transition: "background-color 0.2s ease, border-color 0.2s ease",
+
+  selectors: {
+    "&:hover": {
+      backgroundColor: "#f9f9f9",
+      borderColor: "#aaa",
+    },
+    "&:active": {
+      backgroundColor: "#eee",
+      borderColor: "#888",
+    },
+  },
+});
+
+export const moreButtonImage = style({
+  marginLeft: "6px",
+  width: "12px",
 });
 
 export const modal = style({

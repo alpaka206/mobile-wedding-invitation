@@ -1,4 +1,19 @@
 import { style } from "@vanilla-extract/css";
+import { globalTheme } from "../../styles/theme.css";
+
+export const guestBookTitle = style({
+  fontSize: "30px",
+  fontFamily: `${globalTheme.fontFamily.PlayfairDisplay}`,
+  fontWeight: "400",
+  padding: "50px 0 35px",
+});
+
+export const guestBookTitleKOR = style({
+  fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
+  fontSize: "15px",
+  marginBottom: "30px",
+  whiteSpace: "nowrap",
+});
 
 export const container = style({
   // padding: "20px",

@@ -3,26 +3,32 @@ import * as styles from "./Account.css.ts";
 
 const groomAccounts = [
   {
-    bank: "국민은행",
-    number: "94160200665331",
+    bank: "농협은행",
+    number: "3021056868991",
+    owner: "김기홍",
+    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
+  },
+  {
+    bank: "농협은행",
+    number: "76902181631",
     owner: "김용태",
     kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
   },
   {
-    bank: "국민은행",
-    number: "94160200665331",
+    bank: "농협은행",
+    number: "74501552272343",
     owner: "임원숙",
-    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
-  },
-  {
-    bank: "국민은행",
-    number: "94160200665331",
-    owner: "김기홍",
     kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
   },
 ];
 
 const brideAccounts = [
+  {
+    bank: "국민은행",
+    number: "39200104281776",
+    owner: "김예진",
+    kakaoLink: "https://qr.kakaopay.com/FFlueY4c7",
+  },
   {
     bank: "국민은행",
     number: "94160200665331",
@@ -33,12 +39,6 @@ const brideAccounts = [
     bank: "국민은행",
     number: "94160200665331",
     owner: "정숙재",
-    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
-  },
-  {
-    bank: "국민은행",
-    number: "94160200665331",
-    owner: "김예진",
     kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
   },
 ];
@@ -65,17 +65,21 @@ function Account() {
 
   return (
     <div className={styles.container}>
-      <div>ACCOUNT</div>
-      <div>마음 전하실 곳</div>
-      <div>직접 축하를 전하지 못하는 분들을 위해</div>
-      <div>계좌번호를 안내드립니다.</div>
-      <div>넓은 마음으로 양해 부탁드립니다.</div>
-      <div>소중한 마음 깊이 간직하여</div>
-      <div>좋은 부부의 모습으로 보답하겠습니다.</div>
+      <div className={styles.accountHeader}>ACCOUNT</div>
+      <div className={styles.accountTitle}>마음 전하실 곳</div>
+      <div className={styles.accountText}>
+        직접 축하를 전하지 못하는 분들을 위해
+      </div>
+      <div className={styles.accountText}>계좌번호를 안내드립니다.</div>
+      <div className={styles.accountText}>넓은 마음으로 양해 부탁드립니다.</div>
+      <div className={styles.accountText}>소중한 마음 깊이 간직하여</div>
+      <div className={styles.accountText}>
+        좋은 부부의 모습으로 보답하겠습니다.
+      </div>
       <div className={styles.tabWrapper}>
         <div
           className={`${styles.tab} ${
-            selectedTab === "groom" ? styles.activeTab : ""
+            selectedTab === "groom" ? styles.activegroomTab : ""
           }`}
           onClick={() => setSelectedTab("groom")}
         >
@@ -83,7 +87,7 @@ function Account() {
         </div>
         <div
           className={`${styles.tab} ${
-            selectedTab === "bride" ? styles.activeTab : ""
+            selectedTab === "bride" ? styles.activebrideTab : ""
           }`}
           onClick={() => setSelectedTab("bride")}
         >

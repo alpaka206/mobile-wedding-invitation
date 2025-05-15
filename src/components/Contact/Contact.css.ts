@@ -1,7 +1,9 @@
 import { style } from "@vanilla-extract/css";
+import { globalTheme } from "../../styles/theme.css";
 
 export const Contact_container = style({
   marginTop: "21px",
+  fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
 });
 
 export const Contact_text = style({
