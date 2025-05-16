@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as styles from "./Gallery.css"; // CSS 파일 연결
-import MoreButton from "../../../public/img/MoreButton.webp";
+import MoreButton from "/img/MoreButton.webp";
 
 const imageCount = 12; // 갤러리에 있는 총 이미지 수
 const imageList = Array.from(
@@ -62,7 +62,7 @@ function Gallery() {
         <div className={styles.modal} onClick={() => setSelectedIndex(null)}>
           <div className={styles.modalContent}>
             <button onClick={showPrevImage} className={styles.navButtonLeft}>
-              ◀
+              &lt;
             </button>
             <img
               src={imageList[selectedIndex]}
@@ -71,7 +71,7 @@ function Gallery() {
               loading="eager"
             />
             <button onClick={showNextImage} className={styles.navButtonRight}>
-              ▶
+              &gt;
             </button>
           </div>
         </div>

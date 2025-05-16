@@ -1,6 +1,10 @@
 import { style } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
 
+export const container = style({
+  width: "100%",
+});
+
 export const guestBookTitle = style({
   fontSize: "30px",
   fontFamily: `${globalTheme.fontFamily.PlayfairDisplay}`,
@@ -15,66 +19,75 @@ export const guestBookTitleKOR = style({
   whiteSpace: "nowrap",
 });
 
-export const container = style({
-  // padding: "20px",
-  backgroundColor: "#f9f9f9",
-  borderRadius: "12px",
-  width: "100%",
-  margin: "0 auto",
-});
-
-export const title = style({
-  fontSize: "20px",
-  fontWeight: "bold",
-  textAlign: "center",
-  marginBottom: "5px",
-});
-
-export const subtitle = style({
-  fontSize: "16px",
-  textAlign: "center",
-  marginBottom: "15px",
-});
-
 export const guestList = style({
   display: "flex",
   flexDirection: "column",
+  alignItems: "center",
   gap: "10px",
 });
 
 export const guestItem = style({
-  backgroundColor: "white",
-  borderRadius: "8px",
-  padding: "10px",
-  boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+  position: "relative",
+  backgroundColor: "#ffffff",
+  borderRadius: "16px",
+  padding: "20px",
+  width: "calc(90% - 40px)",
+  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.25)",
+  display: "flex",
+  flexDirection: "column",
 });
 
-export const guestInfo = style({
-  marginBottom: "5px",
+export const deleteButton = style({
+  position: "absolute",
+  top: "12px",
+  right: "12px",
+  background: "transparent",
+  border: "none",
+  color: "#bbb",
+  fontSize: "16px",
+  cursor: "pointer",
+  zIndex: 2,
+  ":hover": {
+    color: "#ff5c5c",
+  },
 });
 
-export const name = style({
+export const guestItemName = style({
   fontWeight: "bold",
+  fontSize: "15px",
+  marginBottom: "6px",
+  textAlign: "left",
 });
 
-export const text = style({
-  marginTop: "3px",
+export const guestItemText = style({
+  fontSize: "14px",
+  lineHeight: 1.6,
+  whiteSpace: "pre-wrap",
+  textAlign: "left",
+  color: "#333",
 });
 
-export const date = style({
+export const guestItemDate = style({
   fontSize: "12px",
   color: "#999",
   textAlign: "right",
+  marginTop: "12px",
 });
 
 export const writeButton = style({
-  marginTop: "15px",
-  width: "100%",
-  padding: "10px",
-  backgroundColor: "#3C64B1",
-  color: "white",
+  margin: "30px auto",
+  padding: "12px 32px",
+  width: "calc(80% - 64px)",
+  backgroundColor: "#A7BFE8",
+  color: "#fff",
   border: "none",
-  borderRadius: "8px",
+  borderRadius: "24px",
   fontSize: "16px",
+  fontWeight: "500",
   cursor: "pointer",
+  transition: "background-color 0.2s ease-in-out",
+  display: "block",
+  ":hover": {
+    backgroundColor: "#91aee1",
+  },
 });

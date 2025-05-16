@@ -1,18 +1,4 @@
-// src/components/GuestBook/GuestBook.css.ts
 import { style } from "@vanilla-extract/css";
-
-export const bottomRow = style({
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-});
-
-export const deleteButton = style({
-  background: "transparent",
-  color: "red",
-  border: "none",
-  cursor: "pointer",
-});
 
 export const modalOverlay = style({
   position: "fixed",
@@ -20,7 +6,7 @@ export const modalOverlay = style({
   left: 0,
   width: "100vw",
   height: "100vh",
-  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  backgroundColor: "rgba(0, 0, 0, 0.4)",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -28,40 +14,65 @@ export const modalOverlay = style({
 });
 
 export const modalBox = style({
-  backgroundColor: "#fff",
-  padding: "20px",
-  borderRadius: "12px",
-  width: "80%",
-  maxWidth: "400px",
+  backgroundColor: "#fffdf7",
+  padding: "32px 24px",
+  borderRadius: "16px",
+  width: "calc(90% - 48px)",
+  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
+  fontFamily: `'Gowun Dodum', sans-serif`,
   display: "flex",
   flexDirection: "column",
-  gap: "10px",
+  alignItems: "center",
+  gap: "20px",
+  textAlign: "center",
+  "@media": {
+    "screen and (min-width: 768px)": {
+      maxWidth: "330px",
+    },
+  },
 });
+
 export const input = style({
   padding: "10px",
   fontSize: "16px",
-  borderRadius: "6px",
-  border: "1px solid #ccc",
+  borderRadius: "8px",
+  border: "1px solid #e0dcd2",
+  width: "100%",
+  backgroundColor: "#fff",
 });
+
 export const buttonRow = style({
   display: "flex",
-  justifyContent: "flex-end",
-  gap: "10px",
+  justifyContent: "center",
+  gap: "12px",
+  width: "100%",
 });
 
 export const cancelButton = style({
-  backgroundColor: "#ccc",
-  padding: "8px 12px",
+  backgroundColor: "#f5f5f5",
+  color: "#333",
+  padding: "10px 20px",
   border: "none",
-  borderRadius: "6px",
+  borderRadius: "8px",
+  fontSize: "14px",
   cursor: "pointer",
+  transition: "all 0.2s ease",
+  ":hover": {
+    backgroundColor: "#e6e6e6",
+  },
 });
 
 export const submitButton = style({
-  backgroundColor: "#3C64B1",
-  color: "white",
-  padding: "8px 12px",
+  backgroundColor: "#A7BFE8",
+  color: "#fff",
+  padding: "10px 20px",
   border: "none",
-  borderRadius: "6px",
+  borderRadius: "8px",
+  fontSize: "14px",
+  fontWeight: "bold",
   cursor: "pointer",
+  transition: "all 0.2s ease",
+  ":hover": {
+    backgroundColor: "#91aee1",
+  },
 });

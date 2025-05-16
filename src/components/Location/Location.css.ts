@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
+import { keyframes } from "@vanilla-extract/css";
 
 export const locationContainer = style({
   textAlign: "center",
@@ -32,11 +33,17 @@ export const mapOverlay = style({
   pointerEvents: "all", // 실제로 클릭 막기 위해 활성화
 });
 
+export const lockIconImage = style({
+  width: "16px",
+  height: "16px",
+  filter: "invert(1)",
+});
+
 export const lockButton = style({
   position: "absolute",
   top: "12px",
-  left: "12px",
-  backgroundColor: "#ffffff",
+  right: "12px",
+  backgroundColor: "#000000",
   border: "1px solid #ccc",
   borderRadius: "50%",
   width: "36px",
@@ -49,11 +56,27 @@ export const lockButton = style({
   zIndex: 3,
 });
 
+const fadeInOut = keyframes({
+  "0%": { opacity: 0 },
+  "10%": { opacity: 1 },
+  "90%": { opacity: 1 },
+  "100%": { opacity: 0 },
+});
+
 export const lockNotice = style({
-  color: "#ff3b30",
-  fontSize: "14px",
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  backgroundColor: "rgba(0, 0, 0, 0.6)",
+  color: "#fff",
+  fontSize: "13px",
   fontWeight: "500",
-  marginTop: "8px",
+  padding: "6px 12px",
+  borderRadius: "6px",
+  zIndex: 5,
+  whiteSpace: "nowrap",
+  animation: `${fadeInOut} 2s ease-in-out`,
 });
 
 /* 지도 컨테이너 스타일 */
