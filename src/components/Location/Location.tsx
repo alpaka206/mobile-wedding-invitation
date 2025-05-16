@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import * as styles from "./Location.css.ts";
-import kakaoIcon from "../../../public/img/kakao.webp";
-import naverIcon from "../../../public/img/naver.webp";
-import tmapIcon from "../../../public/img/tmap.webp";
-import busIcon from "../../../public/img/bus.webp";
-import carIcon from "../../../public/img/car.webp";
-import locationIcon from "../../../public/img/location.webp";
-import subwayIcon from "../../../public/img/subway.webp";
+import kakaoIcon from "/img/kakao.webp";
+import naverIcon from "/img/naver.webp";
+import tmapIcon from "/img/tmap.webp";
+import busIcon from "/img/bus.webp";
+import carIcon from "/img/car.webp";
+import locationIcon from "/img/location.webp";
+import subwayIcon from "/img/subway.webp";
+import lockIcon from "/img/lock.webp";
+import unlockIcon from "/img/unlock.webp";
 
 const KAKAO_API_KEY = import.meta.env.VITE_KAKAO_API_KEY;
 
@@ -42,15 +44,16 @@ function Location() {
     };
     document.head.appendChild(script);
   }, []);
-  const handleUnlock = () => {
-    setIsLocked(false);
+
+  const handleToggleLock = () => {
+    setIsLocked(!isLocked);
     setShowWarning(false);
   };
 
   const handleBlockedTouch = () => {
     if (isLocked) {
       setShowWarning(true);
-      setTimeout(() => setShowWarning(false), 3000);
+      setTimeout(() => setShowWarning(false), 2000);
     }
   };
   // 길찾기 버튼 클릭 시 해당 지도 앱으로 이동
@@ -101,16 +104,20 @@ function Location() {
         {isLocked && (
           <div className={styles.mapOverlay} onClick={handleBlockedTouch}></div>
         )}
-        <button onClick={handleUnlock} className={styles.lockButton}>
-          🔒
+        <button onClick={handleToggleLock} className={styles.lockButton}>
+          <img
+            src={isLocked ? lockIcon : unlockIcon}
+            alt={isLocked ? "잠금" : "잠금 해제"}
+            className={styles.lockIconImage}
+          />
         </button>
-      </div>
 
-      {showWarning && (
-        <div className={styles.lockNotice}>
-          자물쇠 아이콘을 눌러 터치 잠금 해제 후 확대 및 이동해주세요
-        </div>
-      )}
+        {showWarning && (
+          <div className={styles.lockNotice}>
+            자물쇠 아이콘을 눌러 터치 잠금 해제 후 확대 및 이동해주세요
+          </div>
+        )}
+      </div>
       <div className={styles.routeButtons}>
         <button onClick={openNaverMap} className={styles.routeButton}>
           <img

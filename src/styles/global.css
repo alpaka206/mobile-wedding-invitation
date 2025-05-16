@@ -1,6 +1,6 @@
 @font-face {
   font-family: "GowunDodum";
-  src: url("/public/fonts/GowunDodum/GowunDodum-Regular.ttf") format("truetype");
+  src: url("/fonts/GowunDodum/GowunDodum-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "NanumMyeongjo";
-  src: url("/public/fonts/NaNum/NanumMyeongjo.ttf") format("truetype");
+  src: url("/fonts/NaNum/NanumMyeongjo.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "NanumMyeongjo";
-  src: url("/public/fonts/NaNum/NanumMyeongjoBold.ttf") format("truetype");
+  src: url("/fonts/NaNum/NanumMyeongjoBold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: "NanumMyeongjo";
-  src: url("/public/fonts/NaNum/NanumMyeongjoExtraBold.ttf") format("truetype");
+  src: url("/fonts/NaNum/NanumMyeongjoExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: "Crimson Pro";
-  src: url("/public/fonts/CrimsonPro/CrimsonPro-Light.ttf") format("truetype");
+  src: url("/fonts/CrimsonPro/CrimsonPro-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: "Crimson Pro";
-  src: url("/public/fonts/CrimsonPro/CrimsonPro-Regular.ttf") format("truetype");
+  src: url("/fonts/CrimsonPro/CrimsonPro-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -48,7 +48,7 @@
 
 @font-face {
   font-family: "Crimson Pro";
-  src: url("/public/fonts/CrimsonPro/CrimsonPro-Medium.ttf") format("truetype");
+  src: url("/fonts/CrimsonPro/CrimsonPro-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -56,8 +56,7 @@
 
 @font-face {
   font-family: "Crimson Pro";
-  src: url("/public/fonts/CrimsonPro/CrimsonPro-SemiBold.ttf")
-    format("truetype");
+  src: url("/fonts/CrimsonPro/CrimsonPro-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -65,7 +64,7 @@
 
 @font-face {
   font-family: "Crimson Pro";
-  src: url("/public/fonts/CrimsonPro/CrimsonPro-Bold.ttf") format("truetype");
+  src: url("/fonts/CrimsonPro/CrimsonPro-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -73,8 +72,7 @@
 
 @font-face {
   font-family: "Crimson Pro";
-  src: url("/public/fonts/CrimsonPro/CrimsonPro-ExtraBold.ttf")
-    format("truetype");
+  src: url("/fonts/CrimsonPro/CrimsonPro-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -82,7 +80,7 @@
 
 @font-face {
   font-family: "Crimson Pro";
-  src: url("/public/fonts/CrimsonPro/CrimsonPro-Black.ttf") format("truetype");
+  src: url("/fonts/CrimsonPro/CrimsonPro-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -90,7 +88,7 @@
 
 @font-face {
   font-family: "CAFE24";
-  src: url("/public/fonts/CAFE24/CAFE24Classic.otf") format("opentype");
+  src: url("/fonts/CAFE24/CAFE24Classic.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -98,7 +96,7 @@
 
 @font-face {
   font-family: "PlayfairDisplay";
-  src: url("/public/fonts/PlayfairDisplay/PlayfairDisplay-Italic-VariableFont_wght.ttf")
+  src: url("/fonts/PlayfairDisplay/PlayfairDisplay-Italic-VariableFont_wght.ttf")
     format("truetype");
   font-weight: 400;
   font-style: normal;
@@ -107,15 +105,14 @@
 
 @font-face {
   font-family: "Pretendard";
-  src: url("/public/fonts/Pretendard/Pretendard-Thin.otf") format("opentype");
+  src: url("/fonts/Pretendard/Pretendard-Thin.otf") format("opentype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("/public/fonts/Pretendard/Pretendard-ExtraLight.otf")
-    format("opentype");
+  src: url("/fonts/Pretendard/Pretendard-ExtraLight.otf") format("opentype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -123,7 +120,7 @@
 
 @font-face {
   font-family: "Pretendard";
-  src: url("/public/fonts/Pretendard/Pretendard-Light.otf") format("opentype");
+  src: url("/fonts/Pretendard/Pretendard-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -131,7 +128,7 @@
 
 @font-face {
   font-family: "Pretendard";
-  src: url("/public/fonts/Pretendard/Pretendard-Regular.otf") format("opentype");
+  src: url("/fonts/Pretendard/Pretendard-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -139,7 +136,7 @@
 
 @font-face {
   font-family: "Pretendard";
-  src: url("/public/fonts/Pretendard/Pretendard-Medium.otf") format("opentype");
+  src: url("/fonts/Pretendard/Pretendard-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -147,8 +144,7 @@
 
 @font-face {
   font-family: "Pretendard";
-  src: url("/public/fonts/Pretendard/Pretendard-SemiBold.otf")
-    format("opentype");
+  src: url("/fonts/Pretendard/Pretendard-SemiBold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -156,7 +152,7 @@
 
 @font-face {
   font-family: "Pretendard";
-  src: url("/public/fonts/Pretendard/Pretendard-Bold.otf") format("opentype");
+  src: url("/fonts/Pretendard/Pretendard-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -164,8 +160,7 @@
 
 @font-face {
   font-family: "Pretendard";
-  src: url("/public/fonts/Pretendard/Pretendard-ExtraBold.otf")
-    format("opentype");
+  src: url("/fonts/Pretendard/Pretendard-ExtraBold.otf") format("opentype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -173,7 +168,7 @@
 
 @font-face {
   font-family: "Pretendard";
-  src: url("/public/fonts/Pretendard/Pretendard-Black.otf") format("opentype");
+  src: url("/fonts/Pretendard/Pretendard-Black.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;

@@ -18,14 +18,15 @@ function GuestBook() {
         <div className={styles.guestList}>
           {guestbookItems.map((item) => (
             <div key={item.id} className={styles.guestItem}>
-              <div className={styles.guestInfo}>
-                <div className={styles.name}>{item.name}</div>
-                <div className={styles.text}>{item.message}</div>
-              </div>
-              <div>
-                <div className={styles.date}>{item.date}</div>
-                <button onClick={() => setDeleteModalId(item.id)}>삭제</button>
-              </div>
+              <button
+                className={styles.deleteButton}
+                onClick={() => setDeleteModalId(item.id)}
+              >
+                ✕
+              </button>
+              <div className={styles.guestItemName}>{item.name}</div>
+              <div className={styles.guestItemText}>{item.message}</div>
+              <div className={styles.guestItemDate}>{item.date}</div>
             </div>
           ))}
         </div>
