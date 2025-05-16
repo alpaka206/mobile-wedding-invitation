@@ -44,8 +44,8 @@ export const moreButton = style({
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: "8px 12px",
-  borderRadius: "6px",
+  padding: "4px 12px",
+  borderRadius: "24px",
   border: "1px solid #ccc",
   backgroundColor: "#fff",
   fontSize: "14px",
@@ -68,7 +68,7 @@ export const moreButton = style({
 
 export const moreButtonImage = style({
   marginLeft: "6px",
-  width: "12px",
+  width: "10px",
 });
 
 export const modal = style({
@@ -130,14 +130,18 @@ export const navButton = style({
 
 export const navButtonLeft = style([
   navButton,
+
   {
     left: "10px", // 왼쪽 정렬
+    fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
   },
 ]);
 
 export const navButtonRight = style([
   navButton,
+
   {
     right: "10px", // 오른쪽 정렬
+    fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
   },
 ]);

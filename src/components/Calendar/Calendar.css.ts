@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
-import heartImage from "../../../public/img/heart1.webp";
+import heartImage from "/img/heart1.webp";
 
 export const dateContainer = style({
   textAlign: "center",
