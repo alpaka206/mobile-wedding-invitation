@@ -22,22 +22,22 @@ export const container = style({
   },
 });
 
-export const overlay = style({
+export const audioToggleButton = style({
   position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100vw",
-  height: "100vh",
-  backgroundColor: "rgba(255, 255, 255, 0.8)", // 흐림 효과
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  zIndex: 9999,
+  top: "16px",
+  right: "16px",
+  zIndex: 1001,
+  fontSize: "24px",
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  color: "white",
+  border: "none",
+  borderRadius: "50%",
+  width: "48px",
+  height: "48px",
+  cursor: "pointer",
 });
-
-export const textBox = style({
-  textAlign: "center",
-  fontSize: "1.5rem",
-  fontWeight: "bold",
-  color: "#444",
+export const soundImage = style({
+  width: "12px",
+  height: "12px",
+  objectFit: "contain",
 });
