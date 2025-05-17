@@ -17,8 +17,9 @@ globalStyle("html, body", {
   width: "100%",
   height: "100%",
   boxSizing: "border-box",
-  overflow: "auto", // 스크롤은 가능하도록 유지
-  overflowX: "hidden",
+  overflowY: "auto", // 세로 스크롤만 허용
+  overflowX: "hidden", // 좌우 스크롤 확실히 차단
+  overscrollBehavior: "none",
   scrollbarWidth: "none",
   msOverflowStyle: "none",
   backgroundColor: "#fffff",
