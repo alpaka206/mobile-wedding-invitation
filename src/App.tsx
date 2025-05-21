@@ -11,8 +11,8 @@ const Gallery = lazy(() => import("./components/Gallery/Gallery"));
 const Location = lazy(() => import("./components/Location/Location"));
 const Account = lazy(() => import("./components/Account/Account"));
 const GuestBook = lazy(() => import("./components/GuestBook/GuestBook"));
-import mute from "/img/mute.webp";
-import sound from "/img/sound.webp";
+import muteIcon from "/img/mute.webp";
+import soundIcon from "/img/sound.webp";
 
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -63,39 +63,38 @@ function App() {
 
   return (
     <>
-      {showWelcome && (
-        <WelcomeOverlay
-          audioRef={audioRef}
-          onClose={() => setShowWelcome(false)}
-        />
-      )}
-      <div className={styles.container}>
-        {!showWelcome && (
-          <>
-            <audio ref={audioRef} loop autoPlay>
-              <source src="music.mp3" type="audio/mpeg" />
-            </audio>
-            <button className={styles.audioToggleButton} onClick={toggleAudio}>
+      {showWelcome ? (
+        <WelcomeOverlay onClose={() => setShowWelcome(false)} />
+      ) : (
+        <div className={styles.container}>
+          {!showWelcome && (
+            <>
+              <audio ref={audioRef} loop autoPlay>
+                <source src="music.mp3" type="audio/mpeg" />
+              </audio>
+              {/* <button className={styles.audioToggleButton} onClick={toggleAudio}> */}
               <img
-                src={isPlaying ? sound : mute}
+                src={isPlaying ? soundIcon : muteIcon}
                 alt={isPlaying ? "노래재생" : "음소거"}
                 className={styles.soundImage}
+                onClick={toggleAudio}
               />
-            </button>
-          </>
-        )}
-        {/* <TopDate /> */}
-        <TopSummary />
-        <Invitation />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Contact />
-          <Calendar />
-          <Gallery />
-          <Location />
-          <Account />
-          <GuestBook />
-        </Suspense>
-      </div>
+              {/* </button> */}
+            </>
+          )}
+          {/* <TopDate /> */}
+          <TopSummary />
+          <Invitation />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Contact />
+            <Calendar />
+            <Gallery />
+            <Location />
+            <Account />
+            <GuestBook />
+          </Suspense>
+        </div>
+      )}
     </>
   );
 }

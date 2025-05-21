@@ -1,28 +1,46 @@
+import { useEffect, useRef } from "react";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import animationData from "../../assets/wedding-outline.json";
 import * as styles from "./WelcomeOverlay.css";
 
 interface WelcomeOverlayProps {
   onClose: () => void;
-  audioRef: React.RefObject<HTMLAudioElement | null>;
 }
 
-export default function WelcomeOverlay({
-  onClose,
-  audioRef,
-}: WelcomeOverlayProps) {
-  const handleClick = () => {
-    const audio = audioRef.current;
-    if (audio) {
-      audio.volume = 0.5;
-      audio.play().catch((err) => console.warn("오디오 재생 실패:", err));
+export default function WelcomeOverlay({ onClose }: WelcomeOverlayProps) {
+  const lottieRef = useRef<LottieRefCurrentProps>(null);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      onClose();
+    }, 4500); // 자연스럽게 자동 넘어감
+
+    return () => clearTimeout(timeout);
+  }, [onClose]);
+
+  useEffect(() => {
+    if (lottieRef.current) {
+      lottieRef.current.setSpeed(2.5);
     }
-    onClose(); // 부모 상태 변경
-  };
+  }, []);
 
   return (
-    <div className={styles.overlay} onClick={handleClick}>
+    <div className={styles.overlay}>
+      <div className={styles.lottieWrapper}>
+        <Lottie
+          lottieRef={lottieRef}
+          animationData={animationData}
+          loop={false}
+          style={{ width: "400px", height: "400px" }}
+        />
+      </div>
       <div className={styles.textBox}>
-        <h2 style={{ margin: 0 }}>저희 결혼합니다</h2>
-        <p style={{ margin: 0 }}>와서 많은 축하 부탁드립니다.</p>
+        <h2 className={styles.title}>소중한 날, 초대합니다</h2>
+        <p className={styles.message}>
+          두 사람이 하나 되는 순간,
+          <br />
+          함께해주시면 더 큰 기쁨이 됩니다.
+        </p>
       </div>
     </div>
   );

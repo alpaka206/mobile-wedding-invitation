@@ -23,11 +23,6 @@ export const container = style({
 });
 
 export const audioToggleButton = style({
-  position: "fixed",
-  top: "16px",
-  right: "16px",
-  zIndex: 1001,
-  fontSize: "24px",
   backgroundColor: "rgba(0, 0, 0, 0.5)",
   color: "white",
   border: "none",
@@ -37,7 +32,13 @@ export const audioToggleButton = style({
   cursor: "pointer",
 });
 export const soundImage = style({
-  width: "12px",
-  height: "12px",
+  position: "absolute",
+  top: "16px",
+  right: "16px",
+  zIndex: 1001,
+  fontSize: "24px",
+  width: "32px",
+  height: "32px",
   objectFit: "contain",
+  filter: "invert(1)",
 });
