@@ -1,59 +1,100 @@
-import { Suspense, lazy, useRef, useState } from "react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 
 import * as styles from "./App.css";
 // import TopDate from "./components/TopDate/TopDate";
 import TopSummary from "./components/TopSummary/TopSummary";
-const Invitation = lazy(() => import("./components/Invitation/Invitation"));
+import WelcomeOverlay from "./components/WelcomeOverlay/WelcomeOverlay";
+import Invitation from "./components/Invitation/Invitation";
 const Contact = lazy(() => import("./components/Contact/Contact"));
 const Calendar = lazy(() => import("./components/Calendar/Calendar"));
 const Gallery = lazy(() => import("./components/Gallery/Gallery"));
 const Location = lazy(() => import("./components/Location/Location"));
 const Account = lazy(() => import("./components/Account/Account"));
 const GuestBook = lazy(() => import("./components/GuestBook/GuestBook"));
+import muteIcon from "/img/mute.webp";
+import soundIcon from "/img/sound.webp";
+
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [showWelcome, setShowWelcome] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      const audio = audioRef.current;
+      if (!audio) return;
+
+      if (document.hidden) {
+        audio.pause();
+        setIsPlaying(false);
+      } else {
+        audio
+          .play()
+          .then(() => setIsPlaying(true))
+          .catch((err) => console.warn("복귀 시 재생 실패:", err));
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("pagehide", handleVisibilityChange);
+    window.addEventListener("pageshow", handleVisibilityChange); // iOS Safari 대응
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("pagehide", handleVisibilityChange);
+      window.removeEventListener("pageshow", handleVisibilityChange);
+    };
+  }, []);
+
+  const toggleAudio = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => console.warn("재생 실패:", err));
+    }
+  };
 
   return (
     <>
-      {showWelcome && (
-        <div
-          className={styles.overlay}
-          onClick={() => {
-            const audio = audioRef.current;
-            if (audio) {
-              audio.volume = 0.5;
-              audio
-                .play()
-                .catch((err) => console.warn("오디오 재생 실패:", err));
-            }
-            setShowWelcome(false);
-          }}
-        >
-          <div className={styles.textBox}>
-            <h2 style={{ margin: 0 }}>저희 결혼합니다</h2>
-            <p style={{ margin: 0 }}>와서 많은 축하 부탁드립니다.</p>
-          </div>
+      {showWelcome ? (
+        <WelcomeOverlay onClose={() => setShowWelcome(false)} />
+      ) : (
+        <div className={styles.container}>
+          {!showWelcome && (
+            <>
+              <audio ref={audioRef} loop autoPlay>
+                <source src="music.mp3" type="audio/mpeg" />
+              </audio>
+              {/* <button className={styles.audioToggleButton} onClick={toggleAudio}> */}
+              <img
+                src={isPlaying ? soundIcon : muteIcon}
+                alt={isPlaying ? "노래재생" : "음소거"}
+                className={styles.soundImage}
+                onClick={toggleAudio}
+              />
+              {/* </button> */}
+            </>
+          )}
+          {/* <TopDate /> */}
+          <TopSummary />
+          <Invitation />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Contact />
+            <Calendar />
+            <Gallery />
+            <Location />
+            <Account />
+            <GuestBook />
+          </Suspense>
         </div>
       )}
-      <div className={styles.container}>
-        {!showWelcome && (
-          <audio ref={audioRef} loop autoPlay>
-            <source src="music.mp3" type="audio/mpeg" />
-          </audio>
-        )}
-        {/* <TopDate /> */}
-        <TopSummary />
-        <Invitation />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Contact />
-          <Calendar />
-          <Gallery />
-          <Location />
-          <Account />
-          <GuestBook />
-        </Suspense>
-      </div>
     </>
   );
 }
