@@ -41,6 +41,11 @@ export default function WelcomeOverlay({ onClose }: WelcomeOverlayProps) {
           <br />
           함께해주시면 더 큰 기쁨이 됩니다.
         </p>
+        <p className={styles.message}>
+          노래가 준비되어있습니다.
+          <br />
+          우측 위 아이콘을 클릭해주세요.
+        </p>
       </div>
     </div>
   );
