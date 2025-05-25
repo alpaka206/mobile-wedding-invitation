@@ -20,9 +20,10 @@ globalStyle("html, body", {
   overflowY: "auto", // 세로 스크롤만 허용
   overflowX: "hidden", // 좌우 스크롤 확실히 차단
   overscrollBehavior: "none",
+  touchAction: "pan-y",
   scrollbarWidth: "none",
   msOverflowStyle: "none",
-  backgroundColor: "#fffff",
+  backgroundColor: "#ffffff",
 });
 
 // 크롬, 사파리, 엣지에서 스크롤 바 숨기기
