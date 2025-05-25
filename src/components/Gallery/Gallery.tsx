@@ -1,37 +1,53 @@
-import { useState } from "react";
-import * as styles from "./Gallery.css"; // CSS 파일 연결
+import { useState, useRef } from "react";
+import * as styles from "./Gallery.css";
 import MoreButton from "/img/MoreButton.webp";
 
-const imageCount = 12; // 갤러리에 있는 총 이미지 수
+const imageCount = 12;
 const imageList = Array.from(
   { length: imageCount },
   (_, i) => `/gallery/image${i}.webp`
 );
 
 function Gallery() {
-  const [visibleCount, setVisibleCount] = useState(9); // 기본적으로 9개만 표시
+  const [visibleCount, setVisibleCount] = useState(9);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
-  const showMore = () => {
-    setVisibleCount((prev) => prev + 9); // 9개씩 추가 로드
-  };
-  const showPrevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedIndex !== null && selectedIndex > 0) {
-      setSelectedIndex(selectedIndex - 1);
+  const showMore = () => setVisibleCount((prev) => prev + 9);
+
+  const showPrevImage = (e?: React.MouseEvent | TouchEvent) => {
+    e?.stopPropagation?.();
+    if (selectedIndex !== null) {
+      setSelectedIndex((prev) =>
+        prev === 0 ? imageList.length - 1 : (prev ?? 1) - 1
+      );
     }
   };
 
-  const showNextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedIndex !== null && selectedIndex < imageList.length - 1) {
-      setSelectedIndex(selectedIndex + 1);
+  const showNextImage = (e?: React.MouseEvent | TouchEvent) => {
+    e?.stopPropagation?.();
+    if (selectedIndex !== null) {
+      setSelectedIndex((prev) =>
+        prev === imageList.length - 1 ? 0 : (prev ?? -1) + 1
+      );
     }
   };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diffX = touchStartX.current - e.changedTouches[0].clientX;
+    if (diffX > 50) showNextImage();
+    else if (diffX < -50) showPrevImage();
+    touchStartX.current = null;
+  };
+
   return (
     <div className={styles.galleryContainer}>
       <div className={styles.galleryTitle}>GALLERY</div>
-      {/* 갤러리 이미지 리스트 */}
       <div className={styles.galleryGrid}>
         {imageList.slice(0, visibleCount).map((_, index) => (
           <img
@@ -45,7 +61,6 @@ function Gallery() {
         ))}
       </div>
 
-      {/* 더보기 버튼 */}
       {visibleCount < imageList.length && (
         <div className={styles.moreButton} onClick={showMore}>
           더보기
@@ -57,9 +72,27 @@ function Gallery() {
         </div>
       )}
 
-      {/* 원본 이미지 모달 */}
       {selectedIndex !== null && (
-        <div className={styles.modal} onClick={() => setSelectedIndex(null)}>
+        <div
+          className={styles.modal}
+          onClick={() => setSelectedIndex(null)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className={styles.modalTopBar}>
+            <div className={styles.modalCounter}>
+              {selectedIndex + 1} / {imageList.length}
+            </div>
+            <button
+              className={styles.modalCloseButton}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedIndex(null);
+              }}
+            >
+              ✕
+            </button>
+          </div>
           <div className={styles.modalContent}>
             <button onClick={showPrevImage} className={styles.navButtonLeft}>
               &lt;

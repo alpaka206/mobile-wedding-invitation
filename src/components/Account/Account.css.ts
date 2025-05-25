@@ -45,13 +45,13 @@ export const tab = style({
 });
 
 export const activegroomTab = style({
-  backgroundColor: "#33CCFF",
+  backgroundColor: "#B3CDE1",
   // borderBottom: "2px solid black",
   color: "black",
 });
 
 export const activebrideTab = style({
-  backgroundColor: "#da5d6f",
+  backgroundColor: "#fad9d9",
   // borderBottom: "2px solid black",
   color: "black",
 });
@@ -91,6 +91,7 @@ export const accountBank = style({
 
 export const accountOwner = style({
   fontWeight: "bold",
+  paddingLeft: "10px",
 });
 
 // 버튼 그룹
@@ -115,7 +116,7 @@ export const copyButton = style({
 export const kakaoPayButton = style({
   flex: 1,
   padding: "10px",
-  backgroundColor: "#FEE500",
+  backgroundColor: "#EDD763",
   color: "#333b58",
   border: "none",
   borderRadius: "6px",
@@ -128,7 +129,7 @@ export const kakaoPayButton = style({
 export const tossPayButton = style({
   flex: 1,
   padding: "10px",
-  backgroundColor: "#0064FF",
+  backgroundColor: "#6DA6FF",
   color: "#ffffff",
   border: "none",
   borderRadius: "6px",

@@ -85,9 +85,9 @@ function App() {
           {/* <TopDate /> */}
           <TopSummary />
           <Invitation />
+          <Contact />
+          <Calendar />
           <Suspense fallback={<div>Loading...</div>}>
-            <Contact />
-            <Calendar />
             <Gallery />
             <Location />
             <Account />

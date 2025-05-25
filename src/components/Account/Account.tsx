@@ -115,13 +115,13 @@ function Account() {
                 className={styles.kakaoPayButton}
                 onClick={() => openKakaoBankPayment(account.kakaoLink)}
               >
-                카카오
+                카카오페이
               </button>
               <button
                 className={styles.tossPayButton}
                 onClick={() => openTossPayment(account.number)}
               >
-                토스
+                토스뱅크
               </button>
             </div>
           </div>
