@@ -78,7 +78,7 @@ export const writeButton = style({
   margin: "30px auto",
   padding: "12px 32px",
   width: "calc(80% - 64px)",
-  backgroundColor: "#A7BFE8",
+  backgroundColor: "#D8D8D8",
   color: "#fff",
   border: "none",
   borderRadius: "24px",
@@ -87,7 +87,4 @@ export const writeButton = style({
   cursor: "pointer",
   transition: "background-color 0.2s ease-in-out",
   display: "block",
-  ":hover": {
-    backgroundColor: "#91aee1",
-  },
 });

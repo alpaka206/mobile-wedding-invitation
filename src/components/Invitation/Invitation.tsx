@@ -1,6 +1,6 @@
 import * as Styled from "./Invitation.css";
 import Invitation_img from "/gallery/image5.webp";
-import InvitationImage from "/img/leaf.webp";
+import InvitationImage from "/img/flower.webp";
 
 function Invitation() {
   return (
