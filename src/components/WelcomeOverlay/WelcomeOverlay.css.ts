@@ -5,13 +5,15 @@ const fadeIn = keyframes({
   from: { opacity: 0, filter: "blur(4px)" },
   to: { opacity: 1, filter: "blur(0)" },
 });
-
+export const testImage = style({
+  width: "250px",
+});
 export const overlay = style({
   position: "fixed",
   top: 0,
   left: 0,
   width: "100vw",
-  height: "100vh",
+  height: "80vh",
   backgroundColor: "#ffffff", // 밝고 부드러운 배경
   display: "flex",
   flexDirection: "column",

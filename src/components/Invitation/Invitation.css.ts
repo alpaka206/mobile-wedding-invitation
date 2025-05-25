@@ -26,8 +26,8 @@ export const Invitation_container = style({
 });
 
 export const Invitation_heart_image = style({
-  width: "35px",
-  margin: "64px 0 24px",
+  width: "40px",
+  margin: "64px 0 34px",
   filter: "grayscale(1) brightness(0)",
 });
 
