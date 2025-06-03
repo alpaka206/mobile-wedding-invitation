@@ -5,14 +5,14 @@ import * as styles from "./App.css";
 import TopSummary from "./components/TopSummary/TopSummary";
 import WelcomeOverlay from "./components/WelcomeOverlay/WelcomeOverlay";
 import Invitation from "./components/Invitation/Invitation";
+import { icons } from "./assets/images";
+
 const Contact = lazy(() => import("./components/Contact/Contact"));
 const Calendar = lazy(() => import("./components/Calendar/Calendar"));
 const Gallery = lazy(() => import("./components/Gallery/Gallery"));
 const Location = lazy(() => import("./components/Location/Location"));
 const Account = lazy(() => import("./components/Account/Account"));
 const GuestBook = lazy(() => import("./components/GuestBook/GuestBook"));
-import muteIcon from "/img/mute.webp";
-import soundIcon from "/img/sound.webp";
 
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -74,7 +74,7 @@ function App() {
               </audio>
               {/* <button className={styles.audioToggleButton} onClick={toggleAudio}> */}
               <img
-                src={isPlaying ? soundIcon : muteIcon}
+                src={isPlaying ? icons.sound : icons.mute}
                 alt={isPlaying ? "노래재생" : "음소거"}
                 className={styles.soundImage}
                 onClick={toggleAudio}

@@ -12,17 +12,6 @@ export const galleryTitle = style({
   padding: "50px 0 35px",
 });
 
-export const galleryGrid = style({
-  display: "grid",
-  gridTemplateColumns: "repeat(3, 1fr)",
-  gap: "10px",
-  padding: "0px 10px",
-  justifyContent: "center",
-  alignItems: "center",
-  maxWidth: "600px",
-  margin: "auto",
-});
-
 export const galleryItem = style({
   width: "100%",
   height: "auto",
@@ -34,6 +23,17 @@ export const galleryItem = style({
   ":hover": {
     transform: "scale(1.05)",
   },
+});
+
+export const galleryGrid = style({
+  display: "grid",
+  gridTemplateColumns: "repeat(3, 1fr)",
+  gap: "10px",
+  padding: "0px 10px",
+  justifyContent: "center",
+  alignItems: "center",
+  maxWidth: "600px",
+  margin: "auto",
 });
 
 export const moreButton = style({
