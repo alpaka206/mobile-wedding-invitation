@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import animationData from "../../assets/wedding-outline.json";
 import * as styles from "./WelcomeOverlay.css";
-// import test1 from "/img/test1.webp";
+// import test1 from "../../assets/img/test1.webp";
 
 interface WelcomeOverlayProps {
   onClose: () => void;

@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import * as styles from "./Gallery.css";
-import MoreButton from "/img/MoreButton.webp";
+import { icons } from "../../assets/images";
 
 const imageCount = 12;
 const imageList = Array.from(
@@ -65,7 +65,7 @@ function Gallery() {
         <div className={styles.moreButton} onClick={showMore}>
           더보기
           <img
-            src={MoreButton}
+            src={icons.moreButton}
             alt="MoreButton-Image"
             className={styles.moreButtonImage}
           />
