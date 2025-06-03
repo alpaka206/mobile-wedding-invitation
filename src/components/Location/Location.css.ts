@@ -1,6 +1,5 @@
-import { style } from "@vanilla-extract/css";
+import { style, keyframes } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
-import { keyframes } from "@vanilla-extract/css";
 
 export const locationContainer = style({
   textAlign: "center",

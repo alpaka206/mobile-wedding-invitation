@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
-import heartImage from "/img/heart1.webp";
+import { icons } from "../../assets/images";
 
 export const dateContainer = style({
   textAlign: "center",
@@ -67,7 +67,7 @@ export const highlight = style({
     width: "55px", // 원하는 크기 조절
     height: "55px",
     transform: "translate(-50%, -50%) ", // 중앙 정렬
-    backgroundImage: `url(${heartImage})`,
+    backgroundImage: `url(${icons.heart1})`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     zIndex: 100, // 부모보다 더 위에 배치

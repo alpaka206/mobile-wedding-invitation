@@ -1,6 +1,5 @@
 import * as Styled from "./Invitation.css";
-import Invitation_img from "/gallery/image5.webp";
-import InvitationImage from "/img/flower.webp";
+import { icons } from "../../assets/images";
 
 function Invitation() {
   return (
@@ -18,7 +17,7 @@ function Invitation() {
         </div>
       </section>
       <img
-        src={InvitationImage}
+        src={icons.flower}
         alt="Main-Image"
         className={Styled.Invitation_heart_image}
       />
@@ -43,7 +42,7 @@ function Invitation() {
       </section>
 
       <img
-        src={Invitation_img}
+        src={icons.invatationImg}
         alt="Main-Image"
         className={Styled.Invitation_image}
         loading="lazy"

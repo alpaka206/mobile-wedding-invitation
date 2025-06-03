@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
+// import { icons } from "../../assets/images";
 import BGImage from "/gallery/image11.webp";
 
 // export const top_summary_image = style({
