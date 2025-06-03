@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import * as styles from "./Location.css.ts";
-import kakaoIcon from "/img/kakao.webp";
-import naverIcon from "/img/naver.webp";
-import tmapIcon from "/img/tmap.webp";
-import busIcon from "/img/bus.webp";
-import carIcon from "/img/car.webp";
-import locationIcon from "/img/location.webp";
-import subwayIcon from "/img/subway.webp";
-import lockIcon from "/img/lock.webp";
-import unlockIcon from "/img/unlock.webp";
+import { icons } from "../../assets/images";
 
 const KAKAO_API_KEY = import.meta.env.VITE_KAKAO_API_KEY;
 
@@ -106,7 +98,7 @@ function Location() {
         )}
         <button onClick={handleToggleLock} className={styles.lockButton}>
           <img
-            src={isLocked ? lockIcon : unlockIcon}
+            src={isLocked ? icons.lock : icons.unlock}
             alt={isLocked ? "잠금" : "잠금 해제"}
             className={styles.lockIconImage}
           />
@@ -121,18 +113,22 @@ function Location() {
       <div className={styles.routeButtons}>
         <button onClick={openNaverMap} className={styles.routeButton}>
           <img
-            src={naverIcon}
+            src={icons.naver}
             alt="네이버 지도"
             className={styles.routeImage}
           />
           <span className={styles.routeLabel}>네이버</span>
         </button>
         <button onClick={openKakaoMap} className={styles.routeButton}>
-          <img src={kakaoIcon} alt="카카오 맵" className={styles.routeImage} />
+          <img
+            src={icons.kakao}
+            alt="카카오 맵"
+            className={styles.routeImage}
+          />
           <span className={styles.routeLabel}>카카오</span>
         </button>
         <button onClick={openTMapWeb} className={styles.routeButton}>
-          <img src={tmapIcon} alt="티맵" className={styles.routeImage} />
+          <img src={icons.tmap} alt="티맵" className={styles.routeImage} />
           <span className={styles.routeLabel}>티맵</span>
         </button>
       </div>
@@ -140,7 +136,7 @@ function Location() {
       <div className={styles.LocationContainer}>
         <div className={styles.LocationElementTitle}>
           <img
-            src={locationIcon}
+            src={icons.location}
             alt="주소 아이콘"
             className={styles.locationIcon}
           />
@@ -153,7 +149,7 @@ function Location() {
       <div className={styles.LocationContainer}>
         <div className={styles.LocationElementTitle}>
           <img
-            src={busIcon}
+            src={icons.bus}
             alt="버스 아이콘"
             className={styles.locationIcon}
           />
@@ -168,7 +164,7 @@ function Location() {
       <div className={styles.LocationContainer}>
         <div className={styles.LocationElementTitle}>
           <img
-            src={subwayIcon}
+            src={icons.subway}
             alt="지하철 아이콘"
             className={styles.locationIcon}
           />
@@ -181,7 +177,7 @@ function Location() {
       <div className={styles.LocationContainer}>
         <div className={styles.LocationElementTitle}>
           <img
-            src={carIcon}
+            src={icons.car}
             alt="자동차 아이콘"
             className={styles.locationIcon}
           />
