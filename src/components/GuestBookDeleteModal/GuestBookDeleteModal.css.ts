@@ -14,7 +14,7 @@ export const modalOverlay = style({
 });
 
 export const modalBox = style({
-  backgroundColor: "#fffdf7",
+  backgroundColor: "#ffffff",
   padding: "32px 24px",
   borderRadius: "16px",
   width: "calc(90% - 48px)",
@@ -44,35 +44,40 @@ export const input = style({
 export const buttonRow = style({
   display: "flex",
   justifyContent: "center",
-  gap: "12px",
-  width: "100%",
+  gap: "10px",
+  marginTop: "8px",
 });
 
 export const cancelButton = style({
-  backgroundColor: "#f5f5f5",
+  backgroundColor: "#e6e6e6",
   color: "#333",
-  padding: "10px 20px",
+  padding: "8px 34px",
   border: "none",
-  borderRadius: "8px",
-  fontSize: "14px",
+  borderRadius: "6px",
   cursor: "pointer",
-  transition: "all 0.2s ease",
-  ":hover": {
-    backgroundColor: "#e6e6e6",
+  fontWeight: "bold",
+  fontSize: "14px",
+  transition: "background-color 0.2s ease",
+  selectors: {
+    "&:hover": {
+      backgroundColor: "#d2d2d2",
+    },
   },
 });
 
 export const submitButton = style({
-  backgroundColor: "#A7BFE8",
+  backgroundColor: "#3C64B1",
   color: "#fff",
-  padding: "10px 20px",
+  padding: "8px 34px",
   border: "none",
-  borderRadius: "8px",
-  fontSize: "14px",
-  fontWeight: "bold",
+  borderRadius: "6px",
   cursor: "pointer",
-  transition: "all 0.2s ease",
-  ":hover": {
-    backgroundColor: "#91aee1",
+  fontWeight: "bold",
+  fontSize: "14px",
+  transition: "background-color 0.2s ease",
+  selectors: {
+    "&:hover": {
+      backgroundColor: "#2d4f9c",
+    },
   },
 });
