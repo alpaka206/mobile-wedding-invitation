@@ -40,7 +40,9 @@ function GuestBookModal({ onClose }: Props) {
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalBox}>
-        <h3>방명록 작성</h3>
+        <h3 style={{ fontSize: "18px", fontWeight: "bold", margin: "4px 0px" }}>
+          방명록 작성
+        </h3>
         <input
           className={styles.input}
           placeholder="이름"

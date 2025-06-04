@@ -6,19 +6,17 @@ const groomAccounts = [
     bank: "농협은행",
     number: "3021056868991",
     owner: "김기홍",
-    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
+    kakaoLink: "https://qr.kakaopay.com/Ej9IDXJVf",
   },
   {
     bank: "농협은행",
     number: "76902181631",
     owner: "김용태",
-    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
   },
   {
     bank: "농협은행",
     number: "74501552272343",
     owner: "임원숙",
-    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
   },
 ];
 
@@ -31,15 +29,13 @@ const brideAccounts = [
   },
   {
     bank: "국민은행",
-    number: "94160200665331",
+    number: "17000104211384",
     owner: "김준응",
-    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
   },
   {
     bank: "국민은행",
-    number: "94160200665331",
+    number: "228210860510",
     owner: "정숙재",
-    kakaoLink: "https://qr.kakaopay.com/FHtDciALS",
   },
 ];
 
@@ -111,12 +107,14 @@ function Account() {
               >
                 계좌 복사
               </button>
-              <button
-                className={styles.kakaoPayButton}
-                onClick={() => openKakaoBankPayment(account.kakaoLink)}
-              >
-                카카오페이
-              </button>
+              {account.kakaoLink && (
+                <button
+                  className={styles.kakaoPayButton}
+                  onClick={() => openKakaoBankPayment(account.kakaoLink!)}
+                >
+                  카카오페이
+                </button>
+              )}
               <button
                 className={styles.tossPayButton}
                 onClick={() => openTossPayment(account.number)}

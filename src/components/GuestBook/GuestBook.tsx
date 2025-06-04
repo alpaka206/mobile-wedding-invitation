@@ -12,6 +12,12 @@ function GuestBook() {
     <section className={styles.container}>
       <div className={styles.guestBookTitle}>GUESTBOOK</div>
       <div className={styles.guestBookTitleKOR}>방명록</div>
+      <button
+        className={styles.writeButton}
+        onClick={() => setIsModalOpen(true)}
+      >
+        작성하기
+      </button>
       {isLoading ? (
         <div>불러오는 중...</div>
       ) : (
@@ -31,13 +37,6 @@ function GuestBook() {
           ))}
         </div>
       )}
-
-      <button
-        className={styles.writeButton}
-        onClick={() => setIsModalOpen(true)}
-      >
-        작성하기
-      </button>
 
       {isModalOpen && <GuestBookModal onClose={() => setIsModalOpen(false)} />}
       {deleteModalId !== null && (

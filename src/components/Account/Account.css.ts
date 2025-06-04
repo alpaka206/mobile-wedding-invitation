@@ -42,6 +42,7 @@ export const tab = style({
   transition: "all 0.3s ease",
   backgroundColor: "#f2f2f2",
   borderRadius: "4px",
+  WebkitTapHighlightColor: "transparent",
 });
 
 export const activegroomTab = style({

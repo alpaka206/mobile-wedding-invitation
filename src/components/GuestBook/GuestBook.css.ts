@@ -3,6 +3,7 @@ import { globalTheme } from "../../styles/theme.css";
 
 export const container = style({
   width: "100%",
+  marginBottom: "50px",
 });
 
 export const guestBookTitle = style({
@@ -78,7 +79,7 @@ export const writeButton = style({
   margin: "30px auto",
   padding: "12px 32px",
   width: "calc(80% - 64px)",
-  backgroundColor: "#D8D8D8",
+  backgroundColor: "#000000",
   color: "#fff",
   border: "none",
   borderRadius: "24px",
