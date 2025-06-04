@@ -1,8 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import * as styles from "./Gallery.css";
 import { icons } from "../../assets/images";
 
-const imageCount = 12;
+const imageCount = 32;
 const imageList = Array.from(
   { length: imageCount },
   (_, i) => `/gallery/image${i}.webp`
@@ -12,6 +12,13 @@ function Gallery() {
   const [visibleCount, setVisibleCount] = useState(9);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
+
+  // 이미지 미리 로딩
+  useEffect(() => {
+    imageList.forEach((src) => {
+      fetch(src, { cache: "force-cache" });
+    });
+  }, []);
 
   const showMore = () => setVisibleCount((prev) => prev + 9);
 
@@ -49,14 +56,16 @@ function Gallery() {
     <div className={styles.galleryContainer}>
       <div className={styles.galleryTitle}>GALLERY</div>
       <div className={styles.galleryGrid}>
-        {imageList.slice(0, visibleCount).map((_, index) => (
+        {imageList.map((src, index) => (
           <img
             key={index}
-            src={`/gallery/image${index}.webp`}
-            loading="lazy"
+            src={src}
             alt={`Gallery ${index}`}
-            className={styles.galleryItem}
             onClick={() => setSelectedIndex(index)}
+            className={styles.galleryItem}
+            style={{
+              display: index < visibleCount ? "block" : "none",
+            }}
           />
         ))}
       </div>
