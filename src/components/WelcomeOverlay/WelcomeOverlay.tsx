@@ -1,41 +1,28 @@
-import { useEffect, useRef } from "react";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
-import animationData from "../../assets/wedding-outline.json";
+import { useEffect, useState } from "react";
 import * as styles from "./WelcomeOverlay.css";
-// import test1 from "../../assets/img/test1.webp";
 
 interface WelcomeOverlayProps {
   onClose: () => void;
 }
 
 export default function WelcomeOverlay({ onClose }: WelcomeOverlayProps) {
-  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      onClose();
-    }, 3000); // 자연스럽게 자동 넘어감
+      setFadeOut(true); // fade-out 시작
+      setTimeout(() => {
+        onClose(); // fade-out 끝나고 완전히 제거
+      }, 600);
+    }, 3000);
 
     return () => clearTimeout(timeout);
   }, [onClose]);
 
-  useEffect(() => {
-    if (lottieRef.current) {
-      lottieRef.current.setSpeed(2.5);
-    }
-  }, []);
-
   return (
-    <div className={styles.overlay}>
-      <div className={styles.lottieWrapper}>
-        <Lottie
-          lottieRef={lottieRef}
-          animationData={animationData}
-          loop={false}
-          style={{ width: "400px", height: "400px" }}
-        />
-      </div>
-      {/* <img src={test1} alt="Main-Image" className={styles.testImage} /> */}
+    <div
+      className={`${styles.overlay} ${fadeOut ? styles.overlayfadeOut : ""}`}
+    >
       <div className={styles.textBox}>
         <div className={styles.title}>소중한 날, 초대합니다</div>
         <div className={styles.message}>
