@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import * as styles from "./Gallery.css";
 import { icons } from "../../assets/images";
 
-const imageCount = 32;
+const imageCount = 30;
 const imageList = Array.from(
   { length: imageCount },
   (_, i) => `/gallery/image${i}.webp`

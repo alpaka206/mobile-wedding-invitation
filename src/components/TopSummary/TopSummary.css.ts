@@ -24,9 +24,9 @@ export const top_summary_text_top = style({
   textAlign: "center",
   fontSize: "30px",
   marginTop: "40px",
-  color: "#FFFFFF",
+  color: "#ffffff",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
-  textShadow: "0 2px 6px rgba(0, 0, 0, 0.6)",
+  textShadow: "0 0 4px rgba(0, 0, 0, 0.5)",
 });
 
 export const top_summary_text_bottom = style({
@@ -34,7 +34,7 @@ export const top_summary_text_bottom = style({
   fontSize: "16px",
   lineHeight: "1.6",
   marginBottom: "40px",
-  color: "#FFFFFF",
+  color: "#ffffff",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
   textShadow: "0 2px 6px rgba(0, 0, 0, 0.6)",
 });
