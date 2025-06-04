@@ -45,7 +45,7 @@ export const tab = style({
 });
 
 export const activegroomTab = style({
-  backgroundColor: "#B3CDE1",
+  backgroundColor: "#A2D7F1",
   // borderBottom: "2px solid black",
   color: "black",
 });
