@@ -4,7 +4,7 @@ function TopSummary() {
   return (
     <>
       <img
-        src="/gallery/image11.webp"
+        src="/gallery/full/image11.webp"
         style={{ display: "none" }}
         alt="preload"
       />
