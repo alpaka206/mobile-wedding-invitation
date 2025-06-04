@@ -1,44 +1,22 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import * as styles from "./Gallery.css";
 import { icons } from "../../assets/images";
 
 const imageCount = 30;
-const imageList = Array.from(
+const thumbList = Array.from(
   { length: imageCount },
-  (_, i) => `/gallery/image${i}.webp`
+  (_, i) => `/gallery/thumb/image${i}.webp`
+);
+
+const fullList = Array.from(
+  { length: imageCount },
+  (_, i) => `/gallery/full/image${i}.webp`
 );
 
 function Gallery() {
-  const [visibleCount, setVisibleCount] = useState(9);
+  const [showAll, setShowAll] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
-
-  // 이미지 미리 로딩
-  useEffect(() => {
-    imageList.forEach((src) => {
-      fetch(src, { cache: "force-cache" });
-    });
-  }, []);
-
-  const showMore = () => setVisibleCount((prev) => prev + 9);
-
-  const showPrevImage = (e?: React.MouseEvent | TouchEvent) => {
-    e?.stopPropagation?.();
-    if (selectedIndex !== null) {
-      setSelectedIndex((prev) =>
-        prev === 0 ? imageList.length - 1 : (prev ?? 1) - 1
-      );
-    }
-  };
-
-  const showNextImage = (e?: React.MouseEvent | TouchEvent) => {
-    e?.stopPropagation?.();
-    if (selectedIndex !== null) {
-      setSelectedIndex((prev) =>
-        prev === imageList.length - 1 ? 0 : (prev ?? -1) + 1
-      );
-    }
-  };
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -52,11 +30,29 @@ function Gallery() {
     touchStartX.current = null;
   };
 
+  const showPrevImage = (e?: React.MouseEvent | TouchEvent) => {
+    e?.stopPropagation?.();
+    if (selectedIndex !== null) {
+      setSelectedIndex((prev) =>
+        prev === 0 ? fullList.length - 1 : (prev ?? 1) - 1
+      );
+    }
+  };
+
+  const showNextImage = (e?: React.MouseEvent | TouchEvent) => {
+    e?.stopPropagation?.();
+    if (selectedIndex !== null) {
+      setSelectedIndex((prev) =>
+        prev === fullList.length - 1 ? 0 : (prev ?? -1) + 1
+      );
+    }
+  };
+
   return (
     <div className={styles.galleryContainer}>
       <div className={styles.galleryTitle}>GALLERY</div>
       <div className={styles.galleryGrid}>
-        {imageList.map((src, index) => (
+        {thumbList.map((src, index) => (
           <img
             key={index}
             src={src}
@@ -64,14 +60,13 @@ function Gallery() {
             onClick={() => setSelectedIndex(index)}
             className={styles.galleryItem}
             style={{
-              display: index < visibleCount ? "block" : "none",
+              display: showAll || index < 9 ? "block" : "none",
             }}
           />
         ))}
       </div>
-
-      {visibleCount < imageList.length && (
-        <div className={styles.moreButton} onClick={showMore}>
+      {!showAll && (
+        <div className={styles.moreButton} onClick={() => setShowAll(true)}>
           더보기
           <img
             src={icons.moreButton}
@@ -90,7 +85,7 @@ function Gallery() {
         >
           <div className={styles.modalTopBar}>
             <div className={styles.modalCounter}>
-              {selectedIndex + 1} / {imageList.length}
+              {selectedIndex + 1} / {fullList.length}
             </div>
             <button
               className={styles.modalCloseButton}
@@ -107,7 +102,7 @@ function Gallery() {
               &lt;
             </button>
             <img
-              src={imageList[selectedIndex]}
+              src={fullList[selectedIndex]}
               alt={`원본 이미지 ${selectedIndex}`}
               className={styles.modalImage}
               loading="eager"
