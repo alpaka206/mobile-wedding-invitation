@@ -3,10 +3,6 @@ import * as styles from "./Gallery.css";
 import { icons } from "../../assets/images";
 
 const imageCount = 30;
-const thumbList = Array.from(
-  { length: imageCount },
-  (_, i) => `/gallery/thumb/image${i}.webp`
-);
 
 const fullList = Array.from(
   { length: imageCount },
@@ -52,7 +48,7 @@ function Gallery() {
     <div className={styles.galleryContainer}>
       <div className={styles.galleryTitle}>GALLERY</div>
       <div className={styles.galleryGrid}>
-        {thumbList.map((src, index) => (
+        {fullList.map((src, index) => (
           <img
             key={index}
             src={src}
@@ -61,6 +57,18 @@ function Gallery() {
             className={styles.galleryItem}
             style={{
               display: showAll || index < 9 ? "block" : "none",
+              objectPosition:
+                index === 3
+                  ? "0% center"
+                  : index === 6
+                  ? "100% center"
+                  : index === 15 ||
+                    index === 16 ||
+                    index === 25 ||
+                    index === 26 ||
+                    index === 27
+                  ? "center 0%"
+                  : "center",
             }}
           />
         ))}

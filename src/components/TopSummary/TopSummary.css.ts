@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
-import BGImage from "/gallery/full/image11.webp";
+import BGImage from "/test.webp";
 
 export const top_summary_container = style({
   width: "100%",
@@ -11,8 +11,8 @@ export const top_summary_background = style({
   width: "100%",
   aspectRatio: "9 / 16",
   backgroundImage: `url(${BGImage})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
+  backgroundSize: "266%", // 👈 확대 효과 (원하는 만큼 조절)
+  backgroundPosition: "center center", // 👈 이미지 중앙만 보이도록
   backgroundRepeat: "no-repeat",
   position: "relative",
   display: "flex",
@@ -25,7 +25,7 @@ export const top_summary_text_top = style({
   fontSize: "30px",
   marginTop: "40px",
   color: "#ffffff",
-  fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontFamily: `${globalTheme.fontFamily.Cormorant}`,
   textShadow: "0 0 4px rgba(0, 0, 0, 0.5)",
 });
 

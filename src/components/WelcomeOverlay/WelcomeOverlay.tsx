@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as styles from "./WelcomeOverlay.css";
+import { TypeAnimation } from "react-type-animation";
 
 interface WelcomeOverlayProps {
   onClose: () => void;
@@ -10,11 +11,11 @@ export default function WelcomeOverlay({ onClose }: WelcomeOverlayProps) {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setFadeOut(true); // fade-out 시작
+      setFadeOut(true);
       setTimeout(() => {
-        onClose(); // fade-out 끝나고 완전히 제거
+        onClose();
       }, 600);
-    }, 3000);
+    }, 4000);
 
     return () => clearTimeout(timeout);
   }, [onClose]);
@@ -24,11 +25,19 @@ export default function WelcomeOverlay({ onClose }: WelcomeOverlayProps) {
       className={`${styles.overlay} ${fadeOut ? styles.overlayfadeOut : ""}`}
     >
       <div className={styles.textBox}>
-        <div className={styles.title}>소중한 날, 초대합니다</div>
-        <div className={styles.message}>
-          두 사람이 하나 되는 순간,
-          <br />
-          함께해주시면 더 큰 기쁨이 됩니다.
+        <div className={styles.title}>초대합니다.</div>
+        <div className={styles.messageWrapper}>
+          <TypeAnimation
+            sequence={[
+              1200,
+              "두 사람이 하나되는 소중한 날,\n함께 기쁨을 나누고자 합니다.",
+              1000,
+            ]}
+            wrapper="span"
+            speed={40}
+            cursor={false}
+            style={{ whiteSpace: "pre-line" }}
+          />
         </div>
       </div>
     </div>

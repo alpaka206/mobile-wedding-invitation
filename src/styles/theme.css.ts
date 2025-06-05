@@ -3,11 +3,10 @@ import { createGlobalTheme, globalStyle } from "@vanilla-extract/css";
 export const globalTheme = createGlobalTheme(":root", {
   fontFamily: {
     GowunDodum: "'GowunDodum', sans-serif",
-    NanumMyeongjo: "'NanumMyeongjo', serif",
     CrimsonPro: "'CrimsonPro', serif",
-    CAFE24: "'CAFE24', serif",
     PlayfairDisplay: "'PlayfairDisplay', serif",
-    Pretendard: "'Pretendard', serif",
+    Cormorant: "Cormorant Infant, serif",
+    DancingScript: "Cormorant_Infant, serif",
   },
 });
 

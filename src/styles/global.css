@@ -173,3 +173,125 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Cormorant_Infant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant_Infant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-Italic.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant_Infant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant_Infant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-MediumItalic.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant_Infant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant_Infant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-SemiBoldItalic.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant_Infant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-BoldItalic.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant_Infant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant_Infant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant_Infant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-LightItalic.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dancing Script";
+  src: url("/fonts/DancingScript/DancingScript-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dancing Script";
+  src: url("/fonts/DancingScript/DancingScript-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dancing Script";
+  src: url("/fonts/DancingScript/DancingScript-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dancing Script";
+  src: url("/fonts/DancingScript/DancingScript-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

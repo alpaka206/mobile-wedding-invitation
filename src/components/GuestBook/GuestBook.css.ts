@@ -10,7 +10,7 @@ export const guestBookTitle = style({
   fontSize: "30px",
   fontFamily: `${globalTheme.fontFamily.PlayfairDisplay}`,
   fontWeight: "400",
-  padding: "50px 0 35px",
+  padding: "50px 0 14px",
 });
 
 export const guestBookTitleKOR = style({
