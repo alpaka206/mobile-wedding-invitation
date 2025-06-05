@@ -11,7 +11,7 @@ export const accountHeader = style({
   fontSize: "30px",
   fontFamily: `${globalTheme.fontFamily.PlayfairDisplay}`,
   fontWeight: "400",
-  padding: "50px 0 26px",
+  padding: "50px 0 14px",
   color: "#555555",
 });
 
@@ -143,7 +143,7 @@ export const tossPayButton = style({
 export const accountTitle = style({
   fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
   fontSize: "15px",
-  margin: "-12px 0 30px",
+  margin: "0px 0 30px",
   whiteSpace: "nowrap",
 });
 

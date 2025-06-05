@@ -1,4 +1,5 @@
 import { keyframes, style } from "@vanilla-extract/css";
+import { globalTheme } from "../../styles/theme.css";
 
 // 부드러운 페이드인
 const fadeIn = keyframes({
@@ -11,15 +12,10 @@ const fadeOut = keyframes({
   to: { opacity: 0 },
 });
 
-const typing = keyframes({
-  from: { width: "0" },
-  to: { width: "100%" },
-});
-
 const blink = keyframes({
-  "0%": { borderColor: "transparent" },
-  "50%": { borderColor: "#444" },
-  "100%": { borderColor: "transparent" },
+  "0%": { opacity: 0 },
+  "50%": { opacity: 1 },
+  "100%": { opacity: 0 },
 });
 
 export const overlay = style({
@@ -28,14 +24,14 @@ export const overlay = style({
   left: 0,
   width: "100vw",
   height: "100vh",
-  backgroundColor: "rgba(255, 255, 255, 0.92)",
+  backgroundColor: "rgba(255, 255, 255, 0.62)",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
   zIndex: 9999,
   animation: `${fadeIn} 1.2s ease`,
-  backdropFilter: "blur(3px)", // ✅ 배경 뿌연 효과
+  backdropFilter: "blur(3px)",
   transition: "opacity 0.6s ease",
 });
 
@@ -50,17 +46,29 @@ export const textBox = style({
   padding: "0 24px",
 });
 
-// ✨ 타이핑 스타일 적용
 export const title = style({
   fontSize: "1.8rem",
   fontWeight: "bold",
-  fontFamily: "'GowunDodum', sans-serif",
+  fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
   marginBottom: "1rem",
-  whiteSpace: "nowrap",
-  overflow: "hidden",
-  borderRight: "2px solid #444",
-  width: "0",
-  animation: `${typing} 2.2s steps(22, end) forwards, ${blink} 0.9s step-end infinite`,
+  color: "#333",
+});
+
+export const messageWrapper = style({
+  fontSize: "1.1rem",
+  lineHeight: 1.7,
+  fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  color: "#555",
+  position: "relative",
+  display: "inline-block",
+});
+
+export const cursor = style({
+  position: "absolute",
+  right: -10,
+  animation: `${blink} 1s step-end infinite`,
+  fontWeight: "normal",
+  fontSize: "1.1rem",
 });
 
 export const message = style({

@@ -1,11 +1,11 @@
-import { Suspense, lazy, useEffect, useRef, useState } from "react";
+import { Suspense, lazy, useRef, useState } from "react";
 
 import * as styles from "./App.css";
 import TopSummary from "./components/TopSummary/TopSummary";
 import WelcomeOverlay from "./components/WelcomeOverlay/WelcomeOverlay";
 import Invitation from "./components/Invitation/Invitation";
 import { icons } from "./assets/images";
-
+import marriedLife from "./assets/Married_Life.mp3";
 const Contact = lazy(() => import("./components/Contact/Contact"));
 const Calendar = lazy(() => import("./components/Calendar/Calendar"));
 const Gallery = lazy(() => import("./components/Gallery/Gallery"));
@@ -16,34 +16,7 @@ const GuestBook = lazy(() => import("./components/GuestBook/GuestBook"));
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [showWelcome, setShowWelcome] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      const audio = audioRef.current;
-      if (!audio) return;
-
-      if (document.hidden) {
-        audio.pause();
-        setIsPlaying(false);
-      } else {
-        audio
-          .play()
-          .then(() => setIsPlaying(true))
-          .catch((err) => console.warn("복귀 시 재생 실패:", err));
-      }
-    };
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-    window.addEventListener("pagehide", handleVisibilityChange);
-    window.addEventListener("pageshow", handleVisibilityChange); // iOS Safari 대응
-
-    return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-      window.removeEventListener("pagehide", handleVisibilityChange);
-      window.removeEventListener("pageshow", handleVisibilityChange);
-    };
-  }, []);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const toggleAudio = () => {
     const audio = audioRef.current;
@@ -60,33 +33,41 @@ function App() {
     }
   };
 
+  const handleWelcomeClose = () => {
+    setShowWelcome(false);
+    // 재생은 사용자가 명시적으로 아이콘 클릭할 때만 실행
+  };
   return (
-    <div className={styles.container}>
-      {showWelcome && <WelcomeOverlay onClose={() => setShowWelcome(false)} />}
+    <>
+      {/* 음악 아이콘은 welcome이 끝난 뒤 고정 위치로 표시 */}
 
-      {/* 음악 플레이어와 아이콘 */}
-      <audio ref={audioRef} loop autoPlay>
-        <source src="music.mp3" type="audio/mpeg" />
-      </audio>
-      <img
-        src={isPlaying ? icons.sound : icons.mute}
-        alt={isPlaying ? "노래재생" : "음소거"}
-        className={styles.soundImage}
-        onClick={toggleAudio}
-      />
+      <div className={styles.container}>
+        {showWelcome && <WelcomeOverlay onClose={handleWelcomeClose} />}
+        {!showWelcome && (
+          <img
+            src={isPlaying ? icons.sound : icons.mute}
+            alt={isPlaying ? "노래재생" : "음소거"}
+            className={styles.soundImage}
+            onClick={toggleAudio}
+          />
+        )}
 
-      {/* 메인 콘텐츠 */}
-      <TopSummary />
-      <Invitation />
-      <Contact />
-      <Calendar />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Gallery />
-        <Location />
-        <Account />
-        <GuestBook />
-      </Suspense>
-    </div>
+        {/* 오디오 태그는 항상 존재 */}
+        <audio ref={audioRef} loop>
+          <source src={marriedLife} type="audio/mpeg" />
+        </audio>
+        <TopSummary />
+        <Invitation />
+        <Contact />
+        <Calendar />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Gallery />
+          <Location />
+          <Account />
+          <GuestBook />
+        </Suspense>
+      </div>
+    </>
   );
 }
 
