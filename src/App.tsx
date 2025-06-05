@@ -1,4 +1,4 @@
-import { Suspense, lazy, useRef, useState } from "react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 
 import * as styles from "./App.css";
 import TopSummary from "./components/TopSummary/TopSummary";
@@ -37,6 +37,23 @@ function App() {
     setShowWelcome(false);
     // 재생은 사용자가 명시적으로 아이콘 클릭할 때만 실행
   };
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      const audio = audioRef.current;
+      if (!audio) return;
+
+      if (document.hidden) {
+        audio.pause();
+        setIsPlaying(false);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
   return (
     <>
       {/* 음악 아이콘은 welcome이 끝난 뒤 고정 위치로 표시 */}
