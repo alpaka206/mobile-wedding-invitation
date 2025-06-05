@@ -22,23 +22,13 @@ export const container = style({
   },
 });
 
-export const audioToggleButton = style({
-  backgroundColor: "rgba(0, 0, 0, 0.5)",
-  color: "white",
-  border: "none",
-  borderRadius: "50%",
-  width: "48px",
-  height: "48px",
-  cursor: "pointer",
-});
 export const soundImage = style({
-  position: "absolute",
+  position: "fixed",
   top: "16px",
-  right: "16px",
-  zIndex: 1001,
-  fontSize: "24px",
+  right: "calc((100vw - 400px) / 2 + 10px)", // 중앙 앱 기준 우측 정렬
   width: "32px",
   height: "32px",
   objectFit: "contain",
-  filter: "invert(1)",
+  cursor: "pointer",
+  zIndex: 10000,
 });
