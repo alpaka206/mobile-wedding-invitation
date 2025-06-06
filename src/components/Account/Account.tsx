@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as styles from "./Account.css.ts";
 
 const groomAccounts = [
@@ -42,17 +42,42 @@ const brideAccounts = [
 function Account() {
   const [selectedTab, setSelectedTab] = useState<"groom" | "bride">("groom");
 
+  useEffect(() => {
+    const savedScrollY = localStorage.getItem("locationScrollY");
+    if (savedScrollY) {
+      window.scrollTo(0, parseInt(savedScrollY));
+      localStorage.removeItem("locationScrollY");
+    }
+
+    const handlePageShow = () => {
+      const y = localStorage.getItem("locationScrollY");
+      if (y) {
+        window.scrollTo(0, parseInt(y));
+        localStorage.removeItem("locationScrollY");
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, []);
+
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     alert("계좌번호가 복사되었습니다.");
   };
 
   const openTossPayment = (accountNumber: string) => {
-    navigator.clipboard.writeText(accountNumber);
+    localStorage.setItem("accountScrollY", window.scrollY.toString());
+    localStorage.setItem("accountTab", selectedTab);
+    navigator.clipboard.writeText(accountNumber).catch(() => {});
     window.location.href = "supertoss://send";
   };
 
   const openKakaoBankPayment = (kakaoLink: string) => {
+    localStorage.setItem("accountScrollY", window.scrollY.toString());
+    localStorage.setItem("accountTab", selectedTab);
     window.location.href = kakaoLink;
   };
 

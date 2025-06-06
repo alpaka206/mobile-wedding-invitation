@@ -15,8 +15,22 @@ const GuestBook = lazy(() => import("./components/GuestBook/GuestBook"));
 
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [showWelcome, setShowWelcome] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(() => {
+    const navEntries = performance.getEntriesByType("navigation");
+    const navType = (navEntries[0] as PerformanceNavigationTiming)?.type;
+    const isFirstVisitInSession = !localStorage.getItem("visited");
+
+    if (navType === "reload") {
+      localStorage.removeItem("hasSeenWelcome");
+      return true;
+    } else if (navType === "navigate" && isFirstVisitInSession) {
+      localStorage.removeItem("hasSeenWelcome");
+      return true;
+    } else {
+      return false;
+    }
+  });
 
   const toggleAudio = () => {
     const audio = audioRef.current;
@@ -35,7 +49,6 @@ function App() {
 
   const handleWelcomeClose = () => {
     setShowWelcome(false);
-    // 재생은 사용자가 명시적으로 아이콘 클릭할 때만 실행
   };
 
   useEffect(() => {
