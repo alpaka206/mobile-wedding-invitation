@@ -10,14 +10,19 @@ export default function WelcomeOverlay({ onClose }: WelcomeOverlayProps) {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     const timeout = setTimeout(() => {
       setFadeOut(true);
       setTimeout(() => {
         onClose();
+        document.body.style.overflow = "";
       }, 600);
     }, 4000);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      document.body.style.overflow = "";
+    };
   }, [onClose]);
 
   return (
