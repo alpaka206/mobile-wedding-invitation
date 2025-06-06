@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import * as styles from "./Gallery.css";
 import { icons } from "../../assets/images";
 
@@ -44,6 +44,22 @@ function Gallery() {
     }
   };
 
+  useEffect(() => {
+    if (selectedIndex !== null) {
+      // 모달이 열렸을 때 pushState
+      window.history.pushState({ modal: true }, "", window.location.href);
+
+      const handlePopState = () => {
+        setSelectedIndex(null); // 뒤로가기 누르면 모달 닫기
+      };
+
+      window.addEventListener("popstate", handlePopState);
+
+      return () => {
+        window.removeEventListener("popstate", handlePopState);
+      };
+    }
+  }, [selectedIndex]);
   return (
     <div className={styles.galleryContainer}>
       <div className={styles.galleryTitle}>GALLERY</div>

@@ -37,6 +37,27 @@ function Location() {
     document.head.appendChild(script);
   }, []);
 
+  useEffect(() => {
+    const savedScrollY = sessionStorage.getItem("locationScrollY");
+    if (savedScrollY) {
+      window.scrollTo(0, parseInt(savedScrollY));
+      sessionStorage.removeItem("locationScrollY");
+    }
+
+    const handlePageShow = () => {
+      const y = sessionStorage.getItem("locationScrollY");
+      if (y) {
+        window.scrollTo(0, parseInt(y));
+        sessionStorage.removeItem("locationScrollY");
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, []);
+
   const handleToggleLock = () => {
     setIsLocked(!isLocked);
     setShowWarning(false);
@@ -53,38 +74,39 @@ function Location() {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const { lat, lng, name } = location;
 
+    sessionStorage.setItem("locationScrollY", window.scrollY.toString());
+
     const appUrl = `nmap://route/public?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
       name
     )}`;
-    const webUrl = `https://map.naver.com/p/directions/-/${location.lng},${
-      location.lat
-    },${encodeURIComponent(location.name)}/-/car`;
+    const fallbackUrl = `https://map.naver.com/p/directions/-/${lng},${lat},${encodeURIComponent(
+      name
+    )}/-/car`;
 
     if (!isMobile) {
-      // PC에서는 그냥 웹 URL로 이동
-      window.open(webUrl, "_blank");
+      window.open(fallbackUrl, "_blank");
       return;
     }
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = appUrl;
+    document.body.appendChild(iframe);
 
-    // 모바일: 앱 시도 후 fallback
-    const timeout = setTimeout(() => {
-      window.location.href = webUrl;
-    }, 500);
-
-    // 앱 열기 시도
-    window.location.href = appUrl;
-
-    // 사용자가 앱으로 이동하면 timeout 제거
-    window.addEventListener("pagehide", () => clearTimeout(timeout));
+    setTimeout(() => {
+      window.open(fallbackUrl, "_blank");
+      document.body.removeChild(iframe);
+    }, 800);
   };
 
   const openKakaoMap = () => {
+    sessionStorage.setItem("locationScrollY", window.scrollY.toString());
     window.open(
       `https://map.kakao.com/link/to/${location.name},${location.lat},${location.lng}`
     );
   };
 
   const openTMapWeb = () => {
+    sessionStorage.setItem("locationScrollY", window.scrollY.toString());
     window.open(`https://tmap.life/5acd494a`);
   };
 
