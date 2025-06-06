@@ -25,10 +25,15 @@ export const container = style({
 export const soundImage = style({
   position: "fixed",
   top: "16px",
-  right: "calc((100vw - 400px) / 2 + 10px)", // 중앙 앱 기준 우측 정렬
+  right: "16px",
   width: "32px",
   height: "32px",
   objectFit: "contain",
   cursor: "pointer",
   zIndex: 10000,
+  "@media": {
+    "screen and (min-width: 768px)": {
+      right: "calc((100vw - 400px) / 2 + 10px)",
+    },
+  },
 });
