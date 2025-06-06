@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Contact_container,
   Contact_text,
@@ -9,6 +9,16 @@ import ContactModal from "../ContactModal/ContactModal";
 
 function Contact() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    sessionStorage.setItem("contactModalOpen", "true");
+    sessionStorage.setItem("contactScroll", window.scrollY.toString());
+    return () => {
+      sessionStorage.removeItem("contactModalOpen");
+      sessionStorage.removeItem("contactScroll");
+    };
+  }, []);
+
   return (
     <div className={Contact_container}>
       <div className={Contact_text}>
