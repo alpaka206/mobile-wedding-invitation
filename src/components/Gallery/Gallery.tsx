@@ -46,11 +46,10 @@ function Gallery() {
 
   useEffect(() => {
     if (selectedIndex !== null) {
-      // 모달이 열렸을 때 pushState
       window.history.pushState({ modal: true }, "", window.location.href);
 
       const handlePopState = () => {
-        setSelectedIndex(null); // 뒤로가기 누르면 모달 닫기
+        setSelectedIndex(null);
       };
 
       window.addEventListener("popstate", handlePopState);
