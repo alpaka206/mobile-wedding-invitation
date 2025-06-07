@@ -7,6 +7,7 @@ const KAKAO_API_KEY = import.meta.env.VITE_KAKAO_API_KEY;
 function Location() {
   const [isLocked, setIsLocked] = useState(true);
   const [showWarning, setShowWarning] = useState(false);
+  const [showAppWarning, setShowAppWarning] = useState(false);
 
   const location = {
     name: "제이오스티엘",
@@ -76,26 +77,28 @@ function Location() {
 
     sessionStorage.setItem("locationScrollY", window.scrollY.toString());
 
-    const appUrl = `nmap://route/public?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
-      name
-    )}`;
-    const fallbackUrl = `https://map.naver.com/p/directions/-/${lng},${lat},${encodeURIComponent(
-      name
-    )}/-/car`;
-
     if (!isMobile) {
-      window.open(fallbackUrl, "_blank");
+      window.open(
+        `https://map.naver.com/p/directions/-/${lng},${lat},${encodeURIComponent(
+          name
+        )}/-/car`,
+        "_blank"
+      );
       return;
     }
-    const iframe = document.createElement("iframe");
-    iframe.style.display = "none";
-    iframe.src = appUrl;
-    document.body.appendChild(iframe);
+    const fallbackTimer = setTimeout(() => {
+      // 앱 미설치로 판단되면 사용자에게 알림 표시
+      setShowAppWarning(true);
+      setTimeout(() => setShowAppWarning(false), 2000);
+    }, 1200); // 너무 짧으면 앱 전환 전 실행됨
 
-    setTimeout(() => {
-      window.open(fallbackUrl, "_blank");
-      document.body.removeChild(iframe);
-    }, 800);
+    // 딥링크 시도
+    window.location.href = `nmap://route/car?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
+      name
+    )}`;
+
+    // 앱 전환 성공하면 페이지 사라지므로 timeout 제거
+    window.addEventListener("pagehide", () => clearTimeout(fallbackTimer));
   };
 
   const openKakaoMap = () => {
@@ -154,7 +157,11 @@ function Location() {
           <span className={styles.routeLabel}>티맵</span>
         </button>
       </div>
-      {/* <div className={styles.toggleContainer}>오시는길</div> */}
+      {showAppWarning && (
+        <div className={styles.appWarningToast}>
+          네이버 지도 앱이 설치되어 있지 않습니다.
+        </div>
+      )}
       <div className={styles.LocationContainer}>
         <div className={styles.LocationElementTitle}>
           <img
