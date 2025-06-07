@@ -120,8 +120,13 @@ export const routeButton = style({
   transition: "all 0.2s",
   boxShadow:
     "0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -2px rgba(0, 0, 0, .1)",
-  ":hover": {
-    backgroundColor: "#e6e6e6",
+  WebkitTapHighlightColor: "transparent", // 모바일 터치 하이라이트 제거
+  "@media": {
+    "screen and (min-width: 768px)": {
+      ":hover": {
+        backgroundColor: "#e6e6e6",
+      },
+    },
   },
 });
 
@@ -170,4 +175,38 @@ export const LocationElement = style({
 export const locationIcon = style({
   width: "16px",
   height: "16px",
+});
+
+const alertFadeInOut = keyframes({
+  "0%": {
+    opacity: 0,
+    transform: "translateX(-50%) translateY(10px)",
+  },
+  "10%": {
+    opacity: 1,
+    transform: "translateX(-50%) translateY(0)",
+  },
+  "90%": {
+    opacity: 1,
+    transform: "translateX(-50%) translateY(0)",
+  },
+  "100%": {
+    opacity: 0,
+    transform: "translateX(-50%) translateY(10px)",
+  },
+});
+
+export const appWarningToast = style({
+  position: "fixed",
+  bottom: "80px",
+  left: "50%",
+  transform: "translateX(-50%)",
+  backgroundColor: "rgba(0, 0, 0, 0.8)",
+  color: "#fff",
+  padding: "10px 16px",
+  borderRadius: "8px",
+  minWidth: "240px",
+  fontSize: "14px",
+  zIndex: 9999,
+  animation: `${alertFadeInOut} 2s ease-in-out`,
 });
