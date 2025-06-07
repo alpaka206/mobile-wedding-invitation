@@ -38,8 +38,8 @@ function App() {
     let hideTimer: ReturnType<typeof setTimeout>;
 
     if (isPlaying) {
-      setShowMeta(true); // 즉시 보이게
-      hideTimer = setTimeout(() => setShowMeta(false), 3000); // 더 천천히 사라짐
+      setShowMeta(true);
+      hideTimer = setTimeout(() => setShowMeta(false), 3000);
     }
 
     return () => clearTimeout(hideTimer);
@@ -111,7 +111,6 @@ function App() {
         </div>
       )}
 
-      {/* 오디오 태그는 항상 존재 */}
       <audio ref={audioRef} loop>
         <source src={marriedLife} type="audio/mpeg" />
       </audio>

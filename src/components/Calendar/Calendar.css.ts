@@ -25,7 +25,6 @@ export const dateText = style({
 
 export const calendar = style({
   justifyContent: "center",
-  // width: "100%",
 });
 
 export const weekdays = style({
@@ -56,22 +55,22 @@ export const dateBox = style({
 });
 
 export const highlight = style({
-  position: "relative", // 요소를 배치 가능하도록 변경
-  zIndex: 99, // 다른 요소보다 위에 배치
+  position: "relative",
+  zIndex: 99,
   fontWeight: "600",
   "::after": {
     content: "''",
-    position: "absolute", // 부모 크기를 벗어나도 보이도록 설정
+    position: "absolute",
     top: "62%",
     left: "50%",
-    width: "55px", // 원하는 크기 조절
+    width: "55px",
     height: "55px",
-    transform: "translate(-50%, -50%) ", // 중앙 정렬
-    backgroundImage: `url(${icons.heart1})`,
+    transform: "translate(-50%, -50%) ",
+    backgroundImage: `url(${icons.heart})`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    zIndex: 100, // 부모보다 더 위에 배치
-    pointerEvents: "none", // 클릭 이벤트 방해 방지
+    zIndex: 100,
+    pointerEvents: "none",
   },
 });
 
@@ -89,7 +88,6 @@ export const countdownItem = style({
   alignItems: "center",
   padding: "8px",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
-  // backgroundColor: "#f2eeee",
   backgroundColor: "#f9eeee",
   borderRadius: "5px",
   width: "40px",

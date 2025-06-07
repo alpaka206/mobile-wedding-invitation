@@ -12,8 +12,8 @@ function Location() {
   const location = {
     name: "제이오스티엘",
     address: "서울 구로구 경인로 565",
-    lat: 37.5036422, // 위도
-    lng: 126.879722, // 경도
+    lat: 37.5036422,
+    lng: 126.879722,
   };
 
   useEffect(() => {
@@ -70,7 +70,7 @@ function Location() {
       setTimeout(() => setShowWarning(false), 2000);
     }
   };
-  // 길찾기 버튼 클릭 시 해당 지도 앱으로 이동
+
   const openNaverMap = () => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const { lat, lng, name } = location;
@@ -87,17 +87,14 @@ function Location() {
       return;
     }
     const fallbackTimer = setTimeout(() => {
-      // 앱 미설치로 판단되면 사용자에게 알림 표시
       setShowAppWarning(true);
       setTimeout(() => setShowAppWarning(false), 2000);
-    }, 1200); // 너무 짧으면 앱 전환 전 실행됨
+    }, 1200);
 
-    // 딥링크 시도
     window.location.href = `nmap://route/car?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
       name
     )}`;
 
-    // 앱 전환 성공하면 페이지 사라지므로 timeout 제거
     window.addEventListener("pagehide", () => clearTimeout(fallbackTimer));
   };
 

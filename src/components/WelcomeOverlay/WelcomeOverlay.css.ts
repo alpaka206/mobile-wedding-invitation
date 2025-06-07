@@ -1,7 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
 
-// 부드러운 페이드인
 const fadeIn = keyframes({
   from: { opacity: 0, filter: "blur(2px)" },
   to: { opacity: 1, filter: "blur(0)" },

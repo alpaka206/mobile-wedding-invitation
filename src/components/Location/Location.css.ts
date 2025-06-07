@@ -29,7 +29,7 @@ export const mapOverlay = style({
   height: "100%",
   zIndex: 2,
   backgroundColor: "transparent",
-  pointerEvents: "all", // 실제로 클릭 막기 위해 활성화
+  pointerEvents: "all",
 });
 
 export const lockIconImage = style({
@@ -78,24 +78,15 @@ export const lockNotice = style({
   animation: `${fadeInOut} 2s ease-in-out`,
 });
 
-/* 지도 컨테이너 스타일 */
 export const mapContainer = style({
   width: "100%",
   height: "250px",
   marginTop: "20px",
-  // borderRadius: "10px",
   overflow: "hidden",
   position: "relative",
-  zIndex: "0", // 다른 요소보다 앞에 오지 않도록 조정
-  // "@media": {
-  //   "screen and (max-width: 768px)": {
-  //     width: "90%", // 모바일에서는 더 넓게 차지하도록 조정
-  //     height: "250px",
-  //   },
-  // },
+  zIndex: "0",
 });
 
-/* 길찾기 버튼 스타일 */
 export const routeButtons = style({
   display: "flex",
   justifyContent: "center",
@@ -120,7 +111,7 @@ export const routeButton = style({
   transition: "all 0.2s",
   boxShadow:
     "0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -2px rgba(0, 0, 0, .1)",
-  WebkitTapHighlightColor: "transparent", // 모바일 터치 하이라이트 제거
+  WebkitTapHighlightColor: "transparent",
   "@media": {
     "screen and (min-width: 768px)": {
       ":hover": {
@@ -135,7 +126,6 @@ export const routeImage = style({
   height: "24px",
   objectFit: "contain",
   borderRadius: "6px",
-  // border: "0.5px solid #222222",
   marginRight: "12px",
 });
 
@@ -145,7 +135,6 @@ export const routeLabel = style({
 
 export const toggleContainer = style({
   textAlign: "left",
-  // borderTop: "1px solid #908786",
   padding: "10px",
   width: "90%",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
@@ -154,7 +143,6 @@ export const toggleContainer = style({
 export const LocationContainer = style({
   textAlign: "left",
   padding: "10px 0 0px",
-  // borderTop: "1px solid #908786",
   width: "90%",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
 });
@@ -162,8 +150,8 @@ export const LocationContainer = style({
 export const LocationElementTitle = style({
   padding: "16px 0 8px",
   fontWeight: "600",
-  display: "flex", // 추가
-  alignItems: "center", // 세로 중앙 정렬
+  display: "flex",
+  alignItems: "center",
   gap: "8px",
 });
 

@@ -3,7 +3,6 @@ import { GuestbookItem } from "../types";
 
 export const getGuestbookList = async (): Promise<GuestbookItem[]> => {
   const response = await api.get("/guestbook");
-  console.log("getresponse : ", response);
   return response.data.map(
     (item: {
       id: number;
@@ -23,7 +22,7 @@ export const addGuestbookItem = async (data: {
   message: string;
   password: string;
 }) => {
-  const response = await api.post("/guestbook", data); // 여기도 baseURL/api에서 "/guestbook"으로 정확히 지정!
+  const response = await api.post("/guestbook", data);
   return response.data;
 };
 export const deleteGuestbookItem = async (data: {

@@ -40,7 +40,6 @@ export const Invitation_letter_section = style({
 });
 
 export const Invitation_element_accent = style({
-  // color: "#ff96d0",
   color: "#282828",
   fontSize: "18px",
   fontWeight: 800,
