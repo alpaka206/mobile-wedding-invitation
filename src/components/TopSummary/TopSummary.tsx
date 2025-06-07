@@ -6,7 +6,8 @@ function TopSummary() {
       <img
         src="/img/MainImage.webp"
         className={styles.top_summary_Image}
-        alt="preload"
+        alt="MainImage"
+        loading="eager"
       />
     </div>
   );
