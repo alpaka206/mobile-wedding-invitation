@@ -66,7 +66,6 @@ function Calendar() {
       </div>
 
       <div className={styles.dateDevide}></div>
-      {/* 카운트다운 */}
       <div className={styles.countdown}>
         <div className={styles.countdownItem}>
           <span className={styles.countdownNum}>{timeLeft.days}</span>

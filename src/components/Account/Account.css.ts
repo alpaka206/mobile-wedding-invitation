@@ -1,7 +1,6 @@
 import { style, keyframes } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
 
-// 애니메이션
 const slideUp = keyframes({
   from: { transform: "translateY(20px)", opacity: 0 },
   to: { transform: "translateY(0)", opacity: 1 },
@@ -15,14 +14,12 @@ export const accountHeader = style({
   color: "#555555",
 });
 
-// 전체 컨테이너
 export const container = style({
   width: "100%",
   maxWidth: "400px",
   margin: "0 auto",
 });
 
-// 탭 영역
 export const tabWrapper = style({
   display: "flex",
   justifyContent: "center",
@@ -47,17 +44,14 @@ export const tab = style({
 
 export const activegroomTab = style({
   backgroundColor: "#A2D7F1",
-  // borderBottom: "2px solid black",
   color: "black",
 });
 
 export const activebrideTab = style({
   backgroundColor: "#fad9d9",
-  // borderBottom: "2px solid black",
   color: "black",
 });
 
-// 계좌 리스트 컨테이너
 export const accountListContainer = style({
   display: "flex",
   flexDirection: "column",
@@ -66,7 +60,6 @@ export const accountListContainer = style({
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
 });
 
-// 계좌 카드
 export const accountCard = style({
   backgroundColor: "#fff",
   borderRadius: "12px",
@@ -95,7 +88,6 @@ export const accountOwner = style({
   paddingLeft: "10px",
 });
 
-// 버튼 그룹
 export const buttonGroup = style({
   display: "flex",
   gap: "10px",

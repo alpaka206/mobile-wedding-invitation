@@ -121,7 +121,6 @@ export const modalContent = style({
   justifyContent: "center",
   alignItems: "center",
   overflow: "hidden",
-  // borderRadius: "10px",
 });
 
 export const modalImage = style({
@@ -139,7 +138,7 @@ export const navButton = style({
   fontSize: "32px",
   color: "#fff",
   backgroundColor: "transparent",
-  border: "none", // 👈 밝은 테두리
+  border: "none",
   padding: "4px 10px",
   borderRadius: "50%",
   fontWeight: "bold",

@@ -23,8 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
-.env
 # src/assets/img/webp/
 # src/assets/img/
 # src/assets/gallery/webp/
 # src/assets/gallery/
+.env
+.env.production

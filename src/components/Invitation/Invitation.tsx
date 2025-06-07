@@ -21,7 +21,6 @@ function Invitation() {
         alt="Main-Image"
         className={Styled.Invitation_heart_image}
       />
-      {/* <div className={Styled.DottedLine} /> */}
       <section className={Styled.Invitation_letter_section}>
         <div className={Styled.Invitation_element}>
           <span className={Styled.Invitation_element_accent}>기</span>분이

@@ -27,13 +27,11 @@ fs.readdirSync(inputDir).forEach((file) => {
   sharp(inputPath)
     .resize({ width: 500 })
     .toFile(path.join(thumbDir, `${fileName}.webp`))
-    .then(() => console.log(`Thumb created: ${fileName}`))
     .catch(console.error);
 
   // 확대용: 1920px
   sharp(inputPath)
     .resize({ width: 1920 })
     .toFile(path.join(fullDir, `${fileName}.webp`))
-    .then(() => console.log(`Full created: ${fileName}`))
     .catch(console.error);
 });
