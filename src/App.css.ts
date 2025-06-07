@@ -22,18 +22,73 @@ export const container = style({
   },
 });
 
-export const soundImage = style({
+export const musicWrapper = style({
   position: "fixed",
-  top: "16px",
-  right: "16px",
-  width: "32px",
-  height: "32px",
-  objectFit: "contain",
+  bottom: "20px",
+  right: "20px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-start",
+  width: "40px",
+  height: "40px",
+  overflow: "hidden",
+  borderRadius: "16px",
   cursor: "pointer",
+  transition: "width 1.8s ease-in-out",
   zIndex: 10000,
-  "@media": {
-    "screen and (min-width: 768px)": {
-      right: "calc((100vw - 400px) / 2 + 10px)",
-    },
-  },
+});
+
+export const expanded = style({
+  width: "180px", // 메타 정보 포함 너비
+});
+
+export const musicLeft = style({
+  position: "relative",
+  width: "40px",
+  height: "40px",
+  flexShrink: 0,
+});
+
+export const musicBackground = style({
+  width: "40px",
+  height: "40px",
+  objectFit: "cover",
+  borderRadius: "16px 0 0 16px",
+});
+
+export const musicIcon = style({
+  position: "absolute",
+  top: "50%",
+  left: "20px",
+  transform: "translate(-50%, -50%)",
+  width: "20px",
+  height: "20px",
+  zIndex: 2,
+});
+
+export const musicMetaWrapper = style({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  // transform: "translateX(0px)",
+  transition: " transform 1s ease",
+});
+
+export const musicMeta = style({
+  color: "#fff",
+  backgroundColor: "rgba(0, 0, 0, 0.6)",
+  padding: "6px 0px",
+  width: "140px",
+  borderRadius: "0px 16px 16px 0px",
+  fontSize: "12px",
+});
+
+export const musicTitle = style({
+  fontWeight: 600,
+  fontSize: "13px",
+});
+
+export const musicArtist = style({
+  fontSize: "11px",
+  color: "#ccc",
 });

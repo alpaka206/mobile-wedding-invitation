@@ -23,5 +23,7 @@ export const icons = {
   invitation5: "/img/Invitation5.webp",
   test1: "/img/test1.webp",
   test2: "/img/test2.webp",
+  play: "/img/play.webp",
+  stop: "/img/stop.webp",
   invatationImg: "/gallery/full/image31.webp",
 };
