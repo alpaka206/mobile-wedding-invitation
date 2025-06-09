@@ -7,6 +7,8 @@ export const globalTheme = createGlobalTheme(":root", {
     PlayfairDisplay: "'PlayfairDisplay', serif",
     Cormorant: "Cormorant Infant, serif",
     DancingScript: "Cormorant_Infant, serif",
+    RomanceDelighter: "RomanceDelighter",
+    IBMPlexSans: "IBMPlexSans",
   },
 });
 
