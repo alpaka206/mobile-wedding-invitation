@@ -97,8 +97,8 @@ function App() {
               className={styles.musicBackground}
             />
             <img
-              src={isPlaying ? icons.play : icons.stop}
-              alt={isPlaying ? "노래재생" : "음소거"}
+              src={isPlaying ? icons.stop : icons.play}
+              alt={isPlaying ? "음소거" : "노래재생"}
               className={styles.musicIcon}
             />
           </div>
