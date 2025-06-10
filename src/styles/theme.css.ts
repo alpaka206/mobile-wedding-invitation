@@ -2,12 +2,10 @@ import { createGlobalTheme, globalStyle } from "@vanilla-extract/css";
 
 export const globalTheme = createGlobalTheme(":root", {
   fontFamily: {
-    GowunDodum: "'GowunDodum', sans-serif",
-    CrimsonPro: "'CrimsonPro', serif",
-    PlayfairDisplay: "'PlayfairDisplay', serif",
-    Cormorant: "Cormorant Infant, serif",
-    DancingScript: "Cormorant_Infant, serif",
+    GowunDodum: "GowunDodum",
+    PlayfairDisplay: "PlayfairDisplay",
     RomanceDelighter: "RomanceDelighter",
+    Cormorant: "Cormorant",
     IBMPlexSans: "IBMPlexSans",
   },
 });

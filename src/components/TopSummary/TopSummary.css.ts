@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { globalTheme } from "../../styles/theme.css";
-import BGImage from "/test.webp";
+import BGImage from "/img/MainImage.webp";
 
 export const top_summary_container = style({
   width: "100%",
@@ -54,6 +54,7 @@ export const brideName = style({
   display: "block",
   color: "#FFFFFF",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
 });
 
 export const groomLabel = style({
@@ -65,6 +66,7 @@ export const groomName = style({
   display: "block",
   color: "#FFFFFF",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
 });
 
 export const wedding_day = style({
@@ -106,7 +108,7 @@ export const bottom_date = style({
   justifyContent: "space-between",
   alignItems: "center",
   fontSize: "clamp(14px, 5vw, 20px)",
-  fontWeight: 100,
+  fontWeight: 300,
   fontFamily: globalTheme.fontFamily.Cormorant,
   marginBottom: "4px",
   width: "calc(100% - 40px)",

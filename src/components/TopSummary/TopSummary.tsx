@@ -3,7 +3,6 @@ import * as styles from "./TopSummary.css";
 function TopSummary() {
   return (
     <>
-      <img src="/test.webp" style={{ display: "none" }} alt="preload" />
       <div className={styles.top_summary_container}>
         <div className={styles.top_summary_background}>
           <div className={styles.top_text_top}>

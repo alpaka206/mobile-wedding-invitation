@@ -15,6 +15,7 @@ export const guestBookTitle = style({
 
 export const guestBookTitleKOR = style({
   fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
   fontSize: "15px",
   marginBottom: "30px",
   whiteSpace: "nowrap",
