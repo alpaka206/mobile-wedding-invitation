@@ -21,6 +21,7 @@ export const DottedLine = style({
 
 export const Invitation_container = style({
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
   fontSize: "14px",
   color: "#282828",
 });

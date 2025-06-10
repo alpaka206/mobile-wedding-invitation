@@ -26,6 +26,7 @@ export const tabWrapper = style({
   marginBottom: "10px",
   marginTop: "30px",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
 });
 
 export const tab = style({
@@ -58,6 +59,7 @@ export const accountListContainer = style({
   gap: "12px",
   padding: "10px",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
 });
 
 export const accountCard = style({
@@ -100,10 +102,10 @@ export const copyButton = style({
   color: "#333",
   border: "none",
   borderRadius: "6px",
-  fontWeight: "bold",
   fontSize: "14px",
   cursor: "pointer",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 700,
 });
 
 export const kakaoPayButton = style({
@@ -113,10 +115,10 @@ export const kakaoPayButton = style({
   color: "#333b58",
   border: "none",
   borderRadius: "6px",
-  fontWeight: "bold",
   fontSize: "14px",
   cursor: "pointer",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 700,
 });
 
 export const tossPayButton = style({
@@ -126,14 +128,15 @@ export const tossPayButton = style({
   color: "#ffffff",
   border: "none",
   borderRadius: "6px",
-  fontWeight: "bold",
   fontSize: "14px",
   cursor: "pointer",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 700,
 });
 
 export const accountTitle = style({
   fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
   fontSize: "15px",
   margin: "0px 0 30px",
   whiteSpace: "nowrap",
@@ -141,6 +144,7 @@ export const accountTitle = style({
 
 export const accountText = style({
   fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
   fontSize: "15px",
   marginBottom: "9px",
   whiteSpace: "nowrap",

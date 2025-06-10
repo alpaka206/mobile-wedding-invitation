@@ -47,7 +47,7 @@ export const textBox = style({
 
 export const title = style({
   fontSize: "1.8rem",
-  fontWeight: "bold",
+  fontWeight: 700,
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
   marginBottom: "1rem",
   color: "#333",
@@ -57,6 +57,7 @@ export const messageWrapper = style({
   fontSize: "1.1rem",
   lineHeight: 1.7,
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
   color: "#555",
   position: "relative",
   display: "inline-block",

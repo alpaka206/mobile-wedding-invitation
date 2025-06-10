@@ -138,6 +138,7 @@ export const toggleContainer = style({
   padding: "10px",
   width: "90%",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
 });
 
 export const LocationContainer = style({
@@ -145,6 +146,7 @@ export const LocationContainer = style({
   padding: "10px 0 0px",
   width: "90%",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
 });
 
 export const LocationElementTitle = style({
