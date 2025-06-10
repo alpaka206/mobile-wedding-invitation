@@ -99,7 +99,7 @@ export const modalTopBar = style({
 
 export const modalCounter = style({
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
-  fontWeight: "bold",
+  fontWeight: 700,
   fontSize: "16px",
   color: "#fff",
 });
@@ -150,6 +150,7 @@ export const navButtonLeft = style([
   {
     left: "10px",
     fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+    fontWeight: 400,
   },
 ]);
 
@@ -158,5 +159,6 @@ export const navButtonRight = style([
   {
     right: "10px",
     fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+    fontWeight: 400,
   },
 ]);

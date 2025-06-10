@@ -18,6 +18,7 @@ export const dateHeader = style({
 
 export const dateText = style({
   fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
   fontSize: "15px",
   marginBottom: "9px",
   whiteSpace: "nowrap",
@@ -39,6 +40,7 @@ export const weekdays = style({
 
 export const dates = style({
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
   display: "grid",
   gridTemplateColumns: "repeat(7, 1fr)",
   gap: "5px",
@@ -88,6 +90,7 @@ export const countdownItem = style({
   alignItems: "center",
   padding: "8px",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
   backgroundColor: "#f9eeee",
   borderRadius: "5px",
   width: "40px",
@@ -118,6 +121,7 @@ export const dateDevide = style({
 
 export const countTextSummary = style({
   fontFamily: ` ${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
   fontSize: "16px",
   color: "#544f4f",
   padding: "26px 0 10px 0",

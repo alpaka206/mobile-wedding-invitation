@@ -1,95 +1,24 @@
 @font-face {
-  font-family: "GowunDodum";
-  src: url("/fonts/GowunDodum/GowunDodum-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "NanumMyeongjo";
-  src: url("/fonts/NaNum/NanumMyeongjo.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "NanumMyeongjo";
-  src: url("/fonts/NaNum/NanumMyeongjoBold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "NanumMyeongjo";
-  src: url("/fonts/NaNum/NanumMyeongjoExtraBold.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Crimson Pro";
-  src: url("/fonts/CrimsonPro/CrimsonPro-Light.ttf") format("truetype");
+  font-family: "Cormorant";
+  src: url("/fonts/Cormorant_Infant/CormorantInfant-Light.ttf")
+    format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Crimson Pro";
-  src: url("/fonts/CrimsonPro/CrimsonPro-Regular.ttf") format("truetype");
+  font-family: "GowunDodum";
+  src: url("/fonts/GowunDodum/GowunDodum-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Crimson Pro";
-  src: url("/fonts/CrimsonPro/CrimsonPro-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Crimson Pro";
-  src: url("/fonts/CrimsonPro/CrimsonPro-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Crimson Pro";
-  src: url("/fonts/CrimsonPro/CrimsonPro-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Crimson Pro";
-  src: url("/fonts/CrimsonPro/CrimsonPro-ExtraBold.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Crimson Pro";
-  src: url("/fonts/CrimsonPro/CrimsonPro-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "CAFE24";
-  src: url("/fonts/CAFE24/CAFE24Classic.otf") format("opentype");
-  font-weight: 600;
+  font-family: "IBMPlexSans";
+  src: url("/fonts/IBMPlexSans/IBMPlexSansKR-Light.ttf") format("truetype");
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
@@ -104,228 +33,10 @@
 }
 
 @font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard/Pretendard-Thin.otf") format("opentype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard/Pretendard-ExtraLight.otf") format("opentype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard/Pretendard-Light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard/Pretendard-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard/Pretendard-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard/Pretendard-SemiBold.otf") format("opentype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard/Pretendard-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard/Pretendard-ExtraBold.otf") format("opentype");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard/Pretendard-Black.otf") format("opentype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant_Infant";
-  src: url("/fonts/Cormorant_Infant/CormorantInfant-Regular.ttf")
-    format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant_Infant";
-  src: url("/fonts/Cormorant_Infant/CormorantInfant-Italic.ttf")
-    format("truetype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant_Infant";
-  src: url("/fonts/Cormorant_Infant/CormorantInfant-Medium.ttf")
-    format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant_Infant";
-  src: url("/fonts/Cormorant_Infant/CormorantInfant-MediumItalic.ttf")
-    format("truetype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant_Infant";
-  src: url("/fonts/Cormorant_Infant/CormorantInfant-SemiBold.ttf")
-    format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant_Infant";
-  src: url("/fonts/Cormorant_Infant/CormorantInfant-SemiBoldItalic.ttf")
-    format("truetype");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant_Infant";
-  src: url("/fonts/Cormorant_Infant/CormorantInfant-BoldItalic.ttf")
-    format("truetype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant_Infant";
-  src: url("/fonts/Cormorant_Infant/CormorantInfant-Bold.ttf")
-    format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant_Infant";
-  src: url("/fonts/Cormorant_Infant/CormorantInfant-Light.ttf")
-    format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant_Infant";
-  src: url("/fonts/Cormorant_Infant/CormorantInfant-LightItalic.ttf")
-    format("truetype");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Dancing Script";
-  src: url("/fonts/DancingScript/DancingScript-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Dancing Script";
-  src: url("/fonts/DancingScript/DancingScript-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Dancing Script";
-  src: url("/fonts/DancingScript/DancingScript-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Dancing Script";
-  src: url("/fonts/DancingScript/DancingScript-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "RomanceDelighter";
   src: url("/fonts/RomanceDelighter/romance-delighter.bold.ttf")
     format("truetype");
   font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "RomanceDelighter";
-  src: url("/fonts/RomanceDelighter/romance-delighter.regular.ttf")
-    format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "IBMPlexSans";
-  src: url("/fonts/IBMPlexSans/IBMPlexSansKR-ExtraLight.ttf") format("truetype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "IBMPlexSans";
-  src: url("/fonts/IBMPlexSans/IBMPlexSansKR-Light.ttf") format("truetype");
-  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }

@@ -16,6 +16,7 @@ export const Modal_overlay = style({
 
 export const Modal_content = style({
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
+  fontWeight: 400,
   backgroundColor: "#fff",
   borderRadius: "8px",
   width: "90%",
