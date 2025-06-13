@@ -20,8 +20,14 @@ export const galleryItem = style({
   cursor: "pointer",
   borderRadius: "5px",
   transition: "transform 0.3s ease",
+  WebkitTapHighlightColor: "transparent", // 모바일 탭 효과 제거
+  userSelect: "none", // 텍스트 선택 방지
+  outline: "none", // 클릭 시 테두리 제거
   ":hover": {
     transform: "scale(1.05)",
+  },
+  ":active": {
+    filter: "none", // 클릭 시 색상 변화 제거
   },
 });
 
