@@ -14,6 +14,14 @@ function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
 
+  const closeModal = () => {
+    if (window.history.state !== null) {
+      window.history.back();
+    } else {
+      setSelectedIndex(null); // fallback
+    }
+  };
+
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -102,11 +110,14 @@ function Gallery() {
       {selectedIndex !== null && (
         <div
           className={styles.modal}
-          onClick={() => setSelectedIndex(null)}
+          onClick={closeModal}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <div className={styles.modalTopBar}>
+          <div
+            className={styles.modalTopBar}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className={styles.modalCounter}>
               {selectedIndex + 1} / {fullList.length}
             </div>
@@ -114,13 +125,16 @@ function Gallery() {
               className={styles.modalCloseButton}
               onClick={(e) => {
                 e.stopPropagation();
-                setSelectedIndex(null);
+                closeModal();
               }}
             >
               ✕
             </button>
           </div>
-          <div className={styles.modalContent}>
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
             <button onClick={showPrevImage} className={styles.navButtonLeft}>
               &lt;
             </button>

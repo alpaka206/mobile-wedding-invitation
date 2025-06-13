@@ -1,12 +1,20 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import * as Style from "./ContactModal.css";
 import { FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+
 interface ContactModalProps {
-  onClose: () => void; // 함수 타입 명시
+  onClose: () => void;
 }
 
 function ContactModal({ onClose }: ContactModalProps) {
+  const closeModal = useCallback(() => {
+    // history에 추가했던 pop 제거
+    if (window.history.state !== null) {
+      window.history.back();
+    }
+  }, []);
+
   const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       onClose();
@@ -14,7 +22,7 @@ function ContactModal({ onClose }: ContactModalProps) {
   };
 
   useEffect(() => {
-    window.history.pushState(null, "", window.location.href);
+    window.history.pushState({ modal: true }, "", window.location.href);
     const handlePopState = () => {
       onClose();
     };
@@ -26,8 +34,8 @@ function ContactModal({ onClose }: ContactModalProps) {
 
   return (
     <div className={Style.Modal_overlay} onClick={handleOverlayClick}>
-      <div className={Style.Modal_content}>
-        <button className={Style.Close_button} onClick={onClose}>
+      <div className={Style.Modal_content} onClick={(e) => e.stopPropagation()}>
+        <button className={Style.Close_button} onClick={closeModal}>
           X
         </button>
         <div className={Style.ContactModal_container}>
