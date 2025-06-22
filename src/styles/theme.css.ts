@@ -18,8 +18,8 @@ globalStyle("html, body", {
   boxSizing: "border-box",
   overflowY: "auto", // 세로 스크롤만 허용
   overflowX: "hidden", // 좌우 스크롤 확실히 차단
-  overscrollBehavior: "none",
-  touchAction: "pan-y",
+  // overscrollBehavior: "none",
+  // touchAction: "pan-y",
   scrollbarWidth: "none",
   msOverflowStyle: "none",
   backgroundColor: "#ffffff",
