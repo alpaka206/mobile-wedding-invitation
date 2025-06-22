@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import * as styles from "./Gallery.css";
 import { icons } from "../../assets/images";
 
@@ -12,7 +12,7 @@ const fullList = Array.from(
 function Gallery() {
   const [showAll, setShowAll] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const touchStartX = useRef<number | null>(null);
+  // const touchStartX = useRef<number | null>(null);
 
   const closeModal = () => {
     if (window.history.state !== null) {
@@ -22,17 +22,17 @@ function Gallery() {
     }
   };
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
+  // const handleTouchStart = (e: React.TouchEvent) => {
+  //   touchStartX.current = e.touches[0].clientX;
+  // };
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return;
-    const diffX = touchStartX.current - e.changedTouches[0].clientX;
-    if (diffX > 50) showNextImage();
-    else if (diffX < -50) showPrevImage();
-    touchStartX.current = null;
-  };
+  // const handleTouchEnd = (e: React.TouchEvent) => {
+  //   if (touchStartX.current === null) return;
+  //   const diffX = touchStartX.current - e.changedTouches[0].clientX;
+  //   if (diffX > 50) showNextImage();
+  //   else if (diffX < -50) showPrevImage();
+  //   touchStartX.current = null;
+  // };
 
   const showPrevImage = (e?: React.MouseEvent | TouchEvent) => {
     e?.stopPropagation?.();
@@ -111,8 +111,8 @@ function Gallery() {
         <div
           className={styles.modal}
           onClick={closeModal}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
+          // onTouchStart={handleTouchStart}
+          // onTouchEnd={handleTouchEnd}
         >
           <div
             className={styles.modalTopBar}
