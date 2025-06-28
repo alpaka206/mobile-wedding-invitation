@@ -1,4 +1,28 @@
-import { style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
+
+const softPulse = keyframes({
+  "0%": {
+    boxShadow: "0 0 0 0 rgba(255, 192, 203, 0.6)",
+    transform: "scale(1) rotate(0deg)",
+  },
+  "30%": {
+    boxShadow: "0 0 0 6px rgba(255, 192, 203, 0.3)",
+    transform: "scale(1.05) rotate(-8deg)",
+  },
+  "60%": {
+    boxShadow: "0 0 0 10px rgba(255, 192, 203, 0)",
+    transform: "scale(1.03) rotate(8deg)",
+  },
+  "100%": {
+    boxShadow: "0 0 0 0 rgba(255, 192, 203, 0)",
+    transform: "scale(1) rotate(0deg)",
+  },
+});
+
+export const attention = style({
+  animation: `${softPulse} 2.5s ease-in-out infinite`,
+  borderRadius: "20px",
+});
 
 export const container = style({
   position: "relative",
