@@ -15,6 +15,7 @@ export const locationTitle = style({
   fontFamily: `${globalTheme.fontFamily.PlayfairDisplay}`,
   fontWeight: "400",
   padding: "50px 0 20px",
+  userSelect: "none",
 });
 export const mapContent = style({
   width: "100%",
@@ -131,6 +132,7 @@ export const routeImage = style({
 
 export const routeLabel = style({
   fontWeight: "500",
+  userSelect: "none",
 });
 
 export const toggleContainer = style({
@@ -155,6 +157,7 @@ export const LocationElementTitle = style({
   display: "flex",
   alignItems: "center",
   gap: "8px",
+  userSelect: "none",
 });
 
 export const LocationElement = style({

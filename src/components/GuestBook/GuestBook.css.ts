@@ -4,6 +4,7 @@ import { globalTheme } from "../../styles/theme.css";
 export const container = style({
   width: "100%",
   marginBottom: "50px",
+  userSelect: "none",
 });
 
 export const guestBookTitle = style({

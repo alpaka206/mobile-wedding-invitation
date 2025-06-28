@@ -7,6 +7,7 @@ export const invitationTitle = style({
   fontWeight: "400",
   padding: "80px 0 18px",
   color: "#555555",
+  userSelect: "none",
 });
 
 export const DottedLine = style({

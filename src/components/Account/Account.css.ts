@@ -18,6 +18,7 @@ export const container = style({
   width: "100%",
   maxWidth: "400px",
   margin: "0 auto",
+  userSelect: "none",
 });
 
 export const tabWrapper = style({

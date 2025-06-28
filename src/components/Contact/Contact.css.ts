@@ -5,6 +5,7 @@ export const Contact_container = style({
   marginTop: "21px",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
   fontWeight: 400,
+  userSelect: "none",
 });
 
 export const Contact_text = style({

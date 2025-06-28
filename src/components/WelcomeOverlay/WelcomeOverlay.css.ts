@@ -43,6 +43,7 @@ export const textBox = style({
   color: "#444",
   animation: `${fadeIn} 2.5s ease`,
   padding: "0 24px",
+  userSelect: "none",
 });
 
 export const title = style({
@@ -56,6 +57,7 @@ export const title = style({
 export const messageWrapper = style({
   fontSize: "1.1rem",
   lineHeight: 1.7,
+  minHeight: "70px",
   fontFamily: `${globalTheme.fontFamily.GowunDodum}`,
   fontWeight: 400,
   color: "#555",
