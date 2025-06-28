@@ -101,7 +101,7 @@ function App() {
         <div
           className={`${styles.musicWrapper} ${
             isPlaying && showMeta ? styles.expanded : ""
-          } ${hasPlayed && styles.attention}`}
+          } ${!hasPlayed && styles.attention}`}
           onClick={toggleAudio}
         >
           <div className={styles.musicLeft}>
