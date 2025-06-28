@@ -25,6 +25,10 @@ globalStyle("html, body", {
   backgroundColor: "#ffffff",
 });
 
+globalStyle("#root, main", {
+  overflowX: "hidden",
+});
+
 // 크롬, 사파리, 엣지에서 스크롤 바 숨기기
 globalStyle("html::-webkit-scrollbar, body::-webkit-scrollbar", {
   display: "none",
