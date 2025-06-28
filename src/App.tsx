@@ -62,6 +62,14 @@ function App() {
 
   const handleWelcomeClose = () => {
     setShowWelcome(false);
+
+    const audio = audioRef.current;
+    if (audio) {
+      audio
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => console.warn("자동 재생 실패:", err));
+    }
   };
 
   useEffect(() => {
@@ -86,7 +94,7 @@ function App() {
       {!showWelcome && (
         <div
           className={`${styles.musicWrapper} ${
-            isPlaying && showMeta ? styles.expanded : ""
+            isPlaying && showMeta ? styles.expanded : styles.attention
           }`}
           onClick={toggleAudio}
         >
