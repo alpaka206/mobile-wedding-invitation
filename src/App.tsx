@@ -18,6 +18,7 @@ const GuestBook = lazy(() => import("./components/GuestBook/GuestBook"));
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hasPlayed, setHasPlayed] = useState(false);
   const [showMeta, setShowMeta] = useState(false);
   const [showWelcome, setShowWelcome] = useState(() => {
     const navEntries = performance.getEntriesByType("navigation");
@@ -34,6 +35,7 @@ function App() {
       return false;
     }
   });
+
   useEffect(() => {
     let hideTimer: ReturnType<typeof setTimeout>;
 
@@ -46,6 +48,7 @@ function App() {
   }, [isPlaying]);
 
   const toggleAudio = () => {
+    setHasPlayed(true);
     const audio = audioRef.current;
     if (!audio) return;
 
@@ -67,7 +70,10 @@ function App() {
     if (audio) {
       audio
         .play()
-        .then(() => setIsPlaying(true))
+        .then(() => {
+          setIsPlaying(true);
+          setHasPlayed(true);
+        })
         .catch((err) => console.warn("자동 재생 실패:", err));
     }
   };
@@ -94,8 +100,8 @@ function App() {
       {!showWelcome && (
         <div
           className={`${styles.musicWrapper} ${
-            isPlaying && showMeta ? styles.expanded : styles.attention
-          }`}
+            isPlaying && showMeta ? styles.expanded : ""
+          } ${hasPlayed && styles.attention}`}
           onClick={toggleAudio}
         >
           <div className={styles.musicLeft}>
