@@ -7,7 +7,6 @@ export const invitationTitle = style({
   fontWeight: "400",
   padding: "80px 0 18px",
   color: "#555555",
-  userSelect: "none",
 });
 
 export const DottedLine = style({
@@ -25,6 +24,7 @@ export const Invitation_container = style({
   fontWeight: 400,
   fontSize: "14px",
   color: "#282828",
+  userSelect: "none",
 });
 
 export const Invitation_heart_image = style({
