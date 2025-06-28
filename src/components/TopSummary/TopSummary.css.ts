@@ -5,6 +5,7 @@ import BGImage from "/img/MainImage.webp";
 export const top_summary_container = style({
   width: "100%",
   overflow: "hidden",
+  userSelect: "none",
 });
 
 export const top_summary_background = style({

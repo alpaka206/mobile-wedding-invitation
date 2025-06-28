@@ -3,6 +3,7 @@ import { globalTheme } from "../../styles/theme.css";
 
 export const galleryContainer = style({
   textAlign: "center",
+  userSelect: "none",
 });
 
 export const galleryTitle = style({

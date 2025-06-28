@@ -6,6 +6,7 @@ export const dateContainer = style({
   textAlign: "center",
   padding: "30px 0",
   width: "90%",
+  userSelect: "none",
 });
 
 export const dateHeader = style({
