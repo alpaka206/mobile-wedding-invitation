@@ -45,20 +45,20 @@ function GuestBookModal({ onClose }: Props) {
         </h3>
         <input
           className={styles.input}
-          placeholder="이름"
+          placeholder="당신의 예쁜 이름을 남겨주세요!"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <textarea
           className={styles.textarea}
-          placeholder="내용"
+          placeholder="신랑신부에게 따뜻한 한마디를 전해볼까요?"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
         <input
           className={styles.input}
           type="password"
-          placeholder="비밀번호"
+          placeholder="삭제를 위한 비밀번호"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
