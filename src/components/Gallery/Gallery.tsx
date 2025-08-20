@@ -12,7 +12,7 @@ const fullList = Array.from(
 function Gallery() {
   const [showAll, setShowAll] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-
+  const isModalOpen = selectedIndex !== null;
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
   const touchStartTime = useRef<number>(0);
@@ -48,10 +48,10 @@ function Gallery() {
   const SWIPE_MAX_DURATION = 800;
 
   const closeModal = () => {
-    if (window.history.state !== null) {
+    if (window.history.state && window.history.state.modal) {
       window.history.back();
     } else {
-      setSelectedIndex(null); // fallback
+      setSelectedIndex(null);
     }
   };
 
@@ -108,22 +108,25 @@ function Gallery() {
   };
 
   useEffect(() => {
-    if (selectedIndex !== null) {
-      lockBodyScroll();
-      window.history.pushState({ modal: true }, "", window.location.href);
-
-      const handlePopState = () => {
-        setSelectedIndex(null);
-      };
-
-      window.addEventListener("popstate", handlePopState);
-
-      return () => {
-        unlockBodyScroll();
-        window.removeEventListener("popstate", handlePopState);
-      };
+    if (!isModalOpen) {
+      unlockBodyScroll();
+      return;
     }
-  }, [selectedIndex]);
+
+    lockBodyScroll();
+
+    if (!window.history.state || !window.history.state.modal) {
+      window.history.pushState({ modal: true }, "", window.location.href);
+    }
+
+    const handlePopState = () => setSelectedIndex(null);
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+      unlockBodyScroll();
+    };
+  }, [isModalOpen]);
 
   return (
     <div className={styles.galleryContainer}>
