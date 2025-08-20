@@ -32,6 +32,8 @@ export const overlay = style({
   animation: `${fadeIn} 1.2s ease`,
   backdropFilter: "blur(3px)",
   transition: "opacity 0.6s ease",
+  touchAction: "none", // 터치 스크롤/줌 기본 동작 차단
+  overscrollBehavior: "contain",
 });
 
 export const overlayfadeOut = style({
