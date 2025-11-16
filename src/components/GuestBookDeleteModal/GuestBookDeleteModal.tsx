@@ -1,16 +1,17 @@
 // src/components/GuestBookDeleteModal/GuestBookDeleteModal.tsx
 import { useState } from "react";
 import * as styles from "./GuestBookDeleteModal.css";
-import { useGuestBook } from "../../hooks/useGuestbook";
+// import { useGuestBook } from "../../hooks/useGuestbook";
 
 interface Props {
   onClose: () => void;
-  guestbookId: number;
+  // guestbookId: number;
 }
 
-function GuestBookDeleteModal({ onClose, guestbookId }: Props) {
+// function GuestBookDeleteModal({ onClose, guestbookId }: Props) {
+function GuestBookDeleteModal({ onClose }: Props) {
   const [password, setPassword] = useState("");
-  const { deleteMutation } = useGuestBook();
+  // const { deleteMutation } = useGuestBook();
 
   const handleDelete = () => {
     if (!password) {
@@ -18,18 +19,18 @@ function GuestBookDeleteModal({ onClose, guestbookId }: Props) {
       return;
     }
 
-    deleteMutation.mutate(
-      { id: guestbookId, password },
-      {
-        onSuccess: () => {
-          alert("삭제되었습니다.");
-          onClose();
-        },
-        onError: () => {
-          alert("비밀번호가 틀렸거나 삭제에 실패했습니다.");
-        },
-      }
-    );
+    // deleteMutation.mutate(
+    //   { id: guestbookId, password },
+    //   {
+    //     onSuccess: () => {
+    //       alert("삭제되었습니다.");
+    //       onClose();
+    //     },
+    //     onError: () => {
+    //       alert("비밀번호가 틀렸거나 삭제에 실패했습니다.");
+    //     },
+    //   }
+    // );
   };
 
   return (
