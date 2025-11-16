@@ -12,24 +12,24 @@ function GuestBook() {
     <section className={styles.container}>
       <div className={styles.guestBookTitle}>GUESTBOOK</div>
       <div className={styles.guestBookTitleKOR}>방명록</div>
-      <button
+      {/* <button
         className={styles.writeButton}
         onClick={() => setIsModalOpen(true)}
       >
         작성하기
-      </button>
+      </button> */}
       {isLoading ? (
         <div>불러오는 중...</div>
       ) : (
         <div className={styles.guestList}>
           {guestbookItems.map((item) => (
             <div key={item.id} className={styles.guestItem}>
-              <button
+              {/* <button
                 className={styles.deleteButton}
                 onClick={() => setDeleteModalId(item.id)}
               >
                 ✕
-              </button>
+              </button> */}
               <div className={styles.guestItemName}>{item.name}</div>
               <div className={styles.guestItemText}>{item.message}</div>
               <div className={styles.guestItemDate}>{item.date}</div>
