@@ -41,7 +41,7 @@ function GuestBook() {
       {isModalOpen && <GuestBookModal onClose={() => setIsModalOpen(false)} />}
       {deleteModalId !== null && (
         <GuestBookDeleteModal
-          guestbookId={deleteModalId}
+          // guestbookId={deleteModalId}
           onClose={() => setDeleteModalId(null)}
         />
       )}

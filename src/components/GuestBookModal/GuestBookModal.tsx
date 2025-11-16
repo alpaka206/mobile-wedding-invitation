@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as styles from "./GuestBookModal.css";
-import { useGuestBook } from "../../hooks/useGuestbook";
+// import { useGuestBook } from "../../hooks/useGuestbook";
 
 interface Props {
   onClose: () => void;
@@ -11,7 +11,7 @@ function GuestBookModal({ onClose }: Props) {
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
 
-  const { postMutation } = useGuestBook();
+  // const { postMutation } = useGuestBook();
 
   const handleSubmit = () => {
     if (!name || !message || !password) {
@@ -19,22 +19,22 @@ function GuestBookModal({ onClose }: Props) {
       return;
     }
 
-    postMutation.mutate(
-      {
-        name,
-        message,
-        password,
-      },
-      {
-        onSuccess: () => {
-          alert("방명록이 작성되었습니다.");
-          onClose();
-        },
-        onError: () => {
-          alert("작성에 실패했습니다. 다시 시도해주세요.");
-        },
-      }
-    );
+    // postMutation.mutate(
+    //   {
+    //     name,
+    //     message,
+    //     password,
+    //   },
+    //   {
+    //     onSuccess: () => {
+    //       alert("방명록이 작성되었습니다.");
+    //       onClose();
+    //     },
+    //     onError: () => {
+    //       alert("작성에 실패했습니다. 다시 시도해주세요.");
+    //     },
+    //   }
+    // );
   };
 
   return (
